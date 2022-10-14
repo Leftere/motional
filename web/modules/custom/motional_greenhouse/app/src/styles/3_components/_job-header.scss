@@ -1,0 +1,163 @@
+.job-header {
+  background: linear-gradient(palette(white), #dde7e7);
+  margin-bottom: 2rem;
+  position: relative;
+
+  @include breakpoint($tablet) {
+    background: linear-gradient(45deg, #dde7e7, palette(white));
+  }
+
+  &__inner {
+    @include container($desktop);
+    align-items: flex-start;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    padding: 0 5rem 15rem;
+
+    @include breakpoint($large-tablet) {
+      min-height: 40rem;
+      padding: 8rem 5rem;
+    }
+
+    @include breakpoint($desktop) {
+      padding: 8rem 0;
+    }
+  }
+
+  &__background-lines {
+    display: none;
+    @include breakpoint($large-tablet) {
+      position: absolute;
+      top: 0;
+      right: 3rem;
+      height: 100%;
+      color: palette(purple);
+      display: block;
+    }
+  }
+
+  &__background-lines-mobile {
+    max-width: 50rem;
+    color: palette(purple);
+    @include breakpoint($large-tablet) {
+      display: none;
+    }
+  }
+
+  &__label {
+    @extend %label;
+    margin: 0 0 2rem;
+    font-weight: 600;
+  }
+
+  h1 {
+    margin: 0 0 3.5rem;
+    max-width: 60rem;
+  }
+
+  &__company-name {
+    @include font-size(20);
+  }
+
+  &__locations,
+  &__employment-type,
+  &__updated {
+    p {
+      display: inline-block;
+    }
+  }
+
+  &__share {
+    position: relative;
+    height: 0;
+  }
+
+  &__share-inner {
+    padding: 0.5rem 1rem;
+    background: palette(purple);
+    position: relative;
+    top: -5rem;
+
+    @include breakpoint($tablet) {
+      top: -4rem;
+    }
+
+    @include breakpoint($desktop) {
+      top: -6.5rem;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      &:last-child svg {
+        margin-right: 0;
+        width: 1.5rem;
+      }
+    }
+  }
+
+  &__divider {
+    display: none;
+    @include breakpoint($desktop) {
+      display: block;
+    }
+  }
+
+  &__meta {
+    @extend %label;
+    background: $black;
+    color: #cfdede;
+    padding: 3rem 5rem 2rem 5rem;
+    z-index: 9;
+    position: relative;
+
+    svg {
+      color: palette(blue);
+      display: inline-block;
+      height: 2rem;
+      margin-right: 1.5rem;
+      width: 2rem;
+    }
+
+    @include breakpoint($tablet) {
+      padding: 2rem 5rem;
+    }
+  }
+
+  &__meta-inner {
+    @include container($desktop);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    align-items: start;
+
+    @include breakpoint($large-tablet) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__meta-wrapper {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+
+    .job-header__locations,
+    .job-header__employment-type,
+    .job-header__updated {
+      display: flex;
+      align-items: center;
+
+      p {
+        flex: 1;
+      }
+    }
+
+    @include breakpoint($large-tablet) {
+      align-items: center;
+      flex-direction: row;
+      gap: 5rem;
+    }
+  }
+}

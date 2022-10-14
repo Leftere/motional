@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="823px" height="723px" viewBox="0 0 423 223" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Small-triangle-lines-no-bg</title>
+    <defs>
+        <polygon id="path-1" points="422.181115 0 422.181115 222.999804 0 223"></polygon>
+    </defs>
+    <g id="Desktop---Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="T0---Homepage" transform="translate(-177.000000, -1964.000000)">
+            <g id="Right-side-angle" transform="translate(177.000000, 1541.000000)">
+                <g id="Small-triangle-lines-no-bg" transform="translate(0.000000, 423.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Rectangle-17-Copy"></g>
+                    <g id="Group-19" mask="url(#mask-2)" stroke="#D8D8D8">
+                        <g transform="translate(-417.000000, -269.000000)">
+                            <line x1="0.5" y1="385.5" x2="1774" y2="385.5" id="Keep"></line>
+                            <line x1="194.5" y1="716.5" x2="1590.5" y2="0.5" id="keep"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

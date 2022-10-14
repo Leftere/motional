@@ -1,0 +1,17 @@
+hero_modifiers:
+  - 'bio-details'
+hero_label: Motional Team
+hero_label_url: '#'
+hero_heading: Karl Lagnemma
+hero_heading_level: 1
+hero_description: President and Chief Executive Officer
+hero_image_src: 'images/samples/bio-details.jpg'
+hero_image_sizes: '100vw'
+hero_image_alt: 'Karl Lagnemma'
+social_links: 
+- item_icon: "images/icons/twitter.svg"
+  item_href: "#"
+  item_title: "facebook"
+- item_icon: "images/icons/twitter.svg"
+  item_href: "#"
+  item_title: "instagram"

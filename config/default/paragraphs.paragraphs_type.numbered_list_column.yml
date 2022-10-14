@@ -1,0 +1,10 @@
+uuid: 550c9b6f-5a31-44eb-a808-f37612a5d0e6
+langcode: en
+status: true
+dependencies: {  }
+id: numbered_list_column
+label: 'Icon List Column'
+icon_uuid: null
+icon_default: null
+description: 'Item of a Numbered List.'
+behavior_plugins: {  }

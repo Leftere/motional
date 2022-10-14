@@ -1,0 +1,765 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+use Drupal\Core\Url;
+use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__statistic(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data'] = [
+    'variable' => $paragraph->field_variable->value,
+    'value' => $paragraph->field_value->value,
+    'description' => $paragraph->field_description->processed,
+  ];
+
+  if ($image_media = $paragraph->field_image->entity) {
+    if ($image_file = $image_media->field_media_image->entity) {
+      $variables['data']['image'] = $image_file->createFileUrl();
+      $variables['data']['image_alt_text'] = $image_media->field_media_image->alt;
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__banner_cta(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data'] = [
+    'bg_color_select' => $paragraph->field_bg_color_select->value,
+    'title' => $paragraph->field_title->value,
+  ];
+
+  if ($link_item = $paragraph->field_link_url->first()) {
+    $variables['data']['link'] = $paragraph->field_link_url->title;
+    $variables['data']['link_url'] = $link_item->getUrl()->toString();
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__carousel(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data']['type'] = $paragraph->field_carousel_type->value;
+
+  $variables['data']['slides'] = array_map(function ($paragraph) {
+    $carousel_data = [];
+    $bundle = $paragraph->bundle();
+
+    if ($bundle === "image") {
+      $carousel_data = [
+        'title' => $paragraph->field_caption_title->value,
+        'paragraph' => $paragraph->field_description->processed,
+      ];
+
+      if ($img_entity_list = $paragraph->field_image->entity->get('field_media_image')) {
+        if ($img_entity = $img_entity_list->first()) {
+          if ($file_entity = $img_entity->get('entity')->getTarget()) {
+            $uri = $file_entity->get('uri')->getString();
+            $carousel_data['contentImageSrc'] = \Drupal::service('file_url_generator')->generateString($uri);
+            $carousel_data['contentImageAlt'] = $img_entity->get('alt')->getString();
+          }
+        }
+      }
+
+      if ($link_item = $paragraph->field_primary_button->first()) {
+        $carousel_data['cta_text'] = $paragraph->field_primary_button->title;
+        $carousel_data['cta_link'] = $link_item->getUrl()->toString();
+      }
+
+    }
+
+    if ($bundle === "testimonial") {
+      $carousel_data = [
+        'quote' => $paragraph->field_description->processed,
+        'authorName' => $paragraph->field_author_name->value,
+        'authorCompany' => $paragraph->field_title->value,
+        'image_position' => $paragraph->field_image_position->value,
+      ];
+
+      if ($img_entity_list = $paragraph->field_image_multimedia->entity->get('field_media_image')) {
+        if ($img_entity = $img_entity_list->first()) {
+          if ($file_entity = $img_entity->get('entity')->getTarget()) {
+            $uri = $file_entity->get('uri')->getString();
+            $carousel_data['contentImageSrc'] = \Drupal::service('file_url_generator')->generateString($uri);
+            $carousel_data['contentImageAlt'] = $img_entity->get('alt')->getString();
+          }
+        }
+      }
+
+      if ($link_item = $paragraph->field_link_url->first()) {
+        $carousel_data['link'] = $paragraph->field_link_url->title;
+        $carousel_data['url'] = $link_item->getUrl()->toString();
+      }
+    }
+
+    $carousel_data['type'] = $bundle;
+    return $carousel_data;
+  }, $paragraph->field_carousel_items->referencedEntities());
+
+  $variables['data']['carousel_count'] = count($variables['data']['slides']);
+  $variables['#attached']['library'][] = 'motional/carousel';
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__landing_hero(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data'] = [
+    'bg_color_select' => $paragraph->field_bg_color_gray_purple->value,
+    'title' => $paragraph->field_title->value,
+    'descriptive_text' => $paragraph->field_description->processed,
+  ];
+
+  if ($link_item = $paragraph->field_link_url->first()) {
+    $variables['data']['breadcrumb'] = $paragraph->field_link_url->title;
+    $variables['data']['breadcrumb_url'] = $link_item->getUrl();
+  }
+
+  if ($link_item = $paragraph->field_button->first()) {
+    $variables['data']['button'] = $paragraph->field_button->title;
+    $variables['data']['button_url'] = $link_item->getUrl()->toString();
+  }
+
+  if ($image_media = $paragraph->field_image->entity) {
+    if ($image_file = $image_media->field_media_image->entity) {
+      $variables['data']['image'] = $image_file->createFileUrl();
+      $variables['data']['image_alt_text'] = $image_media->field_media_image->alt;
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__section_intro(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data'] = [
+    'alignment_option' => $paragraph->field_alignment_option->value,
+    'label' => $paragraph->field_label->value,
+    'title' => $paragraph->field_title->value,
+    'body' => $paragraph->field_description->processed,
+    'primary_button_or_link_text' => $paragraph->field_button_or_link->value,
+  ];
+
+  if ($link_item = $paragraph->field_primary_button->first()) {
+    $variables['data']['button_link_text'] = $paragraph->field_primary_button->title;
+    $variables['data']['button_link_url'] = $link_item->getUrl()->toString();
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__timeline(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data']['label'] = $paragraph->field_label->value;
+  $variables['data']['title'] = $paragraph->field_title->value;
+  $variables['data']['description'] = $paragraph->field_description->processed;
+
+  $variables['data']['items'] = array_map(function ($paragraph) {
+    $timeline_data = [
+      'date' => $paragraph->field_landmark_date->value,
+      'description' => $paragraph->field_landmark_description->processed,
+    ];
+
+    return $timeline_data;
+  }, $paragraph->field_timeline_item->referencedEntities());
+  $variables['#attached']['library'][] = 'motional/timeline';
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function motional_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $bundle = $node->bundle();
+  $view_mode = $variables['view_mode'];
+
+  if ($bundle === 'news') {
+    $variables['data']['title'] = $node->title->value;
+    $variables['data']['link'] = $node->toUrl()->toString();
+
+    switch ($view_mode) {
+      case 'card':
+        $variables['data'] += _motional_process_news_card($node);
+        break;
+
+      case 'full':
+        if ($date_value = $node->field_date->date) {
+          $timestamp = $date_value->getTimestamp();
+          $date = \Drupal::service('date.formatter')->format($timestamp, 'resource_card');
+          $variables['data']['date'] = $date;
+        }
+
+        if ($author = $node->field_news_person->entity) {
+          $variables['data']['author'] = $author->getTitle();
+          $variables['data']['author_title'] = $author->field_person_title->value;
+        }
+        if ($topic_term = $node->field_news_topic->entity) {
+          $variables['data']['topic_label'] = $topic_term->name->value;
+          $options = ['query' => ['search' => $topic_term->name->value]];
+          $variables['data']['topic_url'] = Url::fromUri('internal:/news', $options);
+        }
+        break;
+
+    }
+  }
+  elseif ($bundle === 'person') {
+    if ($view_mode == 'full') {
+      $variables['data'] = [
+        'first_name' => $node->field_person_first_name->value,
+        'last_name' => $node->field_person_last_name->value,
+        'full_name' => $node->getTitle(),
+        'title' => $node->field_person_title->value,
+      ];
+
+      if ($link_item = $node->field_person_breadcrumbs->first()) {
+        $variables['data']['breadcrumb'] = $node->field_person_breadcrumbs->title;
+        $variables['data']['breadcrumb_url'] = $link_item->getUrl();
+      }
+
+      if ($image_media = $node->field_person_image->entity) {
+        if ($image_file = $image_media->field_media_image->entity) {
+          $variables['data']['image_url'] = $image_file->createFileUrl();
+          $variables['data']['image_alt'] = $image_media->field_media_image->alt;
+        }
+      }
+
+      if ($field_social_links = $node->field_person_social_links->getValue()) {
+        if ($social_links = $field_social_links[0]) {
+          foreach ($social_links['platform_values'] as $social => $social_handle) {
+            $social_url = [
+              "linkedin" => "https://www.linkedin.com/in/",
+              "facebook" => "https://www.facebook.com/",
+              "instagram" => "https://www.instagram.com/",
+              "twitter" => "https://www.twitter.com/",
+            ];
+
+            $theme_path = \Drupal::service('extension.list.theme')->getPath('motional');
+            $variables['data']['social_links'][] = [
+              "item_href" => $social_url[$social] . $social_handle["value"],
+              "item_title" => $social,
+              "item_icon" => "/" . $theme_path . "/images/icons/" . $social . ".svg",
+            ];
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__text(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data']['items'] = array_map(function ($paragraph) {
+    $text_data = [
+      'accent_bar' => $paragraph->field_accent_bar->value,
+      'label' => $paragraph->field_label->value,
+      'large_title' => $paragraph->field_title->value,
+      'small_title' => $paragraph->field_small_title->value,
+      'body' => $paragraph->field_description->processed,
+    ];
+
+    if ($media = $paragraph->field_image_multimedia->entity) {
+      $text_data['image_multimedia'] = \Drupal::entityTypeManager()->getViewBuilder("media")->view($media);
+    }
+
+    if ($link_item = $paragraph->field_primary_button->first()) {
+      $text_data['button'] = $paragraph->field_primary_button->title;
+      $text_data['button_url'] = $link_item->getUrl()->toString();
+    }
+
+    if ($media && $img_entity_list = $media->get('field_media_image')) {
+      if ($img_entity = $img_entity_list->first()) {
+        if ($file_entity = $img_entity->get('entity')->getTarget()) {
+          $uri = $file_entity->get('uri')->getString();
+          $text_data['image_src'] = \Drupal::service('file_url_generator')->generateString($uri);
+          $text_data['image_alt'] = $img_entity->get('alt')->getString();
+        }
+      }
+    }
+
+    return $text_data;
+  }, $paragraph->field_text_block->referencedEntities());
+
+  $variables['data']['item_count'] = count($variables['data']['items']);
+  $variables['data']['text_block_modifiers'] = [];
+  switch ($variables['data']['item_count']) {
+    case 3:
+      $variables['data']['text_block_modifiers'][] = 'third';
+      $variables['data']['large_title_element'] = 'h4';
+      $variables['data']['button_modifiers'] = ['secondary'];
+      break;
+
+    case 2:
+      $variables['data']['text_block_modifiers'][] = 'half';
+      $variables['data']['large_title_element'] = 'h2';
+      $variables['data']['button_modifiers'] = ['primary'];
+      break;
+
+    default:
+      $variables['data']['large_title_element'] = 'h2';
+      $variables['data']['button_modifiers'] = ['primary'];
+      break;
+  }
+
+}
+
+/**
+ * Implements template_preprocess_menu().
+ */
+function motional_preprocess_menu__main(&$variables) {
+  $items = [];
+  foreach ($variables['items'] as $item) {
+    $link_tree = [
+      'title' => $item['title'],
+      'url' => $item['url'],
+      'below' => [
+        [
+          'title' => $item['title'],
+          'url' => $item['url'],
+          'description' => $item['url']->getOption('attributes')['title'] ?? '',
+        ],
+      ],
+    ];
+    foreach ($item['below'] as $link) {
+      $link_tree['below'][] = [
+        'title' => $link['title'],
+        'url' => $link['url'],
+      ];
+    }
+    $items[] = $link_tree;
+  }
+  $variables['items'] = $items;
+  $variables['#attached']['library'][] = 'motional/main-menu';
+}
+
+/**
+ * Implements template_preprocess_menu().
+ */
+function motional_preprocess_menu__extras__footer_social(&$variables) {
+  foreach ($variables['items'] as $item) {
+    $uuid = $item['original_link']->getDerivativeId();
+    $entity = \Drupal::service('entity.repository')
+      ->loadEntityByUuid('menu_link_content', $uuid);
+
+    if ($media = $entity->field_social_media_icon->entity) {
+      if ($media->field_media_image && $image_file = $media->field_media_image->entity) {
+        $tree_item['item_icon'] = $image_file->createFileUrl();
+      }
+    }
+
+    $tree_item['item_href'] = $item['original_link']->getUrlObject()->toString();
+    $tree_item['item_title'] = $item['title'];
+    $variables['social_links'][] = $tree_item;
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__featured_video_text_block(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $variables['data'] = [];
+
+  if ($text_block = $paragraph->field_text_block_paragraph->entity) {
+    $text_data = [
+      'accent_bar' => $text_block->field_accent_bar->value,
+      'label' => $text_block->field_label->value,
+      'large_title' => $text_block->field_title->value,
+      'small_title' => $text_block->field_small_title->value,
+      'body' => $text_block->field_description->processed,
+      'button' => $text_block->field_primary_button->title,
+    ];
+
+    if ($media = $text_block->field_image_multimedia->entity) {
+      $text_data['image_multimedia'] = \Drupal::entityTypeManager()->getViewBuilder("media")->view($media);
+    }
+
+    if ($link_item = $text_block->field_primary_button->first()) {
+      $text_data['button_url'] = $link_item->getUrl()->toString();
+    }
+
+    $variables['data'] += $text_data;
+  }
+
+  $variables['data']['image_position'] = $paragraph->field_image_position->value;
+
+  if ($media = $paragraph->field_image_multimedia->entity) {
+    $variables['data']['video_embed'] = \Drupal::entityTypeManager()
+      ->getViewBuilder("media")
+      ->view($media);
+  }
+
+  if ($media = $paragraph->field_image->entity) {
+    $variables['data']['video_screenshot'] = \Drupal::entityTypeManager()
+      ->getViewBuilder("media")
+      ->view($media);
+  }
+  $variables['#attached']['library'][] = 'motional/featured-video-text-block';
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__full_cta(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $variables['data']['bg_color'] = $paragraph->field_full_cta_bg_color_select->value;
+
+  if ($image_media = $paragraph->field_full_cta_bg_image->entity) {
+    if ($image_file = $image_media->field_media_image->entity) {
+      $variables['data']['bg_image']['image'] = $image_file->createFileUrl();
+      $variables['data']['bg_image']['image_alt_text'] = $image_media->field_media_image->alt;
+    }
+  }
+
+  if ($image_media = $paragraph->field_full_cta_image->entity) {
+    if ($image_file = $image_media->field_media_image->entity) {
+      $variables['data']['image']['image'] = $image_file->createFileUrl();
+      $variables['data']['image']['image_alt_text'] = $image_media->field_media_image->alt;
+    }
+  }
+
+  if ($link_item = $paragraph->field_full_cta_button->first()) {
+    $variables['data']['button']['text'] = $paragraph->field_full_cta_button->title;
+    $variables['data']['button']['url'] = $link_item->getUrl()->toString();
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__two_image_drag(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  if ($media = $paragraph->field_two_image_drag_left_image->entity) {
+    $img_entity_list = $media->get('field_media_image');
+    $img_entity = $img_entity_list->first();
+    $file_entity = $img_entity->get('entity')->getTarget();
+    $uri = $file_entity->get('uri')->getString();
+    $variables['data']['left_image_src'] = \Drupal::service('file_url_generator')->generateString($uri);
+    $variables['data']['left_image_alt'] = $img_entity->get('alt')->getString();
+  }
+
+  if ($media = $paragraph->field_two_image_drag_right_image->entity) {
+    $img_entity_list = $media->get('field_media_image');
+    $img_entity = $img_entity_list->first();
+    $file_entity = $img_entity->get('entity')->getTarget();
+    $uri = $file_entity->get('uri')->getString();
+    $variables['data']['right_image_src'] = \Drupal::service('file_url_generator')->generateString($uri);
+    $variables['data']['right_image_alt'] = $img_entity->get('alt')->getString();
+  }
+
+  $variables['#attached']['library'][] = 'motional/two-image-drag';
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__numbered_list(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  foreach ($paragraph->field_numbered_list_columns->referencedEntities() as $column) {
+    $icon = $column->field_icon->view(['type' => 'options_icon']);
+    $variables['data']['items'][] = [
+      'image_src' => $icon['0']['#uri'],
+      'image_alt' => $icon['0']['#alt'],
+      'small_title' => $column->field_small_title->value,
+      'body' => $column->field_description->processed,
+    ];
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__homepage_hero(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data'] = [
+    'title' => $paragraph->field_homepage_hero_title->view(['label' => 'hidden']),
+    'descriptive_text' => $paragraph->field_homepage_hero_description->value,
+    'button' => $paragraph->field_homepage_hero_button->title,
+  ];
+
+  if ($link_item = $paragraph->field_homepage_hero_button->first()) {
+    $variables['data']['button_url'] = $link_item->getUrl()->toString();
+  }
+
+  if ($media = $paragraph->field_homepage_hero_media->entity) {
+    if ($media->bundle() == 'self_hosted_video') {
+      $media_item = $media->field_media_video_file->first();
+
+      $file = $media_item->getValue();
+
+      $fileUri = \Drupal::entityTypeManager()
+        ->getStorage('file')
+        ->load($file['target_id'])
+        ->getFileUri();
+
+      $variables['data']['video_source'] = \Drupal::service('file_url_generator')->generateString($fileUri);
+      $variables['data']['video_description'] = $media_item->description;
+    }
+    else {
+      $variables['data']['image'] = $media->field_media_image->entity->createFileUrl();
+      $variables['data']['image_alt_text'] = $media->field_media_image->alt;
+    }
+  }
+  $variables['#attached']['library'][] = 'motional/homepage-hero';
+}
+
+/**
+ * Implements template_preprocess_region().
+ */
+function motional_preprocess_region__footer(&$variables) {
+  $variables['data'] = [
+    'cp' => t('@year Motional, Inc. All rights reserved.', ['@year' => date('Y')]),
+    'logo' => '/' . \Drupal::theme()->getActiveTheme()->getLogo(),
+    'alt' => \Drupal::config('system.site')->get('name'),
+  ];
+
+  $menu_names = [
+    'nav' => 'footer',
+    'social_media' => 'footer-social',
+  ];
+
+  foreach ($menu_names as $key => $menu_name) {
+    $variables['data'][$key] = [];
+
+    $parameters = new MenuTreeParameters();
+    $parameters->onlyEnabledLinks();
+    $menu_active_trail = \Drupal::service('menu.active_trail')->getActiveTrailIds($menu_name);
+    $parameters->setActiveTrail($menu_active_trail);
+    $tree = \Drupal::menuTree()->load($menu_name, $parameters);
+
+    foreach ($tree as $element) {
+      $tree_item = [
+        'url' => $element->link->getUrlObject()->toString(),
+        'title' => $element->link->getTitle(),
+      ];
+
+      if ($menu_name == 'footer-social') {
+        $uuid = $element->link->getDerivativeId();
+        $entity = \Drupal::service('entity.repository')
+          ->loadEntityByUuid('menu_link_content', $uuid);
+        $media = $entity->field_social_media_icon->entity;
+
+        $img_entity = $media->get('field_media_image')->first();
+        $file_entity = $img_entity->get('entity')->getTarget();
+        $uri = $file_entity->get('uri')->getString();
+
+        $tree_item['item_icon'] = \Drupal::service('file_url_generator')->generateString($uri);
+        $tree_item['item_href'] = $tree_item['url'];
+        unset($tree_item['url']);
+        $tree_item['item_title'] = $tree_item['title'];
+        unset($tree_item['title']);
+
+      }
+      $variables['data'][$key][] = $tree_item;
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__angled_image(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data'] = [
+    'large_title' => $paragraph->field_angled_image_title->value,
+    'body' => $paragraph->field_angled_image_body->value,
+  ];
+
+  if ($media = $paragraph->field_angled_image_image->entity) {
+    $img_entity_list = $media->get('field_media_image');
+    $img_entity = $img_entity_list->first();
+    $file_entity = $img_entity->get('entity')->getTarget();
+    $uri = $file_entity->get('uri')->getString();
+    $variables['data']['image_src'] = \Drupal::service('file_url_generator')->generateString($uri);
+    $variables['data']['image_alt'] = $img_entity->get('alt')->getString();
+  }
+
+  if ($link_item = $paragraph->field_angled_image_link->first()) {
+    $variables['data']['button_content'] = $paragraph->field_angled_image_link->title;
+    $variables['data']['button_url'] = $link_item->getUrl()->toString();
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__partner_logos(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $variables['data'] = [
+    'logos' => [],
+  ];
+
+  $title = $paragraph->field_partner_logos_title->getValue();
+  if ($value = reset($title)) {
+    $variables['data']['title'] = $value['value'];
+  }
+
+  if ($link_item = $paragraph->field_partner_logos_link->first()) {
+    $variables['data']['cta_link'] = $link_item->title;
+    $variables['data']['cta_link_url'] = $link_item->getUrl()->toString();
+  }
+
+  foreach ($paragraph->field_partner_logos_logos->referencedEntities() as $logo) {
+    $variables['data']['logos'][] = [
+      'item_src' => $logo->field_media_image->entity->createFileUrl(),
+      'item_alt' => $logo->field_media_image->alt,
+    ];
+  }
+}
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function motional_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  $view_name = $view->id();
+  $display = $view->current_display;
+
+  if ($view_name == 'related_articles' && $display == 'block_related_articles') {
+    $variables['data'] = [
+      'title' => $view->getTitle(),
+      'description' => $view->header['area']->render(),
+      'button_content' => t('Learn More'),
+      'button_url' => '/news',
+      'button_modifiers' => ['primary'],
+      'cards' => [],
+    ];
+    foreach ($view->result as $row) {
+      $node = $row->_entity;
+      $variables['data']['cards'][] = _motional_process_news_card($node);
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__latest_news(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $variables['data'] = [];
+
+  if ($link_item = $paragraph->field_button->first()) {
+    $variables['data']['button_url'] = $link_item->getUrl()->toString();
+    $variables['data']['button_content'] = $link_item->title;
+  }
+
+  $results = views_get_view_result('related_articles', 'block_latest_news');
+  $variables['data']['latest_news'] = [];
+  foreach ($results as $row) {
+    $node = $row->_entity;
+    $variables['data']['latest_news'][] = _motional_process_news_card($node);
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__related_articles(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data'] = [
+    'title' => $paragraph->field_title->value,
+    'description' => $paragraph->field_description->processed,
+  ];
+
+  if ($link_item = $paragraph->field_button->first()) {
+    $variables['data']['button'] = $paragraph->field_button->title;
+    $variables['data']['button_url'] = $link_item->getUrl()->toString();
+  }
+
+  $topic_ids = NULL;
+  if ($topic_field_value = $paragraph->field_topic->getValue()) {
+    $topic_ids = implode('+', array_column($topic_field_value, 'target_id'));
+  }
+
+  $results = views_get_view_result('related_articles', 'block_related_articles', $topic_ids);
+  $variables['data']['related_articles'] = [];
+  foreach ($results as $row) {
+    $node = $row->_entity;
+    $variables['data']['related_articles'][] = _motional_process_news_card($node);
+  }
+}
+
+/**
+ * Helper function to process variables from views row for use with news teaser.
+ *
+ * @param \Drupal\node\Entity\Node $node
+ *   A node object.
+ *
+ * @return array
+ *   Values for variables to pass to the theme.
+ */
+function _motional_process_news_card(Node $node) {
+  $variables = [
+    'link' => $node->toUrl()->toString(),
+    'title' => $node->label(),
+  ];
+
+  $renderer = \Drupal::service('renderer');
+  $description = $node->field_news_summary->view(['label' => 'hidden']);
+  $variables['description'] = $renderer->render($description);
+
+  if ($media = $node->field_news_image->entity) {
+    if ($media->field_media_image && $image_file = $media->field_media_image->entity) {
+      $variables['image_src'] = $image_file->createFileUrl();
+      $variables['image_alt'] = $media->field_media_image->alt;
+    }
+  }
+
+  if ($date = $node->field_date->date) {
+    $variables['date'] = \Drupal::service('date.formatter')->format($date->getTimestamp(), 'default_short_month');
+  }
+
+  if ($type_term = $node->field_news_type->entity) {
+    $variables['label'] = $type_term->label();
+  }
+
+  $topic_terms = $node->field_news_topic->referencedEntities();
+  if ($topic_term = reset($topic_terms)) {
+    $variables['series_title'] = $topic_term->label();
+    $options = ['query' => ['search' => $topic_term->name->value]];
+    $variables['series_title_url'] = Url::fromUri('internal:/news', $options)->toString();
+  }
+
+  return $variables;
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function motional_preprocess_paragraph__email_contact_block(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $variables['data']['items'] = array_map(function ($paragraph) {
+    return [
+      'label' => $paragraph->field_label->value,
+      'email_contact' => $paragraph->field_contact_email->value,
+    ];
+  }, $paragraph->field_email_contact->referencedEntities());
+}

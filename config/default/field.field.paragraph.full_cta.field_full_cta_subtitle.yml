@@ -1,0 +1,19 @@
+uuid: bd241b36-5a15-4d8d-aea8-861bee8b4894
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_cta_subtitle
+    - paragraphs.paragraphs_type.full_cta
+id: paragraph.full_cta.field_full_cta_subtitle
+field_name: field_full_cta_subtitle
+entity_type: paragraph
+bundle: full_cta
+label: Subtitle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

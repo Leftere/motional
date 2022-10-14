@@ -1,0 +1,11 @@
+hero_modifiers:
+  - 'home'
+hero_label_url: "/"
+hero_heading: 'Changing how the World Moves'
+hero_heading_level: 1
+hero_description: 'Motional is making something a reality'
+hero_button_label: 'Take A Ride With Us'
+hero_button_url: '#'
+hero_image_sizes: '100vw'
+hero_image_src: 'https://placeimg.com/614/687/any'
+hero_image_alt: 'alt'

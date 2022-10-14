@@ -1,0 +1,15 @@
+uuid: d3e3337a-fa6a-4d5a-8ec9-889d4c1278ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: latest_news
+label: 'Latest News'
+icon_uuid: null
+icon_default: null
+description: 'This component pulls the latest news and blogs and features them on the homepage.'
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

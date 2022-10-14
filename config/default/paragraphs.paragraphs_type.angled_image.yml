@@ -1,0 +1,17 @@
+uuid: d0de5e81-5b79-4fca-9161-77d370785c79
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:8e43bef0-06b2-4407-ad02-ebfa7a220b00'
+  module:
+    - layout_paragraphs
+id: angled_image
+label: 'Angled image and text'
+icon_uuid: 8e43bef0-06b2-4407-ad02-ebfa7a220b00
+icon_default: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM2MjQ2ZmI7fTwvc3R5bGU+PC9kZWZzPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTU3Ljc5LDQzLjExSDkuNzNMNTcuNzksMTAuODVWNDMuMTFabS0zOC4yMS0zSDU0Ljc5VjE2LjQ4TDE5LjU4LDQwLjExWiIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iOS42NiIgeT0iMTQuMTciIHdpZHRoPSIxOCIgaGVpZ2h0PSIzIi8+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSI5LjY2IiB5PSIyMi4zOCIgd2lkdGg9IjE4IiBoZWlnaHQ9IjMiLz48L3N2Zz4='
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

@@ -1,0 +1,24 @@
+uuid: 5a726a06-b9ba-481d-ae7b-5f09c744d029
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.email_contact_block.field_email_contact
+    - paragraphs.paragraphs_type.email_contact_block
+  module:
+    - entity_reference_revisions
+id: paragraph.email_contact_block.default
+targetEntityType: paragraph
+bundle: email_contact_block
+mode: default
+content:
+  field_email_contact:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

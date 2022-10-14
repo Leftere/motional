@@ -1,0 +1,45 @@
+{% set timeline_base_class = timeline_base_class|default('timeline') %}
+
+<div {{ bem(timeline_base_class, timeline_modifiers, timeline_blockname) }}>
+  <div class="timeline__header">
+    <div class="wrapper">
+      <div class="timeline__header-container">
+        <span>{{ label }}</span>
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline__carousel carousel">
+    <div class="wrapper">
+      <div class="glide">
+        <div class="glide__track" data-glide-el="track">
+          <ul class="glide__slides">
+            {% for item in timeline %}
+              <li class="glide__slide">
+                <div class="glide__slide-container" data-type="{{ loop.index is odd ? 'tall' : 'short' }}">
+                  <div class="dashes-container">
+                    {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'timeline-dashes', icon_modifiers: 'dashes' } %}
+                  </div>
+                  <div class="glide__slide-content">
+                    {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'timeline-dot' } %}
+                    <span>{{ item.date }}</span>
+                    <p>{{ item.description }}</p>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="|<" aria-label="Go to previous slide">
+            {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'arrow-prev' } %}
+          </button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir="|>" aria-label="Go to next slide">
+            {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'arrow-next' } %}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

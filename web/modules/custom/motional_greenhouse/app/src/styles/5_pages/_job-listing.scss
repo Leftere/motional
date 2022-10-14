@@ -1,0 +1,10 @@
+.job-listing {
+  @include container($desktop);
+
+  @include breakpoint($desktop) {
+    margin-top: 2rem;
+    display: grid;
+    grid-gap: 86px;
+    grid-template-columns: 40% 60%;
+  }
+}

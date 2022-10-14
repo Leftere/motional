@@ -1,0 +1,19 @@
+uuid: 74c19ce6-0111-46d4-8564-1fdb03a24de3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_label
+    - paragraphs.paragraphs_type.section_intro
+id: paragraph.section_intro.field_label
+field_name: field_label
+entity_type: paragraph
+bundle: section_intro
+label: Label
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,32 @@
+uuid: ab25094c-5c67-4e4d-aa95-15b075b2d951
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.two_image_drag.field_two_image_drag_left_image
+    - field.field.paragraph.two_image_drag.field_two_image_drag_right_image
+    - paragraphs.paragraphs_type.two_image_drag
+  module:
+    - media_library
+id: paragraph.two_image_drag.default
+targetEntityType: paragraph
+bundle: two_image_drag
+mode: default
+content:
+  field_two_image_drag_left_image:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_two_image_drag_right_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

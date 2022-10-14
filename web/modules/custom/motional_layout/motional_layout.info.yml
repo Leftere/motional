@@ -1,0 +1,7 @@
+name: Motional Layout
+description: Custom layouts and styles for Motional
+package: Motional
+type: module
+core_version_requirement: ^9
+dependencies:
+  - drupal:style_options

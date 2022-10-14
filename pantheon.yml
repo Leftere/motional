@@ -1,0 +1,36 @@
+api_version: 1
+web_docroot: true
+php_version: 8.0
+database:
+  version: 10.6
+#build_step: true
+enforce_https: full+subdomains
+protected_web_paths:
+  - /private/
+  - /sites/default/files/private/
+  - /sites/default/files/config/
+
+# Using site-local version of drush.
+# drush_version: 11
+
+workflows:
+  deploy:
+    after:
+      - type: webphp
+        description: Run database updates and import configuration
+        script: private/scripts/config_import.php
+  create_cloud_development_environment:
+    after:
+      - type: webphp
+        description: Run database updates and import configuration
+        script: private/scripts/config_import.php
+  sync_code:
+    after:
+      - type: webphp
+        description: Run database updates and import configuration
+        script: private/scripts/config_import.php
+  clone_database:
+    after:
+      - type: webphp
+        description: Run database updates and import configuration
+        script: private/scripts/config_import.php

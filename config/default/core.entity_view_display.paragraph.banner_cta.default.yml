@@ -1,0 +1,45 @@
+uuid: ae8b5211-bf92-488a-87b0-b184504105a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.banner_cta.field_bg_color_select
+    - field.field.paragraph.banner_cta.field_link_url
+    - field.field.paragraph.banner_cta.field_title
+    - paragraphs.paragraphs_type.banner_cta
+  module:
+    - link
+    - options
+id: paragraph.banner_cta.default
+targetEntityType: paragraph
+bundle: banner_cta
+mode: default
+content:
+  field_bg_color_select:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

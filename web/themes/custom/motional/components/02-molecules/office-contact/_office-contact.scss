@@ -1,0 +1,49 @@
+.office-contact {
+  background: $gray-mid;
+  clip-path: polygon(0 0%, 150% 0, 75% 108%, 60% 100%, 0 100%);
+  margin-bottom: 3rem;
+  max-width: 70rem;
+  padding: 3rem 4rem 3rem 3rem;
+
+  @include breakpoint($tablet) {
+    clip-path: polygon(0 0%, 240% -420%, 80% 120%, 100% 100%, 0 100%);
+    padding: 4rem;
+  }
+
+  &__container {
+    @include breakpoint($tablet) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__location {
+    margin-bottom: 2.5rem;
+    @include breakpoint($tablet) {
+      margin-bottom: 0;
+      padding-right: 3rem;
+    }
+  }
+
+  h3 {
+    @extend %font-smoothing;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0;
+
+    &:after {
+      background: $blue;
+      content: '';
+      display: block;
+      height: .4rem;
+      margin-top: 1.5rem;
+      width: 2.9rem;
+    }
+  }
+
+  p {
+    @extend %font-smoothing;
+    @include font-size(14, 20);
+    margin: 0;
+  }
+}

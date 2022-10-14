@@ -1,0 +1,13 @@
+diff --git a/js/maxlength.js b/js/maxlength.js
+index 29cb894..fd92207 100644
+--- a/js/maxlength.js
++++ b/js/maxlength.js
+@@ -116,7 +112,7 @@
+    * @see http://www.sitepoint.com/blogs/2004/02/16/line-endings-in-javascript/
+    */
+   ml.twochar_lineending = function(str) {
+-    return str.replace(/(\r\n|\r|\n)/g, "\r");
++    return str.replace(/(\r\n\r\n|\r\r|\n\n|\r\n|\r|\n)/g, "");
+   };
+ 
+   ml.strip_tags = function(input, allowed) {

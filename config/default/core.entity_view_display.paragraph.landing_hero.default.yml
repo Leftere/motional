@@ -1,0 +1,76 @@
+uuid: 35344804-b0dd-439e-952f-6b616f783a1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.landing_hero.field_bg_color_gray_purple
+    - field.field.paragraph.landing_hero.field_button
+    - field.field.paragraph.landing_hero.field_description
+    - field.field.paragraph.landing_hero.field_image
+    - field.field.paragraph.landing_hero.field_link_url
+    - field.field.paragraph.landing_hero.field_title
+    - paragraphs.paragraphs_type.landing_hero
+  module:
+    - link
+    - options
+    - text
+id: paragraph.landing_hero.default
+targetEntityType: paragraph
+bundle: landing_hero
+mode: default
+content:
+  field_bg_color_gray_purple:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_button:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_image:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link_url:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden: {  }

@@ -1,0 +1,14 @@
+uuid: d08c07cf-0b6e-478b-a044-5cad93f40b0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.embed_video
+id: media_type_embed_video
+entity_type_id: media_type
+entity_id: embed_video
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

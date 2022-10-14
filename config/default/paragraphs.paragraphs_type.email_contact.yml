@@ -1,0 +1,10 @@
+uuid: b14af4b5-f5fa-46d9-b0e4-9b254bdda7a0
+langcode: en
+status: true
+dependencies: {  }
+id: email_contact
+label: 'Email Contact'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

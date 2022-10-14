@@ -1,0 +1,50 @@
+.job {
+  background-color: #f7f9f9;
+  margin-bottom: 3.5rem;
+  padding: 4rem;
+  position: relative;
+
+  &__label {
+    @include font-size(13, 18);
+    font-weight: 400;
+    letter-spacing: .05em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    @include font-size(22, 32);
+    font-weight: 700;
+
+    a {
+      color: $black;
+    }
+
+    a:after {
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &__offices {
+    align-items: center;
+    display: flex;
+
+    svg {
+      color: $purple;
+      margin-right: 1rem;
+      max-height: 2.5rem;
+      max-width: 2.5rem;
+    }
+
+    p {
+      @include font-size(12, 12);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+}

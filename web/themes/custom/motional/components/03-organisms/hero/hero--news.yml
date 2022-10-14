@@ -1,0 +1,11 @@
+hero_modifiers:
+  - 'news'
+hero_label: 'Breadcrumb Link'
+hero_label_url: '#'
+hero_heading: 'Article detail lorem ipsum dolor sit amet.'
+hero_heading_level: 1
+hero_date: 'June 17, 2022'
+hero_topic: 'Driverless Ed'
+hero_topic_url: '#'
+hero_author: 'Karl Lagnemma'
+hero_author_title: President and Chief Executive Officer

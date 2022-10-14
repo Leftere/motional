@@ -1,0 +1,53 @@
+{% set cta_full_base_class = cta_full_base_class|default('cta-full') %}
+{% set cta_full_container_class = cta_full_container_class|default('cta-full__container') %}
+{% set cta_full_modifiers = cta_full_modifiers|default('purple') %}
+{% set cta_full_container_modifiers = cta_full_container_modifiers|default('left') %}
+
+{% if background_image_src %}
+  {% set cta_full_modifiers = ['has-bg'] %}
+{% endif %}
+
+<div {{ bem(cta_full_base_class, cta_full_modifiers, cta_full_blockname) }}>
+  {% if background_image_src %}
+    <div class="cta-full__background">
+      {% include '@atoms/images/image/_image.twig' with {
+        image_src: background_image_src,
+        image_alt: background_image_alt
+      } %}
+    </div>
+  {% endif %}
+  <div class="wrapper">
+    <div {{ bem(cta_full_container_class, cta_full_container_modifiers, cta_full_container_blockname) }}>
+      {% if image_src and not background_image_src %}
+        <div class="cta-full__image">
+          {% include '@atoms/images/image/_image.twig' with {
+            image_src: image_src,
+            image_alt: image_alt
+          } %}
+        </div>
+      {% endif %}
+      <div class="cta-full__content">
+        {% if label %}
+          <span>{{ label }}</span>
+        {% endif %}
+        <h2>{{ title }}</h2>
+        {% if subtitle %}
+          <h3>{{ subtitle }}</h3>
+        {% endif %}
+        {% if background_image_src %}
+          <div class="divider"></div>
+        {% endif %}
+        {% if description %}
+          <p>{{ description }}</p>
+        {% endif %}
+        {% if button_url %}
+          {% include '@atoms/buttons/button.twig' with {
+            button_modifiers: ['primary'],
+            button_url: button_url,
+            button_content: button_content
+          } %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+services:
+  # Name of this service.
+  motional_customizations.layout_paragraphs_allowed_types_subscriber:
+    class: '\Drupal\motional_customizations\EventSubscriber\LayoutParagraphsAllowedTypesSubscriber'
+    tags:
+      - { name: 'event_subscriber' }

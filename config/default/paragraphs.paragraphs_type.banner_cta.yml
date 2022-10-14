@@ -1,0 +1,17 @@
+uuid: a269c349-a200-4354-a383-6d8943297213
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:2f1baebd-8654-4536-9ab2-4180f528fc30'
+  module:
+    - layout_paragraphs
+id: banner_cta
+label: 'Banner CTA'
+icon_uuid: 2f1baebd-8654-4536-9ab2-4180f528fc30
+icon_default: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiNmZmY7fS5jbHMtMntmaWxsOiM2MjQ2ZmI7fTwvc3R5bGU+PC9kZWZzPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSI2NCA0Ny4xNiAwIDQ3LjE2IDAgMTYuODQgNjQgMTYuODQgNjQgMzIuMDQgNjQgNDcuMTYiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjQyLjk3IiB5PSIzMC41NCIgd2lkdGg9IjkuMjYiIGhlaWdodD0iMyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI1MC4zMiAzNy42IDQ4LjIgMzUuNDggNTEuNjggMzIgNDguMiAyOC41MiA1MC4zMiAyNi40IDU1LjkyIDMyIDUwLjMyIDM3LjYiLz48cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjExLjA1IiB5PSIyNi40IiB3aWR0aD0iMTgiIGhlaWdodD0iMyIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMTEuMDUiIHk9IjM0LjYiIHdpZHRoPSIxOCIgaGVpZ2h0PSIzIi8+PC9zdmc+'
+description: 'Used throughout the site to direct users to the desired destinations.'
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

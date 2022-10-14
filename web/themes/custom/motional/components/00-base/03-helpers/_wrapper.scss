@@ -1,0 +1,44 @@
+// ================================== //
+//    #CORE - WRAPPER
+// ================================== //
+
+:root {
+  position: relative;
+}
+
+%wrapper {
+  padding-left: $spacing-unit * 5;
+  padding-right: $spacing-unit * 5;
+  width: 100%;
+
+  @include breakpoint($large-desktop) {
+    padding-left: $spacing-unit * 2;
+    padding-right: $spacing-unit * 2;
+  }
+}
+
+.wrapper {
+  @extend %wrapper;
+  @include container($desktop);
+
+  &-narrow {
+    @extend %wrapper;
+    @include container($large-tablet);
+  }
+
+  &-wide {
+    @extend %wrapper;
+    @include container($large-desktop);
+  }
+
+  &-full {
+    @extend %wrapper;
+    @include container($extra-large-desktop);
+    padding: 0;
+  }
+
+  > .wrapper {
+    max-width: none;
+    padding: 0;
+  }
+}

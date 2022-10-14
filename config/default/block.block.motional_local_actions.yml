@@ -1,0 +1,20 @@
+uuid: 1aecd015-e5c7-4ef1-b7a9-81cc773661f5
+langcode: en
+status: true
+dependencies:
+  theme:
+    - motional
+_core:
+  default_config_hash: ABoKnlk20KHqZRw_2Qr4EvaFvH4lnQ2nuhunHeE1JIU
+id: motional_local_actions
+theme: motional
+region: content
+weight: -1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

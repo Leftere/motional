@@ -1,0 +1,25 @@
+.header {
+  height: 54px;
+
+  @include breakpoint($large-tablet) {
+    height: 74px;
+  }
+
+  &__inner {
+    @extend %wrapper;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__primary {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  &__branding {
+    margin-right: 1rem;
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,31 @@
+.layout {
+  margin-bottom: 6rem;
+  position: relative;
+
+  @include breakpoint($large-tablet) {
+    margin-bottom: 12rem;
+  }
+
+  &--onecol & {
+    @extend .wrapper;
+  }
+
+  &--twocol-50-50 {
+    @extend .wrapper;
+
+    .layout__region--first,
+    .layout__region--second {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &--threecol-33-34-33 {
+    @extend .wrapper;
+  }
+
+  &--threecol-25-50-25 {
+    @extend .wrapper;
+  }
+}

@@ -1,0 +1,29 @@
+uuid: 86605fcc-9dc3-4d49-b4fe-24f55211bd1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_person
+    - node.type.news
+    - node.type.person
+id: node.news.field_news_person
+field_name: field_news_person
+entity_type: node
+bundle: news
+label: Person
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

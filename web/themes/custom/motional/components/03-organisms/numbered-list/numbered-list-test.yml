@@ -1,0 +1,18 @@
+data:
+  items:
+    - image_src: 'https://picsum.photos/59'
+      image_alt: 'Sample alt text 1'
+      small_title: 'Lorem ipsum dolor sit amet'
+      body: '<p>Lorem ipsum dolor sit amet, consect adipiscing elit. Aenean euismod bibendum laoreet.</p>'
+    - image_src: 'https://picsum.photos/59'
+      image_alt: 'Sample alt text 2'
+      small_title: 'Lorem ipsum dolor sit amet'
+      body: '<p>Lorem ipsum dolor sit amet, consect adipiscing elit. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>'
+    - image_src: 'https://picsum.photos/59'
+      image_alt: 'Sample alt text 3'
+      small_title: 'Lorem ipsum dolor sit amet'
+      body: '<p>Duis sit amet diam ac arcu ornare eleifend at et dui. Suspendisse scelerisque dolor neque, at lobortis odio eleifend sit amet. Cras vitae pharetra nunc.</p>'
+    - image_src: 'https://picsum.photos/59'
+      image_alt: 'Sample alt text 4'
+      small_title: 'Lorem ipsum dolor sit amet'
+      body: '<p>Aenean egestas, risus ut ornare malesuada, augue nulla cursus elit, tincidunt facilisis lorem ante vitae metus. Ut hendrerit et lorem et tempus.</p>'

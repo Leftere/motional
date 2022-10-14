@@ -1,0 +1,97 @@
+{% set card_group_base_class = card_group_base_class|default('card-group') %}
+
+<div {{ bem(card_group_base_class, card_group_modifiers, card_group_blockname) }}>
+  <div class="wrapper">
+    {% if 'latest_news' in card_group_modifiers %}
+      <div class="card-group__container">
+        <div class="card-group__content">
+          {% if label %}
+            {% include '@atoms/text/label/label.twig' with {
+              'label': label,
+            } %}
+          {% endif %}
+          <h1>{{ title|nl2br }}</h1>
+        </div>
+      </div>
+    {% endif %}
+    <div class="card-group__container">
+      <div class="card-group__content">
+        {% if 'latest_news' in card_group_modifiers and articles[0] %}
+          {% include "@molecules/card/card-resource/card-resource.twig" with {
+            card_modifier: ['latest_news', 'primary'],
+            link: articles[0].link,
+            image_src: articles[0].image_src,
+            image_alt: articles[0].image_alt,
+            title: articles[0].title,
+            description: articles[0].description,
+            label: articles[0].label,
+            date: articles[0].date,
+          } %}
+        {% else %}
+          <h2>{{ title }}</h2>
+          <p>{{ description }}</p>
+          {% if button_url %}
+            {% include "@atoms/buttons/button.twig" with {
+              button_content: button_content,
+              button_url: button_url,
+              button_modifiers: ['primary']
+            } %}
+          {% endif %}
+        {% endif %}
+      </div>
+      <div class="card-group__articles">
+        {% if 'latest_news' in card_group_modifiers %}
+          <ul class="card-group__latest-articles">
+            {% for article in articles|slice(1, 3) %}
+              <li class="card-group__latest-article">
+                {% include "@molecules/card/card-resource/card-resource.twig" with {
+                  card_modifier: ['latest_news'],
+                  link: article.link,
+                  title: article.title,
+                  description: article.description,
+                  label: article.label,
+                  date: article.date,
+                } %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <div class="glide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                {% for article in articles %}
+                  <li class="glide__slide">
+                    {% include "@molecules/card/card-resource/card-resource.twig" with {
+                      link: article.link,
+                      image_src: article.image_src,
+                      image_alt: article.image_alt,
+                      title: article.title,
+                      description: article.description,
+                      label: article.label,
+                      date: article.date,
+                      series_title: article.series_title,
+                      series_title_url: article.series_title_url
+                    } %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% if 'latest_news' in card_group_modifiers %}
+      <div class="card-group__container">
+        <div class="card-group__content">
+          {% if button_url %}
+            {% include "@atoms/buttons/button.twig" with {
+              button_content: button_content,
+              button_url: button_url,
+              button_modifiers: ['primary']
+            } %}
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

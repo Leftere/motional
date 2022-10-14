@@ -1,0 +1,45 @@
+uuid: 12022fda-d9aa-4aa9-8c90-afe8d92c5ca2
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_icon
+field_name: field_icon
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: build_for_everyone
+      label: 'Build for Everyone'
+    -
+      value: deliver_the_future
+      label: 'Deliver the Future'
+    -
+      value: driving
+      label: Driving
+    -
+      value: improved_quality
+      label: 'Improved Quality'
+    -
+      value: ownership
+      label: Ownership
+    -
+      value: safety
+      label: Safety
+    -
+      value: transportation
+      label: Transportation
+    -
+      value: win_together
+      label: 'Win Together'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

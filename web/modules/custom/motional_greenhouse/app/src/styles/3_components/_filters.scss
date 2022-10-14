@@ -1,0 +1,231 @@
+.filters {
+  &__inner {
+    margin: 0 auto;
+    max-width: $desktop;
+    padding: 2rem;
+    position: sticky;
+    top: 0;
+    display: none;
+    @include breakpoint($tablet) {
+      display: block;
+    }
+  }
+
+  @include breakpoint($desktop) {
+    &__wrapper {
+      margin-top: 80px;
+    }
+  }
+
+  &__search {
+    padding: 3rem 5rem;
+    background-color: palette(purple);
+    display: flex;
+    align-items: center;
+    input[type="text"] {
+      @include font-size(16, 16);
+      background: transparent;
+      border-color: transparent;
+      border-bottom: 2px solid #289cff;
+      display: block;
+      margin-right: 0.5rem;
+      min-height: 38px;
+      outline: none;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      color: palette(white);
+
+      &::placeholder {
+        color: palette(white);
+        opacity: 1;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px palette(purple) inset !important;
+        -webkit-text-fill-color: palette(white) !important;
+        border-color: palette(purple);
+        border-bottom: 2px solid #289cff;
+      }
+    }
+    .search-icon {
+      background-color: #000;
+      padding: 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      svg {
+        color: palette(blue);
+        width: 1.8rem;
+        margin: 1px;
+      }
+    }
+  }
+
+  &__wrapper {
+    background: linear-gradient(75deg, #f7f9f9, palette(white));
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  &__clear {
+    padding: 2rem 5rem 3rem;
+    .btn {
+      &__inner {
+        text-transform: uppercase;
+        color: palette(purple);
+        font-weight: 600;
+      }
+    }
+  }
+
+  label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  &__selects {
+    padding: 0 5rem 2rem;
+
+    > div {
+      margin-top: 4rem;
+      label {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+      }
+      .indicator {
+        color: palette(purple);
+        width: 0.8rem;
+        transform: rotate(90deg);
+      }
+    }
+  }
+  &__mobile_form {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    @include breakpoint($tablet) {
+      display: none;
+    }
+  }
+  &__form_content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  &__dropdown {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #181819;
+    position: relative;
+    button {
+      display: flex;
+      align-items: center;
+      color: palette(white);
+      border: none;
+      width: 100%;
+      justify-content: space-between;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 1.5rem 2.5rem;
+    }
+    svg {
+      width: 0.8rem;
+      margin-left: 0.5rem;
+      color: palette(blue);
+      transform: rotate(90deg);
+      &.active {
+        transform: rotate(-90deg);
+      }
+    }
+    input[type="text"] {
+      display: none;
+      color: palette(white);
+      background-color: #181819;
+      border-color: #181819;
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      padding: 0 2.5rem;
+      &.active {
+        display: block;
+      }
+    }
+  }
+  &__mobile_search {
+    display: flex;
+    button {
+      border: none;
+      padding: 0;
+      svg {
+        margin: 0 1.5rem 0 1rem;
+        color: palette(blue);
+        width: 2.5rem;
+        transform: scaleX(-1);
+      }
+    }
+  }
+  &__accordion_content {
+    position: absolute;
+    background: #000;
+    position: absolute;
+    color: palette(white);
+    z-index: 9;
+    top: 5.4rem;
+    width: 100%;
+  }
+  &__accordion-filter-label {
+    display: flex;
+    text-transform: uppercase;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    margin: 0 2.5rem;
+    font-size: 1.5rem;
+    > div {
+      line-height: 1;
+    }
+    &:not(.active) {
+      border-bottom: dotted 3px #181819;
+    }
+    &.active svg {
+      transform: rotate(-90deg);
+    }
+  }
+  &__accordion_clear_btn {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    color: palette(blue);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 1;
+    svg {
+      width: 1.5rem;
+      margin: 0;
+      margin-right: 1rem;
+    }
+  }
+  &__accordion-filter-options {
+    background-color: #181819;
+    padding: 2rem 2.5rem;
+  }
+  &__accordion-filter-option {
+    padding: 0.8rem 0;
+    font-size: 1.5rem;
+    label {
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+  }
+}

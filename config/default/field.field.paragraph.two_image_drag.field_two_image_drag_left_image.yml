@@ -1,0 +1,29 @@
+uuid: 866e01d0-c30c-4d43-ae3d-67d93261d134
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_two_image_drag_left_image
+    - media.type.image
+    - paragraphs.paragraphs_type.two_image_drag
+id: paragraph.two_image_drag.field_two_image_drag_left_image
+field_name: field_two_image_drag_left_image
+entity_type: paragraph
+bundle: two_image_drag
+label: 'Left image'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

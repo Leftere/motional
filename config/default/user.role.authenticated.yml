@@ -1,0 +1,41 @@
+uuid: 53154188-8fa7-4982-bb98-7a4c7dd440b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs_type_permissions
+    - system
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access content'
+  - 'view media'
+  - 'view paragraph content angled_image'
+  - 'view paragraph content banner_cta'
+  - 'view paragraph content block'
+  - 'view paragraph content carousel'
+  - 'view paragraph content featured_video_text_block'
+  - 'view paragraph content full_cta'
+  - 'view paragraph content homepage_hero'
+  - 'view paragraph content image'
+  - 'view paragraph content job_list'
+  - 'view paragraph content landing_hero'
+  - 'view paragraph content latest_news'
+  - 'view paragraph content layout'
+  - 'view paragraph content numbered_list'
+  - 'view paragraph content numbered_list_column'
+  - 'view paragraph content partner_logos'
+  - 'view paragraph content related_articles'
+  - 'view paragraph content section_intro'
+  - 'view paragraph content statistic'
+  - 'view paragraph content testimonial'
+  - 'view paragraph content text'
+  - 'view paragraph content text_block'
+  - 'view paragraph content timeline'
+  - 'view paragraph content timeline_item'
+  - 'view paragraph content two_image_drag'

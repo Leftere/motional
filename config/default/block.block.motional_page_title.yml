@@ -1,0 +1,31 @@
+uuid: edda8ff6-c8e0-432d-a19f-1999c6bc66b7
+langcode: en
+status: false
+dependencies:
+  module:
+    - node
+  theme:
+    - motional
+_core:
+  default_config_hash: Oh72CHUkp6cj6dbrXMK2hzCsM05w9cHVoD22rMLQUfk
+id: motional_page_title
+theme: motional
+region: content
+weight: -3
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      office: office
+      page: page
+      resource: resource

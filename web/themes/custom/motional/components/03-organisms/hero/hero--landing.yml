@@ -1,0 +1,10 @@
+hero_modifiers:
+  - 'landing'
+hero_label: Page Lorem
+hero_label_url: '#'
+hero_heading: Lorem Ipsum Dolor Sit
+hero_heading_level: 1
+hero_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+hero_image_srcset: 'https://placeimg.com/320/180/any 320w, https://placeimg.com/480/270/any 480w, https://placeimg.com/640/360/any 640w, https://placeimg.com/800/450/any 800w, https://placeimg.com/960/540/any 960w, https://placeimg.com/1120/630/any 1120w, https://placeimg.com/1280/720/any 1280w, https://placeimg.com/1440/810/any 1440w, https://placeimg.com/1600/900/any 1600w'
+hero_button_label: 'Optional Button'
+hero_button_url: '#'

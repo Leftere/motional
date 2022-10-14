@@ -1,0 +1,12 @@
+--- a/src/Controller/ChooseComponentController.php
++++ b/src/Controller/ChooseComponentController.php
+@@ -122,6 +122,9 @@
+ 
+     foreach ($types as &$type) {
+       $url_route_params = $route_params + ['paragraph_type' => $type['id']];
++      if (array_key_exists('query_params', $type)) {
++        $query_params = array_merge($query_params, $type['query_params']);
++      }
+       $url_options = ['query' => $query_params];
+       $type['url'] = Url::fromRoute($route_name, $url_route_params, $url_options)->toString();
+       $type['link_attributes'] = new Attribute([

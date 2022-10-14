@@ -1,0 +1,13 @@
+label: 'Label Lorem'
+large_title_element:
+  - 'h2'
+large_title: 'Lorem ipsum dolor sit'
+divider: false
+body: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'
+button_url: '#'
+button_content: 'Learn More'
+button_modifiers:
+  - 'primary'
+video_embed: "<iframe title='Emulsify Video' width='854' height='480' frameborder='0' allowfullscreen='allowfullscreen' src='https://www.youtube.com/embed/YRnVnlhjOBs?autoplay=0&amp;start=0'></iframe>"
+image_multimedia: "<img src='https://placeimg.com/270/270/any' />"
+video_screenshot: "<img src='https://placeimg.com/480/270/any' />"

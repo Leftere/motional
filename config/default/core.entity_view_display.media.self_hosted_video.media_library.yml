@@ -1,0 +1,36 @@
+uuid: f48ce518-9eeb-4d43-ae90-831755f46e45
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.self_hosted_video.field_media_video_file
+    - image.style.medium
+    - media.type.self_hosted_video
+  module:
+    - svg_image
+id: media.self_hosted_video.media_library
+targetEntityType: media
+bundle: self_hosted_video
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_video_file: true
+  name: true
+  uid: true

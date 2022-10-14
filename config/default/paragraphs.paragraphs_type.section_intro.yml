@@ -1,0 +1,17 @@
+uuid: 1e08f243-9a54-413f-9de0-46a1f2011e66
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:aa78034c-5a80-46d3-ae8c-301169a0ec67'
+  module:
+    - layout_paragraphs
+id: section_intro
+label: 'Section Intro'
+icon_uuid: aa78034c-5a80-46d3-ae8c-301169a0ec67
+icon_default: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM2MjQ2ZmI7fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMzguNDUiIHk9IjE5LjY5IiB3aWR0aD0iMTgiIGhlaWdodD0iMyIvPjxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMzguNDUiIHk9IjI3LjkiIHdpZHRoPSIxOCIgaGVpZ2h0PSIzIi8+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzQuMDIsNDQuOTFINi4xOFYxOS42OWgyNy44NHYyNS4yMlptLTI0Ljg0LTNIMzEuMDJWMjIuNjlIOS4xOHYxOS4yMloiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNC44NywzOC4xNnYtMTEuNzJoMy4xOHY0LjUzaDQuMXYtNC41M2gzLjE3djExLjcyaC0zLjE3di00LjY5aC00LjF2NC42OWgtMy4xOFoiLz48L3N2Zz4='
+description: 'This multipurpose component allows the user to input a section title and section information at the beginning of any section of a page.'
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

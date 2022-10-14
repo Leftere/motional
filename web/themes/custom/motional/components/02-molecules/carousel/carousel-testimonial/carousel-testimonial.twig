@@ -1,0 +1,25 @@
+{% extends "@molecules/carousel/carousel.twig" %}
+{% set carousel_modifiers = ['testimonial'] %}
+
+{% block slide_content %}
+  <div class="glide__slide-content-container">
+    {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'quote-circle' } %}
+    <p class="quote">{{ slide.quote }}</p>
+    <p class="author">
+      <span>{{ slide.authorName }}</span>
+      {% if slide.authorCompany %} | {{ slide.authorCompany }}{% endif %}
+    </p>
+    {% if slide.url %}
+      {% include '@atoms/buttons/button.twig' with { 
+        button_modifiers: ['secondary'],
+        button_url: slide.url,
+        button_content: slide.link
+      } %}
+    {% endif %}
+    <div class="glide__bullets" data-glide-el="controls[nav]">
+      {% for slide in slides %}
+        <button class="glide__bullet" data-glide-dir="={{ loop.index }}"></button>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

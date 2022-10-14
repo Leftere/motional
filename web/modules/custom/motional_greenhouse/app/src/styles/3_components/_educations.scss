@@ -1,0 +1,12 @@
+.educations {
+  &__group {
+    align-items: flex-end;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 60px;
+  }
+
+  &__buttons {
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,72 @@
+uuid: d46d31ea-ad14-471a-b673-da5e4e3192e2
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.related_article
+    - field.field.node.news.field_date
+    - field.field.node.news.field_meta_tags
+    - field.field.node.news.field_news_body
+    - field.field.node.news.field_news_image
+    - field.field.node.news.field_news_link
+    - field.field.node.news.field_news_person
+    - field.field.node.news.field_news_summary
+    - field.field.node.news.field_news_topic
+    - field.field.node.news.field_news_type
+    - node.type.news
+  module:
+    - datetime
+    - text
+    - user
+id: node.news.related_article
+targetEntityType: node
+bundle: news
+mode: related_article
+content:
+  field_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: default_short_month
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_news_body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_news_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_news_topic:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_news_type:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_meta_tags: true
+  field_news_link: true
+  field_news_person: true
+  field_news_summary: true
+  links: true

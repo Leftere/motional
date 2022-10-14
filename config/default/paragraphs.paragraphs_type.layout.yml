@@ -1,0 +1,22 @@
+uuid: ea1d89ad-e9b8-4654-be99-a11529f0f138
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+    - style_options
+id: layout
+label: Layout
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: true
+    available_layouts:
+      onecol: 'One Column'
+      twocol_50_50: 'Two Column 50/50'
+      three_column_33_34_33: 'Three Column 33/34/33'
+      three_column_25_50_25: 'Three Column 25/50/25'
+  style_options:
+    enabled: true

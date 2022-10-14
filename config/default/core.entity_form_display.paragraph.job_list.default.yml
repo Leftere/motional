@@ -1,0 +1,23 @@
+uuid: 6966ab77-f752-4e42-bd38-7377739809da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.job_list.field_title
+    - paragraphs.paragraphs_type.job_list
+id: paragraph.job_list.default
+targetEntityType: paragraph
+bundle: job_list
+mode: default
+content:
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

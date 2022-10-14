@@ -1,0 +1,14 @@
+#block-motional-page-title,
+#block-motional-local-tasks,
+#node-news-edit-form {
+  @extend .wrapper-wide;
+}
+
+.block--system > article > .form-item,
+.user-form,
+.user-login-form,
+.user-pass {
+  @extend .wrapper-wide;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}

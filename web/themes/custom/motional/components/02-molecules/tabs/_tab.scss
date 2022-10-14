@@ -1,0 +1,42 @@
+.tabs__link,
+.tabs__link--local-tasks {
+  @include font-size(14, 14);
+  background-color: clr(muted);
+  border: 1px solid clr(highlight-high);
+  border-bottom: none;
+  color: clr(text);
+  display: block;
+  font-weight: 600;
+  padding: 1em 2.4em;
+  text-align: center;
+  text-decoration: none;
+  transition: color .3s;
+
+  @include breakpoint($desktop) {
+    border-bottom: 1px solid clr(highlight-high);
+    border-left: none;
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    width: auto;
+  }
+
+  &:hover {
+    background-color: clr(highlight-high);
+    color: clr(accent);
+  }
+
+  &.is-active {
+    background-color: clr(text);
+    border: 1px solid clr(text);
+    color: clr(text-inverse);
+
+    @include breakpoint($desktop) {
+      background-color: clr(background);
+      border: 1px solid clr(highlight-high);
+      border-bottom: 1px solid clr(highlight-high);
+      border-left: none;
+      color: clr(text);
+    }
+  }
+}

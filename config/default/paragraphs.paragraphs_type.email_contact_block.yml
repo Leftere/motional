@@ -1,0 +1,10 @@
+uuid: 87a4e785-fe7a-4375-8099-a187497fce74
+langcode: en
+status: true
+dependencies: {  }
+id: email_contact_block
+label: 'Email Contact Block'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

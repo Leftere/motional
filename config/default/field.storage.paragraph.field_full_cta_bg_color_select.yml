@@ -1,0 +1,27 @@
+uuid: adf78d88-7f9a-47cc-b731-98de504f1680
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_full_cta_bg_color_select
+field_name: field_full_cta_bg_color_select
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: purple
+      label: Purple
+    -
+      value: black
+      label: Black
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

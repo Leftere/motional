@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+## Install & configures Drupal for local development.
+##
+## Usage: fin init-site
+
+# Abort if anything fails
+set -e
+
+#-------------------------- Execution Steps --------------------------------
+
+# Install Drupal, configure base settings, and import configuration.
+fin exec /var/www/vendor/bin/blt setup \
+    --define=disable-targets.source.build.frontend=TRUE \
+    --environment=local \
+    --no-interaction --verbose

@@ -1,0 +1,16 @@
+.global-header {
+  background-color: palette(gray, light);
+  padding: 2rem 0;
+
+  &__inner {
+    @include container($desktop);
+    align-items: center;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    min-height: 30rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
+}

@@ -1,0 +1,38 @@
+uuid: a0354334-82fc-4fb6-b245-d192fea2bd29
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.wysiwyg_embed
+  module:
+    - media
+name: Formatted
+format: formatted
+weight: -10
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <img src alt data-entity-type data-entity-uuid> <p class=""> <h1> <pre> <address> <div class=""> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title class=""> <figure class=""> <figcaption class=""> <span class=""> <a href hreflang href href data-entity-type data-entity-uuid class="">'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: wysiwyg_embed
+      allowed_view_modes: {  }
+      allowed_media_types:
+        embed_video: embed_video
+        image: image

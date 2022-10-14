@@ -1,0 +1,15 @@
+uuid: 36e3a5d4-99ab-4fcc-bfe7-65b01225bbf5
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: block
+label: Block
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

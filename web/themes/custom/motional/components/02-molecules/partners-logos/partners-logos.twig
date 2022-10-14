@@ -1,0 +1,23 @@
+{% set partners_logos_base_class = partners_logos_base_class|default('partners-logos') %}
+
+<div {{ bem(partners_logos_base_class, partners_logos_modifiers, partners_logos_blockname) }}>
+  <div class="partners-logos__wrapper">
+    <div class="partners-logos__content">
+      <h4> {{title}} </h4>
+      {% if cta_link and cta_link_url %}
+        {% include "@atoms/buttons/button.twig" with {
+          button_modifiers: ['link'],
+          button_icon: 'double-arrow',
+          button_content: cta_link,
+          button_url: cta_link_url
+          } %}
+      {% endif %}
+    </div>
+
+    <div class="partners-logos__logos">
+      {% for logo in logos %}
+        <img src="{{ logo.item_src }}" alt="{{ logo.item_alt }}"/>
+      {% endfor %}
+    </div>
+  </div>
+</div>

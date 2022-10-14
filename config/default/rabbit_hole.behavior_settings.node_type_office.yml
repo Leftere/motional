@@ -1,0 +1,14 @@
+uuid: d089fe58-f2e7-4b00-84cc-496f8065d23f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.office
+id: node_type_office
+entity_type_id: node_type
+entity_id: office
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

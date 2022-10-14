@@ -1,0 +1,15 @@
+uuid: c72e691a-913a-4755-a8ec-bedc99d2ea4c
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: timeline_item
+label: 'Timeline Item'
+icon_uuid: null
+icon_default: null
+description: 'Timeline Item to be used in the Timeline component.'
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

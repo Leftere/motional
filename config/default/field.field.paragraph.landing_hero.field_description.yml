@@ -1,0 +1,26 @@
+uuid: 86390973-3277-4bde-8856-f4a922bc1011
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.landing_hero
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - formatted
+id: paragraph.landing_hero.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: landing_hero
+label: 'Descriptive Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,72 @@
+.carousel {
+  @extend .wrapper-full;
+
+  .glide__arrows {
+    display: none;
+  }
+
+  .glide__arrow {
+    align-items: center;
+    background: clr(brand-green);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: $navy;
+    display: flex;
+    height: 4.5rem;
+    justify-content: center;
+    width: 4.5rem;
+
+    @include breakpoint($tablet) {
+      height: 5.9rem;
+      width: 5.9rem;
+    }
+
+    &:focus-visible {
+      outline: 1px solid;
+    }
+
+    svg {
+      height: 1.14rem;
+      pointer-events: none;
+      width: .59rem;
+
+      @include breakpoint($tablet) {
+        height: 1.5rem;
+        width: .77rem;
+      }
+    }
+
+    &--disabled {
+      background: clr(brand-green-dark);
+      opacity: 1;
+    }
+  }
+
+  .glide__bullets {
+    bottom: 0;
+    display: none;
+    left: 0;
+    margin-top: 2rem;
+    pointer-events: none;
+    position: relative;
+    transform: none;
+  }
+
+  .glide__bullet {
+    background: clr(brand-green);
+    border-radius: 0;
+    height: 1rem;
+    margin: 0 .5rem;
+    opacity: .3;
+    width: 1rem;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
+}

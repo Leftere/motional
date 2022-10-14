@@ -1,0 +1,21 @@
+// =======================================
+//    #CORE/HTML - TYPOGRAPHY
+// =======================================
+
+strong {
+  font-weight: 700;
+}
+
+// p {}
+
+// blockquote {}
+
+// cite {}
+
+%label {
+  @include font-size(14, 20);
+  font-weight: 400;
+  letter-spacing: .015em;
+  margin: 0;
+  text-transform: uppercase;
+}

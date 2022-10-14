@@ -1,0 +1,30 @@
+generic:
+  version: VERSION
+  css:
+    theme:
+      css/styles.css: {}
+onecol:
+  version: VERSION
+  css:
+    theme:
+      layouts/onecol/onecol.css: {}
+twocol_50_50:
+  version: VERSION
+  css:
+    theme:
+      layouts/twocol_50_50/twocol_50_50.css: {}
+twocol_25_75:
+  version: VERSION
+  css:
+    theme:
+      layouts/twocol_25_75/twocol_25_75.css: {}
+threecol_33_34_33:
+  version: VERSION
+  css:
+    theme:
+      layouts/threecol_33_34_33/threecol_33_34_33.css: {}
+threecol_25_50_25:
+  version: VERSION
+  css:
+    theme:
+      layouts/threecol_25_50_25/threecol_25_50_25.css: {}

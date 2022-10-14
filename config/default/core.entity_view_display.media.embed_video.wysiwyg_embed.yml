@@ -1,0 +1,29 @@
+uuid: c03fc336-c999-4356-b808-5c73cb0b553e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.wysiwyg_embed
+    - field.field.media.embed_video.field_media_oembed_video
+    - media.type.embed_video
+  module:
+    - media
+id: media.embed_video.wysiwyg_embed
+targetEntityType: media
+bundle: embed_video
+mode: wysiwyg_embed
+content:
+  field_media_oembed_video:
+    type: oembed
+    label: hidden
+    settings:
+      max_width: 0
+      max_height: 0
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

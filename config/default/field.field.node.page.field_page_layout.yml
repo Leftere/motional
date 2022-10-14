@@ -1,0 +1,116 @@
+uuid: 7c38bf4a-ec61-42c4-983a-3560d3f73e07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_layout
+    - node.type.page
+    - paragraphs.paragraphs_type.email_contact
+    - paragraphs.paragraphs_type.image
+    - paragraphs.paragraphs_type.numbered_list_column
+    - paragraphs.paragraphs_type.testimonial
+    - paragraphs.paragraphs_type.text_block
+    - paragraphs.paragraphs_type.timeline_item
+  module:
+    - entity_reference_revisions
+id: node.page.field_page_layout
+field_name: field_page_layout
+entity_type: node
+bundle: page
+label: Layout
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      image: image
+      testimonial: testimonial
+      text_block: text_block
+      timeline_item: timeline_item
+      email_contact: email_contact
+      numbered_list_column: numbered_list_column
+    negate: 1
+    target_bundles_drag_drop:
+      angled_image:
+        weight: 25
+        enabled: false
+      banner_cta:
+        weight: 7
+        enabled: false
+      block:
+        weight: 27
+        enabled: false
+      carousel:
+        weight: 13
+        enabled: false
+      email_contact:
+        weight: 31
+        enabled: true
+      email_contact_block:
+        weight: 32
+        enabled: false
+      featured_video_text_block:
+        weight: 29
+        enabled: false
+      full_cta:
+        weight: 30
+        enabled: false
+      homepage_hero:
+        weight: 31
+        enabled: false
+      image:
+        weight: 9
+        enabled: true
+      job_list:
+        weight: 33
+        enabled: false
+      landing_hero:
+        weight: 10
+        enabled: false
+      latest_news:
+        weight: 39
+        enabled: false
+      layout:
+        weight: 11
+        enabled: false
+      numbered_list:
+        weight: 36
+        enabled: false
+      numbered_list_column:
+        weight: 37
+        enabled: true
+      partner_logos:
+        weight: 38
+        enabled: false
+      related_articles:
+        weight: 17
+        enabled: false
+      section_intro:
+        weight: 17
+        enabled: false
+      statistic:
+        weight: 12
+        enabled: false
+      testimonial:
+        weight: 13
+        enabled: true
+      text:
+        weight: 15
+        enabled: false
+      text_block:
+        weight: 16
+        enabled: true
+      timeline:
+        weight: 16
+        enabled: false
+      timeline_item:
+        weight: 17
+        enabled: true
+      two_image_drag:
+        weight: 48
+        enabled: false
+field_type: entity_reference_revisions

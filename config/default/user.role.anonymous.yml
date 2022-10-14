@@ -1,0 +1,43 @@
+uuid: 510124bb-ead3-460e-a590-f16a436b638d
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs_type_permissions
+    - system
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access content'
+  - 'view media'
+  - 'view paragraph content angled_image'
+  - 'view paragraph content banner_cta'
+  - 'view paragraph content block'
+  - 'view paragraph content carousel'
+  - 'view paragraph content email_contact'
+  - 'view paragraph content email_contact_block'
+  - 'view paragraph content featured_video_text_block'
+  - 'view paragraph content full_cta'
+  - 'view paragraph content homepage_hero'
+  - 'view paragraph content image'
+  - 'view paragraph content job_list'
+  - 'view paragraph content landing_hero'
+  - 'view paragraph content latest_news'
+  - 'view paragraph content layout'
+  - 'view paragraph content numbered_list'
+  - 'view paragraph content numbered_list_column'
+  - 'view paragraph content partner_logos'
+  - 'view paragraph content related_articles'
+  - 'view paragraph content section_intro'
+  - 'view paragraph content statistic'
+  - 'view paragraph content testimonial'
+  - 'view paragraph content text'
+  - 'view paragraph content text_block'
+  - 'view paragraph content timeline'
+  - 'view paragraph content timeline_item'
+  - 'view paragraph content two_image_drag'

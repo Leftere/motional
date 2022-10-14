@@ -1,0 +1,56 @@
+{% set featured_video_text_block_base_class = featured_video_text_block_base_class|default('featured-video-text-block') %}
+{% set image_position = image_position|default('left') %}
+
+<div class="featured-video-text-block-wrapper" style="background-image: url('/themes/custom/motional/images/featured-video-text-block-bg.png')">
+  <div {{ bem(featured_video_text_block_base_class) }}>
+    <div class="featured-video-text-block-first_col">
+      <div class="featured-video-text-block-text_block">
+        {% include "@molecules/text-block/text-block.twig" with {
+          text_block_modifiers: ['full'],
+          label: label,
+          large_title_element: large_title_element,
+          large_title: large_title,
+          small_title: small_title,
+          divider: accent_bar,
+          body: body,
+          button_modifiers: button_modifiers,
+          button_url: button_url,
+          button_content: button_content
+        } %}
+      </div>
+    </div>
+    <div class="featured-video-text-block-second_col">
+      <div class="featured-video-text-block-featured_video">
+        {% if image_multimedia %}
+          <div class="featured-video-text-block-image_multimedia {{image_position}}">
+            {{ image_multimedia }}
+          </div>
+        {% endif %}
+        <div class="featured-video-text-block-video_wrapper {{image_position}}">
+          {% if video_screenshot %}
+            <div class="featured-video-text-block-overlay">
+              <div class="featured-video-text-block-video_screenshot">
+                {{ video_screenshot }}
+                <span class="featured-video-text-block-video_play toggleVideo"></span>
+              </div>
+            </div>
+          {% endif %}
+          {% if video_embed %}
+            <div class="featured-video-text-block-video_embed_wrapper toggleVideo {{video_status}}">
+              <div class="featured-video-text-block-video_embed">
+                <div class="featured-video-text-block-video_box">
+                  <div class="featured-video-text-block-video_close_wrapper">
+                    <button class="featured-video-text-block-video_close"></button>
+                  </div>
+                  {% include "@atoms/video/video.twig" with {
+                    video_content: video_embed,
+                  } %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

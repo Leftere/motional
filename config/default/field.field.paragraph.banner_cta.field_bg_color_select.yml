@@ -1,0 +1,23 @@
+uuid: beb41182-013d-419c-b8d6-2d80bdbf052e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg_color_select
+    - paragraphs.paragraphs_type.banner_cta
+  module:
+    - options
+id: paragraph.banner_cta.field_bg_color_select
+field_name: field_bg_color_select
+entity_type: paragraph
+bundle: banner_cta
+label: 'BG Color Select'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: dark_blue
+default_value_callback: ''
+settings: {  }
+field_type: list_string

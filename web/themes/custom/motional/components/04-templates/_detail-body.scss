@@ -1,0 +1,166 @@
+.news__body,
+.person__body {
+  padding-top: 3rem;
+
+  .image-full {
+    @extend .wrapper-full;
+
+    img {
+      margin: 0;
+      max-width: none;
+      width: 100%;
+    }
+  }
+
+  .image-stylized,
+  .media--embeded-video {
+    @extend .wrapper;
+    margin: 3rem auto;
+    position: relative;
+    z-index: 1;
+
+    &:before,
+    &:after {
+      background: $purple;
+      content: '';
+      display: block;
+      height: .2rem;
+      position: absolute;
+      transform: rotate(150deg);
+      transform-origin: center;
+      width: 26.75rem;
+      z-index: -1;
+    }
+
+    &:before {
+      left: 0;
+      top: 10rem;
+    }
+
+    &:after {
+      bottom: 10rem;
+      right: 0;
+    }
+
+    > div {
+      // padding: 3rem;
+      width: 100%;
+
+      @include breakpoint($large-tablet) {
+        padding: 6rem;
+      }
+    }
+
+    iframe,
+    img {
+      height: auto;
+      width: 100%;
+    }
+
+    iframe {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  ol,
+  ul {
+    @extend .wrapper-narrow;
+  }
+
+  table {
+    @extend .wrapper-narrow;
+    @extend .table;
+  }
+
+  th {
+    @extend .table__heading-cell;
+  }
+
+  td {
+    @extend .table__cell;
+  }
+
+  tr {
+    @extend .table__row;
+  }
+
+  tfoot th {
+    @extend .table__footer-cell;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend .wrapper-narrow;
+  }
+
+  h4 {
+    margin-bottom: 0;
+    position: relative;
+
+    &:after {
+      background-color: $blue;
+      content: '';
+      display: block;
+      height: 4px;
+      margin: 2.6rem 0 3rem;
+      width: 28px;
+    }
+  }
+
+  p {
+    @extend .wrapper-narrow;
+    @extend %paragraph;
+  }
+
+  figure.quote {
+    @extend .wrapper-narrow;
+    @extend %figure;
+  }
+
+  blockquote {
+    @extend %blockquote;
+  }
+
+  blockquote p {
+    @extend %blockquote-paragraph;
+  }
+
+  hr {
+    @extend .wrapper-narrow;
+    @extend %hr;
+  }
+
+  div[data-align] {
+    @extend .wrapper-narrow;
+    display: flex;
+  }
+
+  div[data-align='left'] {
+    justify-content: left;
+  }
+
+  div[data-align='right'] {
+    justify-content: right;
+  }
+
+  div[data-align='center'] {
+    justify-content: center;
+  }
+
+  a {
+    color: clr(brand-light-purple);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.person__body {
+  @include breakpoint($large-tablet) {
+    padding-bottom: 8rem;
+    padding-top: 16rem;
+  }
+}

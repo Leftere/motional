@@ -1,0 +1,20 @@
+uuid: cef1394f-ea34-4a66-8c28-e0c3d4d8d65c
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+id: paragraph.field_full_cta_bg_image
+field_name: field_full_cta_bg_image
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

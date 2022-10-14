@@ -1,0 +1,32 @@
+uuid: 53a258fe-c86c-4f9f-a079-923e92c9a2e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.email_contact.field_contact_email
+    - field.field.paragraph.email_contact.field_label
+    - paragraphs.paragraphs_type.email_contact
+id: paragraph.email_contact.default
+targetEntityType: paragraph
+bundle: email_contact
+mode: default
+content:
+  field_contact_email:
+    type: email_default
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,22 @@
+uuid: c8935d18-5dd3-4345-bc00-293bcd82ecdb
+langcode: en
+status: true
+dependencies:
+  theme:
+    - motional
+_core:
+  default_config_hash: T0wbI6qVdThbbIqXDZFg_1VZ3_ittXBdEoUH7d7ux_E
+id: motional_local_tasks
+theme: motional
+region: content
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

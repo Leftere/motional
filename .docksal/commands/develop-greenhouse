@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+## Prepares Greenhouse React application build for local development.
+##
+## Usage: fin develop-greenhouse
+
+# Abort if anything fails
+set -e
+
+#-------------------------- Execution Steps --------------------------------
+
+# Runs Greenhouse React application.
+fin exec "cd /var/www/web/modules/custom/motional_greenhouse/app && npm ci && npm run build"

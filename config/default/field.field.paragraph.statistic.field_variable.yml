@@ -1,0 +1,19 @@
+uuid: 30396ed3-cb6f-42b4-b6ff-2df7eaab1d88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_variable
+    - paragraphs.paragraphs_type.statistic
+id: paragraph.statistic.field_variable
+field_name: field_variable
+entity_type: paragraph
+bundle: statistic
+label: Variable
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

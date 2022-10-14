@@ -1,0 +1,161 @@
+.newsroom-view {
+  margin-bottom: 5rem;
+
+  .view--form-container {
+    background: $gray-darker;
+    margin-bottom: 10rem;
+
+    .views-exposed-form {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 40px;
+
+      @include breakpoint($large-tablet) {
+        display: flex;
+      }
+
+      .form-item:first-child {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+      }
+
+      .form-item:last-child {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .form-actions {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .form-item {
+        margin-bottom: 0;
+      }
+
+      > .form-item:first-child {
+        flex: 1;
+      }
+    }
+
+    ul {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-between;
+      max-width: 385px;
+
+      @include breakpoint($tablet) {
+        justify-content: unset;
+        max-width: unset;
+      }
+
+      a {
+        color: $white;
+        display: block;
+        padding: 1rem 0.5rem;
+        position: relative;
+        text-transform: uppercase;
+
+        @include breakpoint($tablet) {
+          padding: 3rem 2rem;
+        }
+
+        @include breakpoint($large-tablet) {
+          &.bef-link--selected {
+            &:before {
+              content: ' ';
+            }
+          }
+        }
+
+        @include breakpoint($desktop) {
+          padding: 3rem 5rem;
+        }
+
+        &:after {
+          color: $gray;
+          position: absolute;
+          right: 0;
+
+          @include breakpoint($tablet) {
+            content: '|';
+          }
+        }
+
+        &.bef-link--selected {
+          color: $blue;
+
+          &:before {
+            background-color: $white;
+            bottom: 0;
+            display: block;
+            height: 20px;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, 50%) rotate(45deg);
+            width: 20px;
+          }
+        }
+      }
+
+      li:last-child a:after {
+        content: none;
+      }
+    }
+
+    .form-text {
+      background-color: transparent;
+      border-bottom: 2px solid #008f96;
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+      color: $white;
+      outline-color: $blue;
+      padding-left: 0;
+      width: 100%;
+      margin-bottom: 1.5rem;
+
+      @include breakpoint($large-tablet) {
+        margin-bottom: 0;
+      }
+
+      &::placeholder {
+        color: $gray;
+      }
+    }
+
+    .form-submit {
+      background-color: $purple;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZmlsbD0iIzc5RjlGRSIgZD0ibTMuMDIyLDE1LjEwNDE3bC0zLjAyMiwwbDQuMzM1LC03LjQ4MmwtNC4zMzUsLTcuNTE4bDMuMDIyLDBsNC43MTIsNy41MThsLTQuNzEyLDcuNDgyeiIvPgogIDxwYXRoIGZpbGw9IiM3OUY5RkUiIGQ9Im0xMS4xNDY5OSwxNS4xMDQxN2wtMy4wMjIsMGw0LjMzNSwtNy40ODJsLTQuMzM1LC03LjUxOGwzLjAyMiwwbDQuNzEyLDcuNTE4bC00LjcxMiw3LjQ4MnoiLz4KPC9zdmc+);
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 0;
+      border-radius: 50%;
+      display: block;
+      font-size: 0;
+      height: 40px;
+      margin-left: 1rem;
+      width: 40px;
+    }
+  }
+
+  .views-infinite-scroll-content-wrapper,
+  .view--grid {
+    column-gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+
+    @include breakpoint($tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .views-row {
+    background: $near-white;
+  }
+}

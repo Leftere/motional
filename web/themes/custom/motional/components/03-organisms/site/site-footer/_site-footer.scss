@@ -1,0 +1,32 @@
+.footer {
+  background-color: clr(highlight-high);
+  padding: 1rem 0;
+
+  &__inner {
+    @extend %wrapper;
+    display: flex;
+    flex-flow: column nowrap;
+
+    @include breakpoint($tablet) {
+      flex-direction: row;
+    }
+  }
+}
+
+.footer__social {
+  margin-bottom: 1rem;
+
+  @include breakpoint($tablet) {
+    flex: 0 1 30%;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}
+
+.footer__menu {
+  @include breakpoint($tablet) {
+    flex: 1 1 100%;
+    margin-left: auto;
+    text-align: right;
+  }
+}

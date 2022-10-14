@@ -1,0 +1,8 @@
+uuid: ff893f57-ad87-4252-b32d-4804acab2bbc
+langcode: en
+status: true
+dependencies: {  }
+id: resource_card
+label: 'Resource card'
+locked: false
+pattern: 'F d, Y'

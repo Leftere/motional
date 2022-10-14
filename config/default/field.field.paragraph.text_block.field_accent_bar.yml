@@ -1,0 +1,23 @@
+uuid: fca5e732-a47a-4edb-9d4f-618c3f37d138
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accent_bar
+    - paragraphs.paragraphs_type.text_block
+id: paragraph.text_block.field_accent_bar
+field_name: field_accent_bar
+entity_type: paragraph
+bundle: text_block
+label: 'Accent Bar'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

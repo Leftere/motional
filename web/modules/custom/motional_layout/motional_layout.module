@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains motional_layout.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function motional_layout_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'motional_layout/generic';
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function motional_layout_field_widget_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $paragraph = $context['items']->getEntity();
+
+  if ($paragraph->bundle() == 'featured_video_text_block') {
+    // Disable video selection in the embedded text paragraph.
+    $media_library_state = $element['subform']['field_image_multimedia']['widget']['open_button']['#media_library_state'] ?? NULL;
+
+    if ($media_library_state) {
+      $media_library_state->set('media_library_allowed_types', ['image' => 'image']);
+      $media_library_state->set('media_library_selected_type', 'image');
+      $media_library_state->set('hash', $media_library_state->getHash());
+    }
+  }
+}

@@ -1,0 +1,30 @@
+footerHref: "#"
+nav:
+- title: 'Contact Us'
+  url: "#"
+- title: 'Purchasing Terms'
+  url: "#"
+- title: 'Cookie Policy'
+  url: "#"
+- title: 'Vehicle User Privacy'
+  url: "#"
+- title: 'Sitemap'
+  url: "#"
+copyright: "2022 Motional, Inc. All rights reserved."
+title: Follow Us
+social_links: 
+- item_icon: "images/icons/twitter.svg"
+  item_href: "#"
+  item_title: "facebook"
+- item_icon: "images/icons/twitter.svg"
+  item_href: "#"
+  item_title: "instagram"
+- item_icon: "images/icons/twitter.svg"
+  item_href: "#"
+  item_title: "youtube"
+- item_icon: "images/icons/twitter.svg"
+  item_href: "#"
+  item_title: "twitter"
+- item_icon: "images/icons/twitter.svg"
+  item_href: "#"
+  item_title: "LinkedIn"

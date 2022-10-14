@@ -1,0 +1,30 @@
+{% set footer__base_class = 'footer' %}
+
+{# If `directory` is defined, set the path relative for Drupal.
+ # Otherwise, set the path relative to the Component Library. #}
+{% set footer__logo_src = directory ? '/' ~ directory ~ '/images/footer-logo.png' : 'images/footer-logo.png' %}
+
+<footer {{ bem(footer__base_class) }}>
+  <div {{ bem('wrapper', [], footer__base_class) }}>
+    <div {{ bem('navigation', [], footer__base_class) }}>
+      <a href={{ footerHref }}>
+        <img {{ bem('logo', [], footer__base_class) }} src={{ footer__logo_src }} alt="Motional" />
+      </a>
+      <ul>
+        {% for navItem in nav %}
+          <li>
+            <a href={{ navItem.url }}>
+              {{navItem.title}}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div {{ bem('bottom', [], footer__base_class) }}>
+      <span {{ bem('copyright', [], footer__base_class) }}>
+        {{ copyright }}
+      </span>
+      {% include "@molecules/contact-sharing/contact-sharing.twig" with social_links %}
+    </div>
+  </div>
+</footer>

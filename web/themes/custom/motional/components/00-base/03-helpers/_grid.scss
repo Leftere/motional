@@ -1,0 +1,20 @@
+// ================================== //
+//    #CORE - BREAKPOINTS
+// ================================== //
+$mobile: 320px;
+$large-mobile: 640px; // xs
+$tablet: 768px; // sm
+$large-tablet: 1024px; // md
+$desktop: 1280px; // lg
+$large-desktop: 1600px; // xl
+$extra-large-desktop: 1920px; // xxl
+
+@include add-breakpoint('mobile', $mobile);
+@include add-breakpoint('large-mobile', $large-mobile);
+@include add-breakpoint('tablet', $tablet);
+@include add-breakpoint('large-tablet', $large-tablet);
+@include add-breakpoint('desktop', $desktop);
+@include add-breakpoint('large-desktop', $large-desktop);
+@include add-breakpoint('extra-large-desktop', $extra-large-desktop);
+
+$breakpoint-has-widths: ('mobile', 'large-mobile', 'tablet', 'large-tablet', 'desktop', 'large-desktop', 'extra-large-desktop');

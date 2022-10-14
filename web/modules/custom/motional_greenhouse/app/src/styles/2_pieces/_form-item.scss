@@ -1,0 +1,15 @@
+.form-item {
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  &__error {
+    color: red;
+    margin: .5rem 0;
+  }
+
+  label {
+    margin: .5rem 0;
+  }
+}

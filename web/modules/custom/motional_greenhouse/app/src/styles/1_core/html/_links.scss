@@ -1,0 +1,20 @@
+// ================================== //
+//    #CORE/HTML - LINKS
+// ================================== //
+
+a {
+  color: palette(black);
+  text-decoration: underline;
+  transition: color .3s ease-in-out;
+
+  &:active,
+  &:hover,
+  &:focus {
+    color: color.scale(palette(purple), $lightness: -25%);
+    text-decoration: underline;
+  }
+
+  // &:active {}
+  // &:hover {}
+  // &:focus {}
+}

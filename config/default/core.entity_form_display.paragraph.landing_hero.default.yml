@@ -1,0 +1,80 @@
+uuid: beefb12f-a60c-4755-9e42-38ecedfba951
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.landing_hero.field_bg_color_gray_purple
+    - field.field.paragraph.landing_hero.field_button
+    - field.field.paragraph.landing_hero.field_description
+    - field.field.paragraph.landing_hero.field_image
+    - field.field.paragraph.landing_hero.field_link_url
+    - field.field.paragraph.landing_hero.field_title
+    - paragraphs.paragraphs_type.landing_hero
+  module:
+    - link
+    - maxlength
+    - media_library
+    - text
+id: paragraph.landing_hero.default
+targetEntityType: paragraph
+bundle: landing_hero
+mode: default
+content:
+  field_bg_color_gray_purple:
+    type: options_buttons
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_button:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 25
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+  field_description:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 255
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_link_url:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 25
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+hidden:
+  created: true
+  status: true

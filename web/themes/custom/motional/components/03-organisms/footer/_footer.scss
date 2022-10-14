@@ -1,0 +1,124 @@
+.footer {
+  @extend .wrapper-full;
+  background: linear-gradient(90deg, rgba(215 227 227 / 100%) 0%, rgba(255 255 255 / 100%) 100%);
+  position: relative;
+
+  &__wrapper {
+    @extend .wrapper;
+    margin: 4rem auto;
+    position: relative;
+  }
+
+  &__logo {
+    margin-bottom: 2rem;
+
+    @include breakpoint($large-tablet) {
+      margin: 0 10rem;
+      padding: 5px 0;
+    }
+  }
+
+  &__navigation {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    @include breakpoint($large-tablet) {
+      align-items: flex-end;
+      flex-direction: row;
+    }
+
+    ul {
+      @include list-unstyled;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      margin: 0;
+      text-align: center;
+
+      @include breakpoint($large-tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+
+      li {
+        @include font-size(14, 21);
+        font-weight: 700;
+        margin: 2rem;
+
+        @include breakpoint($large-tablet) {
+          margin: 0 2rem;
+        }
+
+        a {
+          color: $black;
+
+          &:hover {
+            color: $purple;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    align-items: center;
+    border-top: 1px solid $purple;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    position: relative;
+
+    @include breakpoint($large-tablet) {
+      flex-direction: row;
+    }
+
+    &:after {
+      background: #ebf1f1;
+      border: 1px solid $purple;
+      border-radius: 100%;
+      content: '';
+      height: .6rem;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translate3d(-50%, -50%, 0);
+      width: .6rem;
+      z-index: 1;
+
+      @include breakpoint($large-tablet) {
+        bottom: 10rem;
+      }
+    }
+
+    &:before {
+      background: #ebf1f1;
+      content: '';
+      height: 1.8rem;
+      left: 50%;
+      position: absolute;
+      top: -1rem;
+      transform: translateX(-50%);
+      width: 1.8rem;
+      z-index: 1;
+
+      @include breakpoint($large-tablet) {
+        bottom: 10.5rem;
+      }
+    }
+  }
+
+  &__copyright {
+    @include font-size(14, 21);
+    font-weight: 400;
+
+    @include breakpoint($large-tablet) {
+      margin-left: 8.6rem;
+    }
+  }
+}

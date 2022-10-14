@@ -1,0 +1,5 @@
+.text-block-wrapper {
+  .layout--onecol & {
+    @extend .wrapper;
+  }
+}

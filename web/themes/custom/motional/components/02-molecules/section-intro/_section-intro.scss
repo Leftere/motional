@@ -1,0 +1,66 @@
+.section-intro {
+  $self: &;
+
+  &__wrapper {
+    @extend .wrapper;
+
+    #{$self}--left & {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint($large-tablet) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__title {
+    @extend %h2;
+    margin: 0;
+  }
+
+  .front & {
+    #{$self}__title {
+      @extend %h1;
+      max-width: 8em;
+    }
+  }
+
+  &--left {
+    padding-bottom: 6.8rem;
+    padding-top: 6.8rem;
+
+    @include breakpoint($large-tablet) {
+      padding-bottom: 11.2rem;
+      padding-top: 11.2rem;
+    }
+
+    #{$self}__left {
+      flex: 0 0 50%;
+      width: 100%;
+    }
+
+    #{$self}__right {
+      flex: 0 0 50%;
+      width: 100%;
+    }
+  }
+
+  &--center {
+    padding-bottom: 6rem;
+    padding-top: 6rem;
+    text-align: center;
+
+    @include breakpoint($large-tablet) {
+      padding-bottom: 6rem;
+      padding-top: 13rem;
+    }
+  }
+
+  &--has-label {
+    #{$self}__right {
+      padding-top: 4rem;
+    }
+  }
+}

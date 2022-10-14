@@ -1,0 +1,7 @@
+text_block_modifiers: ['half']
+image_src: 'https://picsum.photos/id/237/900/800'
+image_alt: 'sample alt'
+large_title_element:
+  - 'h3'
+large_title: 'Lorem ipsum dolor sit'
+body: '<p>Lorem ipsum dolor sit amet, consect adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Lorem ipsum dolor sit amet, consect adipiscing elit. Aenean euismod bibendum laoreet.</p>'

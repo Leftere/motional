@@ -1,0 +1,10 @@
+{% set email_contact_block_wrapper_base_class = email_contact_block_wrapper_base_class|default('email-contact-block') %}
+
+<div {{ bem(email_contact_block_wrapper_base_class) }}>
+  {% for item in data.items %}
+    {% include "@molecules/email-contact-block/email-contact.twig" with {      
+      label: item.label,
+      email_contact: item.email_contact
+    } %}
+  {% endfor %}
+</div>

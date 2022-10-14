@@ -1,0 +1,4 @@
+button_content: 'Read more'
+button_url: '#'
+button_modifiers:
+  - 'secondary'

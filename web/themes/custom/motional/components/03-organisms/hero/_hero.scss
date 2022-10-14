@@ -1,0 +1,445 @@
+.hero {
+  @extend .wrapper-full;
+  background-image: linear-gradient(214deg, #fff 0%, #d7e3e3 100%);
+  position: relative;
+
+  $self: &;
+
+  &__content {
+    padding-bottom: 5rem;
+    padding-top: 3rem;
+
+    h1 {
+      margin: 0;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      max-width: 32rem;
+    }
+  }
+
+  &__meta {
+    span:not(:last-child) {
+      &:after {
+        content: '|';
+        display: inline-block;
+        margin: 0 .5rem;
+      }
+    }
+  }
+
+  &__topic {
+    font-weight: 700;
+    text-transform: uppercase;
+
+    a {
+      color: $purple-light;
+    }
+  }
+
+  &--white-purple {
+    background: $white;
+  }
+
+  &--gray {
+    align-items: center;
+    background-image: url('/images/gray-hero-bg--mobile.svg'), linear-gradient(214deg, #fff 0%, #d7e3e3 100%);
+    background-position: top left;
+    background-repeat: no-repeat;
+    display: flex;
+    min-height: 454px;
+
+    @include breakpoint($large-tablet) {
+      background-image: url('/images/gray-hero-bg.svg'), linear-gradient(214deg, #fff 0%, #d7e3e3 100%);
+      background-position: top right, center center;
+      background-size: cover, auto;
+    }
+
+    &#{$self}--with-image {
+      background-image: linear-gradient(214deg, #fff 0%, #d7e3e3 100%);
+    }
+  }
+
+  &--home {
+    @include breakpoint($large-tablet) {
+      aspect-ratio: 1400 / 705;
+      margin-bottom: 20rem;
+      max-height: 705px;
+    }
+
+    &:after {
+      aspect-ratio: 515 / 1092;
+      background-image: url('/images/homepage-hero.svg');
+      background-repeat: no-repeat;
+      content: '';
+      left: 0%;
+      pointer-events: none;
+      position: absolute;
+      top: 41%;
+      width: 100%;
+      z-index: 0;
+
+      @include breakpoint($tablet) {
+        left: unset;
+        max-width: 100%;
+        max-width: 1092px;
+        right: -10%;
+        top: 40%;
+        width: 80%;
+      }
+
+      @include breakpoint($desktop) {
+        right: 0;
+        top: 50%;
+      }
+    }
+
+    #{$self}__inner {
+      @extend .wrapper;
+      display: flex;
+      flex-direction: column-reverse;
+
+      @include breakpoint($large-tablet) {
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+      }
+    }
+
+    #{$self}__picture,
+    .video {
+      aspect-ratio: .9 / 1;
+      margin-left: -3rem;
+      margin-right: -3rem;
+      margin-top: 2rem;
+      max-width: none;
+      min-height: 50rem;
+      position: relative;
+      width: calc(100% + 6rem);
+      z-index: 2;
+
+      @include breakpoint($large-tablet) {
+        bottom: -10%;
+        left: auto;
+        margin: 0;
+        max-width: 40%;
+        position: absolute;
+        right: 5%;
+        width: 100%;
+      }
+
+      @include breakpoint($desktop) {
+        max-width: 61.4rem;
+        min-height: 60rem;
+      }
+
+      @include breakpoint($large-desktop) {
+        right: 10%;
+      }
+
+      iframe,
+      video,
+      img {
+        clip-path: polygon(0 0, 100% 0, 100% 87%, 70% 100%, 0 100%);
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    .media-background {
+      background-color: $white;
+      bottom: 0;
+      clip-path: polygon(113% 0, 100% 0, 100% 100%, 0% 100%);
+      display: block;
+      height: 6rem;
+      position: absolute;
+      right: 0;
+      width: 10rem;
+      z-index: 0;
+
+      @include breakpoint($large-tablet) {
+        height: 77%;
+        width: 60%;
+      }
+
+      .icon {
+        bottom: 2px;
+        color: $purple;
+        display: block;
+        height: 8px;
+        position: absolute;
+        right: 30%;
+        width: 15px;
+
+        @include breakpoint($large-tablet) {
+          left: 15%;
+          right: unset;
+        }
+      }
+    }
+
+    #{$self}__content {
+      .label {
+        display: flex;
+
+        &__icon {
+          .icon {
+            max-height: 4.2rem;
+            max-width: 7.2rem;
+          }
+        }
+      }
+
+      img {
+        margin-bottom: 3rem;
+      }
+    }
+
+    #{$self}__heading {
+      @include breakpoint($tablet) {
+        max-width: 7em;
+      }
+
+      em {
+        color: $purple;
+        font-style: normal;
+      }
+    }
+  }
+
+  &--landing {
+    overflow: hidden;
+
+    @include breakpoint($large-tablet) {
+      aspect-ratio: 1400 / 569;
+      max-height: 569px;
+    }
+
+    #{$self}__inner {
+      @extend .wrapper;
+      display: flex;
+      flex-direction: column-reverse;
+
+      @include breakpoint($large-tablet) {
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+      }
+    }
+
+    #{$self}__heading {
+      max-width: 9em;
+    }
+
+    #{$self}__picture {
+      align-self: flex-end;
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+      margin-left: -5rem;
+      margin-right: -5rem;
+      max-width: none;
+      width: calc(100% + 10rem);
+
+      @include breakpoint($large-tablet) {
+        bottom: 0;
+        clip-path: polygon(65% 0, 100% 0, 100% 100%, 0% 100%);
+        height: 100%;
+        left: 20%;
+        margin: 0;
+        order: 2;
+        position: absolute;
+        right: 0;
+        width: 100%;
+      }
+    }
+
+    #{$self}__image {
+      height: 100%;
+      left: 0;
+      object-fit: cover;
+      object-position: center left;
+      width: 100%;
+
+      @include breakpoint($large-tablet) {
+        margin: 0;
+      }
+    }
+  }
+
+  &--news {
+    background-image: linear-gradient(214deg, #fff 0%, #d7e3e3 100%);
+
+    @include breakpoint($large-tablet) {
+      min-height: 430px;
+    }
+
+    #{$self}__inner {
+      @extend .wrapper;
+      display: flex;
+      flex-direction: column-reverse;
+
+      @include breakpoint($large-tablet) {
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+      }
+    }
+
+    #{$self}__heading {
+      max-width: 12em;
+    }
+  }
+
+  &--video {
+    .video__play,
+    .video__pause {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      bottom: 0;
+      color: $white;
+      cursor: pointer;
+      left: 0;
+      padding: 1rem;
+      position: absolute;
+
+      svg {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+
+    .video__play {
+      display: block;
+    }
+
+    .video__pause {
+      display: none;
+    }
+
+    &.is-playing {
+      .video__play {
+        display: none;
+      }
+
+      .video__pause {
+        display: block;
+      }
+    }
+  }
+
+  &--bio-details {
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(207 222 222 / 100%) 0%,
+        rgba(239 244 244 / 100%) 35%,
+        rgba(255 255 255 / 100%) 100%
+      );
+    position: relative;
+
+    @include breakpoint($large-tablet) {
+      max-height: 513px;
+    }
+
+    #{$self}__inner {
+      @extend.wrapper;
+      display: flex;
+      flex-direction: column-reverse;
+
+      @include breakpoint($large-tablet) {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &:before {
+        background-image: url('/images/bio-bg-shapes--mobile.svg');
+        background-repeat: no-repeat;
+        content: '';
+        height: 100%;
+        max-width: 394px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+
+        @include breakpoint($large-tablet) {
+          background-image: url('/images/bio-bg-shapes.svg');
+          bottom: -15rem;
+          height: calc(100% + 15rem);
+          max-height: 656px;
+          max-width: 596px;
+        }
+      }
+    }
+
+    #{$self}__content {
+      @include breakpoint($large-tablet) {
+        max-width: 50%;
+      }
+    }
+
+    #{$self}__picture {
+      margin-left: -5rem;
+      margin-right: -5rem;
+      max-width: none;
+      padding: 2rem;
+      position: relative;
+      width: calc(100% + 10rem);
+      z-index: 2;
+
+      @include breakpoint($large-tablet) {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        max-width: 50%;
+        padding: 0;
+        transform: translateY(69px);
+        width: 100%;
+      }
+    }
+
+    #{$self}__image {
+      aspect-ratio: 261 / 244;
+      clip-path: polygon(0 0, 100% 0, 100% 84%, 70% 100%, 0 100%);
+      max-width: 522px;
+      object-fit: cover;
+      transition: transform .8s cubic-bezier(.165, .84, .44, 1);
+      width: 100%;
+
+      @include breakpoint($large-tablet) {
+        margin: 0;
+      }
+    }
+  }
+
+  &--purple {
+    align-items: center;
+    background-color: $purple-light;
+    background-image: url('/images/purple-hero-bg--mobile.svg');
+    background-position: top left;
+    background-repeat: no-repeat;
+    color: $white;
+    display: flex;
+    min-height: 454px;
+
+    @include breakpoint($large-tablet) {
+      background-image: url('/images/purple-hero-bg.svg');
+      background-position: top right;
+      background-size: cover;
+    }
+
+    .label__icon svg,
+    .label__link {
+      color: $white;
+    }
+
+    #{$self}__picture {
+      display: none;
+    }
+  }
+}

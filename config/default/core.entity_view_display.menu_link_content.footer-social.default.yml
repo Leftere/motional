@@ -1,0 +1,27 @@
+uuid: a2589b00-be26-4295-b3d8-dcdcf69255cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.footer-social.field_social_media_icon
+    - system.menu.footer-social
+id: menu_link_content.footer-social.default
+targetEntityType: menu_link_content
+bundle: footer-social
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_social_media_icon:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

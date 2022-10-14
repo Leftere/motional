@@ -1,0 +1,56 @@
+// ================================== //
+//    #CORE/HTML - HEADING ELEMENTS
+// ================================== //
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $sans;
+}
+
+h1,
+.h1 {
+  @include font-size(41, 44);
+  font-weight: 300;
+
+  @include breakpoint($desktop) {
+    @include font-size(65, 70);
+  }
+}
+
+h2,
+.h2 {
+  @include font-size(25, 20);
+  font-weight: 300;
+
+  @include breakpoint($desktop) {
+    @include font-size(41, 44);
+  }
+}
+
+h3,
+.h3 {
+  @include font-size(25, 20);
+  font-weight: 600;
+}
+
+h4,
+.h4 {
+  @include font-size(18, 30);
+  font-weight: 700;
+}
+
+h5,
+.h5 {
+  @include font-size(23, 21);
+  font-weight: 500;
+}
+
+h6,
+.h6 {
+  @include font-size(16, 25);
+  font-weight: 700;
+}

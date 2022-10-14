@@ -1,0 +1,47 @@
+uuid: 74fd93e3-98a5-4d84-892d-d1181125063d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.numbered_list_column.field_description
+    - field.field.paragraph.numbered_list_column.field_icon
+    - field.field.paragraph.numbered_list_column.field_small_title
+    - paragraphs.paragraphs_type.numbered_list_column
+  module:
+    - maxlength
+    - motional_customizations
+    - text
+id: paragraph.numbered_list_column.default
+targetEntityType: paragraph
+bundle: numbered_list_column
+mode: default
+content:
+  field_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: false
+  field_icon:
+    type: options_icons
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_small_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

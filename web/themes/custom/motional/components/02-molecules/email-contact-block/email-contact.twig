@@ -1,0 +1,10 @@
+{% set url = 'mailto:' ~ email_contact %}
+
+<div class="email-contact">
+  {% if label %}
+    <h4>{{ label }}</h4>
+  {% endif %}
+  <a href={{url}} target="_blank">
+    {{ email_contact }}
+  </a>
+</div>

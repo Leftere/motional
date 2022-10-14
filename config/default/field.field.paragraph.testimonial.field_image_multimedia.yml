@@ -1,0 +1,31 @@
+uuid: 3ae777e2-5f5c-4735-9fd5-91f70c5b6f37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_multimedia
+    - media.type.embed_video
+    - media.type.image
+    - paragraphs.paragraphs_type.testimonial
+id: paragraph.testimonial.field_image_multimedia
+field_name: field_image_multimedia
+entity_type: paragraph
+bundle: testimonial
+label: Image/Multimedia
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      embed_video: embed_video
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: embed_video
+field_type: entity_reference

@@ -1,0 +1,24 @@
+{% extends "@molecules/carousel/carousel.twig" %}
+{% set carousel_modifiers = ['image'] %}
+
+{% block slide_content %}
+  <div class="glide__slide-content-container">
+    {% if loop.length > 1 %}
+      <span class="count">{{ currentSlide }} / {{ slideLength }}</span>
+    {% endif %}
+    {% if slide.title %}
+      <h3 class="title">{{ slide.title }}</h3>
+    {% endif %}
+    <p class="paragraph">{{ slide.paragraph }}</p>
+    {% if slide.caption %}
+      <p class="caption">{{ slide.caption }}</p>
+    {% endif %}
+    {% if slide.cta_link %}
+      {% include '@atoms/buttons/button.twig' with { 
+        button_modifiers: ['secondary'],
+        button_url: slide.cta_link,
+        button_content: slide.cta_text
+      } %}
+    {% endif %}
+  </div>
+{% endblock %}

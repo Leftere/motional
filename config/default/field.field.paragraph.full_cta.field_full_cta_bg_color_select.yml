@@ -1,0 +1,23 @@
+uuid: 4c169962-6a4f-42a3-9ccf-be7072cba94c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_cta_bg_color_select
+    - paragraphs.paragraphs_type.full_cta
+  module:
+    - options
+id: paragraph.full_cta.field_full_cta_bg_color_select
+field_name: field_full_cta_bg_color_select
+entity_type: paragraph
+bundle: full_cta
+label: 'BG Color Select'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: purple
+default_value_callback: ''
+settings: {  }
+field_type: list_string

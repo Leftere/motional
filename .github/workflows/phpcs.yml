@@ -1,0 +1,33 @@
+name: PHP Code Sniffer
+
+on: pull_request
+
+jobs:
+  phpcs:
+    name: Drupal coding standards
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+        continue-on-error: true
+
+      - name: List changed files
+        run: |
+          echo "Files added or modified in this PR:"
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
+            echo "${changed_file}"
+          done
+          echo ""
+
+      - name: Install PHP Code Sniffer
+        run: |
+          composer require --no-interaction --dev dealerdirect/phpcodesniffer-composer-installer
+          composer config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer require --no-interaction --dev drupal/coder
+
+      - name: Check coding standards
+        run: |
+          vendor/bin/phpcs --ignore=*.twig ${{ steps.files.outputs.added_modified }}

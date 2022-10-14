@@ -1,0 +1,130 @@
+// Sass map to define colors. Each set should have a "Dark" variation when required.
+// e.g. `default` and `default-dark`. Or `purple` and `purple-dark`.
+$button-colors: (
+  primary: (
+    text: clr(text-inverse),
+    bg: clr(primary),
+    text-hover: clr(text-inverse),
+    bg-hover: clr(primary),
+  ),
+  primary-dark: (
+    text: clr(text),
+    bg: clr(primary),
+    text-hover: clr(text),
+    bg-hover: clr(highlight-high),
+  ),
+  secondary: (
+    text: $purple,
+    bg: transparent,
+    text-hover: $purple,
+    bg-hover: transparent,
+  ),
+  secondary-dark: (
+    text: $white,
+    bg: transparent,
+    text-hover: $white,
+    bg-hover: transparent,
+  ),
+  primary-link: (
+    text: $purple-light,
+    bg: transparent,
+    text-hover: $white,
+    bg-hover: transparent,
+  ),
+);
+
+// Mixin to define colors for one or more schemes.
+// Simply pass the color scheme to the mixin to get the colors defined in the map.
+// e.g. @include button-colors(default) will get all of the colors defined in the "default" section.
+@mixin button-colors($scheme, $pallate: map.get($button-colors, $scheme), $map: $button-colors) {
+  background-color: map.get($pallate, bg);
+  color: map.get($pallate, text);
+
+  &:visited {
+    color: map.get($pallate, text);
+  }
+
+  &:hover {
+    background-color: map.get($pallate, bg-hover);
+    color: map.get($pallate, text-hover);
+  }
+}
+
+// The button-base mixin contains styles that apply to all buttons
+// regardless of color or size.
+@mixin button-base {
+  background-color: $gray-lighter;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  padding: .8rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+}
+
+// Button color variations
+@mixin button-color-primary {
+  @include button-colors(primary);
+
+  .button__icon {
+    color: $blue;
+  }
+}
+
+@mixin button-color-secondary {
+  @include button-colors(secondary);
+}
+
+@mixin primary-link {
+  @include button-colors(primary-link);
+}
+
+.button {
+  @include button-base;
+
+  &__inner {
+    @include font-size(14, 21);
+
+    @extend %font-smoothing;
+    align-items: center;
+    display: flex;
+    font-family: $sans;
+    justify-content: center;
+  }
+
+  &__icon {
+    display: inline-block;
+    margin-right: 1.4rem;
+
+    svg {
+      max-height: 1.2rem;
+      max-width: 1.4rem;
+    }
+  }
+
+  &--primary {
+    @include button-color-primary;
+    padding: .8rem 3rem .8rem 2.5rem;
+    transform: skew(-20deg);
+
+    .button__inner {
+      transform: skew(20deg);
+    }
+
+    &.search-again {
+      margin-bottom: 4rem;
+    }
+  }
+
+  &--secondary {
+    @include button-color-secondary;
+    padding: .8rem 0;
+  }
+
+  &--link {
+    @include primary-link;
+    background: transparent;
+  }
+}

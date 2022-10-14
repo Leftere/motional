@@ -1,0 +1,6 @@
+data:
+  items:
+    - label: "For press inquiries"
+      email_contact: "press@example.com"
+    - label: "For business inquiries"
+      email_contact: "business@example.com"

@@ -1,0 +1,18 @@
+social_media:
+title: "Follow us"
+social_links:
+  - item_icon: "images/icons/twitter.svg"
+    item_href: "#"
+    item_title: "facebook"
+  - item_icon: "images/icons/twitter.svg"
+    item_href: "#"
+    item_title: "instagram"
+  - item_icon: "images/icons/twitter.svg"
+    item_href: "#"
+    item_title: "youtube"
+  - item_icon: "images/icons/twitter.svg"
+    item_href: "#"
+    item_title: "twitter"
+  - item_icon: "images/icons/twitter.svg"
+    item_href: "#"
+    item_title: "LinkedIn"

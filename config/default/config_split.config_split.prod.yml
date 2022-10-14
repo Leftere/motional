@@ -1,0 +1,21 @@
+uuid: 3a0e8c8e-0217-4077-83a5-2d08f2a45a48
+langcode: en
+status: false
+dependencies: {  }
+id: prod
+label: 'Prod '
+description: 'The Pantheon production environment'
+weight: 0
+stackable: false
+storage: folder
+folder: ../config/envs/prod
+module:
+  simple_sitemap_engines: 0
+theme: {  }
+complete_list:
+  - system.logging
+  - simple_sitemap_engines.simple_sitemap_engine.bing
+  - simple_sitemap_engines.simple_sitemap_engine.google
+  - simple_sitemap_engines.simple_sitemap_engine.index_now
+  - simple_sitemap_engines.simple_sitemap_engine.yandex
+partial_list: {  }

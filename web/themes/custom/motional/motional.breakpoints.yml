@@ -1,0 +1,15 @@
+motional.small:
+  label: small
+  mediaQuery: 'all and (min-width: 25em)'
+motional.small-med:
+  label: small-med
+  mediaQuery: 'all and (min-width: 26em)'
+motional.small-large:
+  label: small-large
+  mediaQuery: 'all and (min-width: 41em)'
+motional.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 48em)'
+motional.large:
+  label: large
+  mediaQuery: 'all and (min-width: 61.25em)'

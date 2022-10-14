@@ -1,0 +1,26 @@
+uuid: a40f1798-ebbd-489e-879f-0aa82749ddea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.timeline
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - formatted
+id: paragraph.timeline.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: timeline
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

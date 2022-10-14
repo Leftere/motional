@@ -1,0 +1,203 @@
+{
+    "name": "acquia/drupal-minimal-project",
+    "description": "Minimal Acquia-compatible Drupal application based on the Drupal Recommended Project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Acquia Engineering",
+            "homepage": "https://www.acquia.com",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "acquia/blt": "^13.0",
+        "composer/installers": "^1.9",
+        "cweagans/composer-patches": "^1.6",
+        "drupal/address": "^1.10",
+        "drupal/admin_toolbar": "^3.1",
+        "drupal/allowed_formats": "^1.5",
+        "drupal/auto_entitylabel": "^3.0@beta",
+        "drupal/better_exposed_filters": "^5.2",
+        "drupal/block_field": "^1.0@RC",
+        "drupal/ckeditor_blockquote_attribution": "^1.0",
+        "drupal/components": "^2.4",
+        "drupal/config_ignore": "^2.3",
+        "drupal/config_split": "^2.0@RC",
+        "drupal/core-composer-scaffold": "^9",
+        "drupal/core-recommended": "^9",
+        "drupal/dropzonejs": "^2.6",
+        "drupal/editor_file": "^1.6",
+        "drupal/emulsify_twig": "^2.1",
+        "drupal/fpa": "^3.0",
+        "drupal/gin": "^3.0@beta",
+        "drupal/google_tag": "^1.5",
+        "drupal/layout_paragraphs": "^2",
+        "drupal/maxlength": "dev-2.0.x",
+        "drupal/menu_item_extras": "^2.17",
+        "drupal/metatag": "^1.22",
+        "drupal/miniorange_saml": "^2.27",
+        "drupal/optional_end_date": "^1.2",
+        "drupal/pantheon_advanced_page_cache": "^2.0",
+        "drupal/path_redirect_import": "^2.0",
+        "drupal/pathauto": "^1.11",
+        "drupal/publishcontent": "^1.5",
+        "drupal/rabbit_hole": "^1.0@beta",
+        "drupal/redirect": "^1.8",
+        "drupal/redis": "^1.5",
+        "drupal/simple_sitemap": "^4.1",
+        "drupal/smart_trim": "^1.3",
+        "drupal/social_media_links": "^2.8",
+        "drupal/style_options": "^1.0@alpha",
+        "drupal/svg_image": "^1.16",
+        "drupal/token": "^1.10",
+        "drupal/view_unpublished": "^1.0",
+        "drupal/views_infinite_scroll": "^2.0",
+        "drush/drush": "^11",
+        "enyo/dropzone": "^5.9",
+        "pantheon-systems/drupal-integrations": "^9"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "acquia/blt": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "mnsami/composer-custom-directory-installer": true
+        },
+        "platform": {
+            "php": "7.4"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "autoload": {
+            "classmap": [
+                "upstream-configuration/scripts/ComposerScripts.php"
+            ]
+        },
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[web-root]/sites/default/default.services.yml": {
+                    "mode": "replace",
+                    "overwrite": false,
+                    "path": "web/core/assets/scaffold/files/default.services.yml"
+                },
+                "[web-root]/sites/default/default.settings.php": {
+                    "mode": "replace",
+                    "overwrite": false,
+                    "path": "web/core/assets/scaffold/files/default.settings.php"
+                },
+                "[web-root]/sites/default/settings/local.settings.php": {
+                    "mode": "replace",
+                    "path": ".docksal/settings/default.local.settings.php",
+                    "overwrite": false
+                }
+            },
+            "gitignore": true,
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "enable-patching": true,
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/address": {
+                "Allow hiding display of country for domestic addresses": "https://www.drupal.org/files/issues/2019-02-21/hide_domestic_country_2753899-20.patch"
+            },
+            "drupal/layout_paragraphs": {
+                "Allow passing custom query parameters to paragraph forms": "./patches/layout_paragraphs_custom_query_params.patch"
+            },
+            "drupal/maxlength": {
+                "New lines and spaces are miscounted": "./patches/maxlength-force-settings.patch"
+            },
+            "drupal/core":  {
+                "Make exposed filter values available as tokens for text areas": "https://www.drupal.org/files/issues/2021-07-02/2761273-39.patch"
+            }
+        },
+        "violinist": {
+            "allow_updates_beyond_constraint": 0,
+            "blocklist": [
+                "drupal/core-composer-scaffold"
+            ],
+            "bundled_packages": {
+                "drupal/core-recommended": [
+                    "drupal/core-composer-scaffold"
+                ]
+            }
+        }
+    },
+    "scripts": {
+        "post-drupal-scaffold-cmd": [
+            "cd web && patch -p1 < ../patches/services.patch"
+        ]
+    },
+    "repositories": {
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "dropzone": {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "5.9.3",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/enyo/dropzone/archive/v5.9.3.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "upstream-configuration": {
+            "type": "path",
+            "url": "upstream-configuration",
+            "options": {
+                "versions": {
+                    "pantheon-upstreams/upstream-configuration": "dev-main"
+                }
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

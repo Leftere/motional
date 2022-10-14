@@ -1,0 +1,100 @@
+uuid: 4ef7656d-dce6-4ee3-8fc7-e0801f2e1945
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_numbered_list_columns
+    - paragraphs.paragraphs_type.numbered_list
+    - paragraphs.paragraphs_type.numbered_list_column
+  module:
+    - entity_reference_revisions
+id: paragraph.numbered_list.field_numbered_list_columns
+field_name: field_numbered_list_columns
+entity_type: paragraph
+bundle: numbered_list
+label: 'Numbered List Columns'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      numbered_list_column: numbered_list_column
+    negate: 0
+    target_bundles_drag_drop:
+      angled_image:
+        weight: 25
+        enabled: false
+      banner_cta:
+        weight: 26
+        enabled: false
+      block:
+        weight: 27
+        enabled: false
+      carousel:
+        weight: 28
+        enabled: false
+      featured_video_text_block:
+        weight: 29
+        enabled: false
+      full_cta:
+        weight: 30
+        enabled: false
+      homepage_hero:
+        weight: 31
+        enabled: false
+      image:
+        weight: 32
+        enabled: false
+      job_list:
+        weight: 33
+        enabled: false
+      landing_hero:
+        weight: 34
+        enabled: false
+      layout:
+        weight: 35
+        enabled: false
+      numbered_list:
+        weight: 36
+        enabled: false
+      numbered_list_column:
+        weight: 37
+        enabled: true
+      partner_logos:
+        weight: 38
+        enabled: false
+      related_articles:
+        weight: 39
+        enabled: false
+      resource_cards:
+        weight: 40
+        enabled: false
+      section_intro:
+        weight: 41
+        enabled: false
+      statistic:
+        weight: 42
+        enabled: false
+      testimonial:
+        weight: 43
+        enabled: false
+      text:
+        weight: 44
+        enabled: false
+      text_block:
+        weight: 45
+        enabled: false
+      timeline:
+        weight: 46
+        enabled: false
+      timeline_item:
+        weight: 47
+        enabled: false
+      two_image_drag:
+        weight: 48
+        enabled: false
+field_type: entity_reference_revisions

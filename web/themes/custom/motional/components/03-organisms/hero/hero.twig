@@ -1,0 +1,102 @@
+{% if not hero_modifiers %}
+  {% set hero_modifiers = [] %}
+{% endif %}
+
+{% set hero_base_class = hero_base_class|default('hero') %}
+
+{% set defaultImage = directory ? '/' ~ directory ~ '/images/purple-grid.webp' : 'images/purple-grid.webp' %}
+
+{% if hero_background %}
+  {% set hero_modifiers = hero_modifiers|merge([hero_background]) %}
+{% endif %}
+
+{% if hero_image_src or hero_image_srcset %}
+  {% set hero_modifiers = hero_modifiers|merge(['with-image']) %}
+{% else %}
+  {% set hero_modifiers = hero_modifiers|merge(['no-image']) %}
+{% endif %}
+
+<div {{ bem(hero_base_class, hero_modifiers, hero_blockname) }}>
+  <div class="hero__inner">
+    <div class="hero__content">
+      {% if 'home' in hero_modifiers %}
+        {% include '@atoms/images/image/_image.twig' with {
+          image_src: logo_src,
+          image_alt: 'Motional'
+        } %}
+      {% else %}
+        {% if hero_label and hero_label_url %}
+          {% include '@atoms/text/label/label.twig' with {
+          'label': hero_label,
+          'label_url': hero_label_url
+        } %}
+        {% endif %}
+      {% endif %}
+
+      {% include '@atoms/text/headings/_heading.twig' with {
+        'heading_blockname': hero_base_class,
+        'heading_base_class': 'heading',
+        'heading_level': hero_heading_level,
+        'heading': hero_heading,
+      } %}
+      {% include '@atoms/text/text/01-paragraph.twig' with {
+        'paragraph_blockname': hero_base_class,
+        'paragraph_content': hero_description
+      } %}
+
+      <div class="hero__meta">
+        {% if hero_date %}
+          <span class="hero__date">{{ hero_date }}</span>
+        {% endif %}
+        {% if hero_author %}
+          <span class="hero__author">{{ hero_author }}{% if hero_author_title %}, {{ hero_author_title }}{% endif %}</span>
+        {% endif %}
+        {% if hero_topic %}
+          <span class="hero__topic">
+            <a href="{{ hero_topic_url }}">
+              {{ hero_topic }}
+            </a>
+          </span>
+        {% endif %}
+      </div>
+
+      {% if hero_button_label %}
+        {% include "@atoms/buttons/button.twig" with {
+          button_modifiers: ['primary'],
+          button_url: hero_button_url,
+          button_content: hero_button_label
+        } %}
+      {% endif %}
+
+      {% if social_links %}
+        {% include "@molecules/contact-sharing/contact-sharing.twig" with social_links %}
+      {% endif %}
+    </div>
+
+    {% block hero_image %}
+      {% if hero_image_src or hero_image_srcset %}
+        {% include '@atoms/images/image/responsive-image.twig' with {
+        'responsive_image_blockname': hero_base_class,
+        'responsive_image_base_class': 'picture',
+        'image_srcset': hero_image_srcset,
+        'image_sizes': hero_image_sizes,
+        'image_src': hero_image_src,
+        'image_alt': hero_image_alt
+      } %}
+      {% else %}
+        {% if 'white-purple' in hero_modifiers %}
+          {% include '@atoms/images/image/responsive-image.twig' with {
+            'responsive_image_blockname': hero_base_class,
+            'responsive_image_base_class': 'picture',
+            'image_src': defaultImage,
+            'image_alt': ''
+          } %}
+        {% endif %}
+      {% endif %}
+    {% endblock %}
+  </div>
+</div>
+{% if 'news' in hero_modifiers %}
+  {% include "@molecules/page-sharing/page-sharing.twig" %}
+{% endif %}
+

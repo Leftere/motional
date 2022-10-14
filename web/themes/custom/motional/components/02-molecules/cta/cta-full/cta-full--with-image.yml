@@ -1,0 +1,11 @@
+cta_full_container_modifiers: ['left']
+background_image_src: 'images/samples/full-cta-bg.jpg'
+background_image_alt: 'sample background alt'
+label: 'Mobility Report'
+title: 'Lorem ipsum dolor sit'
+subtitle: 'Lorem ipsum dolor si'
+description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.'
+button_content: 'Download'
+button_url: '#'
+image_src: 'images/samples/full-cta-sample.jpg'
+image_alt: 'sample alt'

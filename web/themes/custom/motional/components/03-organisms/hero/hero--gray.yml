@@ -1,0 +1,7 @@
+hero_modifiers:
+  - 'landing'
+hero_label: Motional Newsroom
+hero_label_url: '#'
+hero_heading: News & Blogs
+hero_heading_level: 1
+hero_background: gray

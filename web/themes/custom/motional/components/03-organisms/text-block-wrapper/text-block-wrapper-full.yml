@@ -1,0 +1,12 @@
+data:
+  text_block_modifiers: ['full']
+  large_title_element:
+    - 'h2'
+  button_modifiers:
+    - 'primary'
+  items:
+    - large_title: 'Lorem ipsum dolor sit'
+      small_title: 'Lorem ipsum dolor sit'
+      body: '<p>Lorem ipsum dolor sit amet, consect adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Lorem ipsum dolor sit amet, consect adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.</p><p>Lorem ipsum dolor sit amet, consect adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor.Lorem ipsum dolor sit amet, consect adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et <a href="#">viverra justo commodo</a>. Proin sodales pulvinar tempor.</p>'
+      button_url: '#'
+      button_content: 'Learn More'

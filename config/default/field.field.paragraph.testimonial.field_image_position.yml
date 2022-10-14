@@ -1,0 +1,23 @@
+uuid: 4049f6d7-9181-4062-bbf3-3019f317d687
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_position
+    - paragraphs.paragraphs_type.testimonial
+  module:
+    - options
+id: paragraph.testimonial.field_image_position
+field_name: field_image_position
+entity_type: paragraph
+bundle: testimonial
+label: 'Image Position'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: right
+default_value_callback: ''
+settings: {  }
+field_type: list_string

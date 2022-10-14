@@ -1,0 +1,29 @@
+uuid: 715d6fd8-70fc-4e17-a735-1cfa34ad3e58
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_social_media_icon
+    - media.type.image
+    - system.menu.footer-social
+id: menu_link_content.footer-social.field_social_media_icon
+field_name: field_social_media_icon
+entity_type: menu_link_content
+bundle: footer-social
+label: 'Social media icon'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

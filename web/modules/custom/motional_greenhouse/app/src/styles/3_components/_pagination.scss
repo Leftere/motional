@@ -1,0 +1,39 @@
+.pagination {
+  ul {
+    @include list-unstyled;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint($desktop) {
+      justify-content: flex-start;
+    }
+  }
+
+  li {
+    &.selected {
+      a {
+        font-weight: bold;
+        text-decoration: underline;
+        color: $purple;
+      }
+    }
+
+    a {
+      color: $black;
+      cursor: pointer;
+      display: block;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      svg {
+        color: $purple;
+        height: 1em;
+        width: 1em;
+      }
+
+      @include breakpoint($tablet) {
+        padding: 1rem;
+      }
+    }
+  }
+}

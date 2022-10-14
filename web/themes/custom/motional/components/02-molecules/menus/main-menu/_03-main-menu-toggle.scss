@@ -1,0 +1,44 @@
+/* Toggle */
+.toggle-expand {
+  display: inline-block;
+  height: 2.2rem;
+  text-decoration: none;
+
+  @include breakpoint($large-tablet) {
+    display: none;
+  }
+}
+
+/* SVG icon */
+.toggle-expand__icon {
+  color: $white;
+  height: 2.2rem;
+  margin: 0 auto;
+  width: 2.9rem;
+}
+
+.toggle-expand__open {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+
+  .toggle-expand--open & {
+    display: none;
+  }
+}
+
+.toggle-expand__close {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  text-align: center;
+
+  .toggle-expand--open & {
+    display: inline-block;
+  }
+}

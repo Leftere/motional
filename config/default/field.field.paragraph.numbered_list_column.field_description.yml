@@ -1,0 +1,26 @@
+uuid: c0745e8c-e73f-4b91-a82e-9de1bc478363
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.numbered_list_column
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - formatted
+id: paragraph.numbered_list_column.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: numbered_list_column
+label: Body
+description: 'Recommend from 1 to 3 sentences.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

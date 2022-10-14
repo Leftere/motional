@@ -1,0 +1,21 @@
+.margin-added {
+  margin: 25px;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.lpb-component-list__group--content {
+  border-top: 1px solid #aaa;
+}
+
+.lpb-enable,
+.lpb-btn,
+.js-lpb-ui {
+  z-index: 100;
+}
+
+.lpb-controls-label {
+  color: #000;
+}

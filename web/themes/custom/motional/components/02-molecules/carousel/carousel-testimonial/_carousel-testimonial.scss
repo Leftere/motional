@@ -1,0 +1,240 @@
+.carousel--testimonial {
+  background: clr(brand-light-purple);
+  padding: 0;
+
+  @include breakpoint($tablet) {
+    padding: 7.8rem 0;
+  }
+
+  @include breakpoint($desktop) {
+    padding: 9.8rem 0;
+  }
+
+  &.carousel--no-controls {
+    @include breakpoint(max-width $tablet - 1) {
+      .glide--content .glide__slide-content-container {
+        padding: 3rem;
+      }
+    }
+  }
+
+  .carousel__container {
+    @extend %wrapper;
+
+    @include container($desktop);
+
+    @include breakpoint($tablet) {
+      align-items: center;
+      display: flex;
+      position: relative;
+    }
+
+    @include breakpoint(max-width $tablet - 1) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .glide--content {
+      color: $white;
+
+      @include breakpoint($tablet) {
+        max-width: 50%;
+        order: 1;
+      }
+    }
+
+    .glide--images {
+      @include breakpoint($tablet) {
+        max-width: 50%;
+        order: 2;
+      }
+    }
+  }
+
+  .glide__track {
+    height: 100%;
+  }
+
+  .glide__slides {
+    height: 100%;
+  }
+
+  .glide--content {
+    .glide__arrows {
+      @include breakpoint(max-width $tablet - 1) {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+
+        .glide__arrow {
+          bottom: 0;
+          top: 0;
+          transform: none;
+        }
+      }
+    }
+
+    .glide__slides {
+      @include breakpoint($tablet) {
+        cursor: default;
+        transition: none !important;
+      }
+    }
+
+    .glide__slide-container {
+      align-items: center;
+      display: flex;
+      height: 100%;
+    }
+
+    .glide__slide-content {
+      color: $white;
+    }
+
+    .glide__slide-content-container {
+      padding: 3rem 6.5rem;
+
+      @include breakpoint($tablet) {
+        padding-right: 6rem;
+      }
+
+      @include breakpoint($desktop) {
+        padding-right: 8rem;
+      }
+
+      > .icon {
+        color: $white;
+        height: 4rem;
+        margin-bottom: 2.5rem;
+        width: 4rem;
+
+        @include breakpoint($tablet) {
+          height: 5rem;
+          margin-bottom: 3.4rem;
+          width: 5rem;
+        }
+
+        @include breakpoint($desktop) {
+          height: 6rem;
+          width: 6rem;
+        }
+      }
+
+      .quote {
+        @extend %font-smoothing;
+
+        @include font-size(16, 24);
+        font-weight: 300;
+        letter-spacing: .8px;
+        margin-bottom: 1.5rem;
+        margin-top: 0;
+
+        @include breakpoint($tablet) {
+          @include font-size(20, 34);
+          margin-bottom: 3rem;
+        }
+
+        @include breakpoint($desktop) {
+          @include font-size(26, 40);
+          letter-spacing: 1.3px;
+          max-width: 16em;
+        }
+      }
+
+      .author {
+        font-weight: 300;
+        margin: 0;
+
+        span {
+          @extend %font-smoothing;
+
+          @include font-size(14, 21);
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
+
+      .button {
+        color: $white;
+        margin-top: 2rem;
+
+        @include breakpoint($tablet) {
+          margin-top: 4rem;
+        }
+
+        &__icon {
+          color: clr(brand-blue);
+        }
+      }
+    }
+
+    .glide__arrows,
+    .glide__bullets {
+      @include breakpoint($tablet) {
+        display: none !important;
+      }
+    }
+  }
+
+  .glide--images {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .glide__slide-container,
+    .glide__track,
+    .glide__slides,
+    .glide__slide-image-container {
+      height: 100%;
+    }
+
+    .glide__slide-image {
+      aspect-ratio: 375 / 210;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+
+      @include breakpoint($tablet) {
+        aspect-ratio: 1 / 1;
+      }
+
+      img {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    .glide__arrows,
+    .glide__bullets {
+      @include breakpoint(max-width $tablet - 1) {
+        display: none !important;
+      }
+    }
+  }
+
+  .glide__arrow--right {
+    left: -2.95rem;
+    top: 50%;
+    transform: translateY(calc(-50% - 2.95rem));
+
+    @include breakpoint(max-width $tablet - 1) {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .glide__arrow--left {
+    left: -2.95rem;
+    top: 50%;
+    transform: translateY(calc(-50% + 2.95rem));
+
+    @include breakpoint(max-width $tablet - 1) {
+      left: 0;
+      right: auto;
+    }
+  }
+}

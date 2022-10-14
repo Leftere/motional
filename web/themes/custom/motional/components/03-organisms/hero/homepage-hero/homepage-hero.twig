@@ -1,0 +1,70 @@
+{% if not hero_modifiers %}
+  {% set hero_modifiers = [] %}
+{% endif %}
+{% set hero_base_class = hero_base_class|default('hero') %}
+{% set hero_modifiers = ['home'] %}
+
+{% set logo_src = directory ? '/' ~ directory ~ '/images/horizontal-logo.png' : 'images/horizontal-logo.png' %}
+
+{% if video_source %}
+  {% set hero_modifiers = hero_modifiers|merge(['video']) %}
+{% endif %}
+
+<div {{ bem(hero_base_class, hero_modifiers, hero_blockname) }}>
+  <div class="hero__inner">
+    <div class='hero__content'>
+      {% include '@atoms/images/image/_image.twig' with {
+        image_src: logo_src,
+        image_alt: 'Motional'
+      } %}
+
+      {% include '@atoms/text/headings/_heading.twig' with {
+        'heading_blockname': hero_base_class,
+        'heading_base_class': 'heading',
+        'heading_level': hero_heading_level,
+        'heading': hero_heading,
+      } %}
+      {% include '@atoms/text/text/01-paragraph.twig' with {
+        'paragraph_blockname': hero_base_class,
+        'paragraph_content': hero_description
+      } %}
+
+      {% if hero_button_label %}
+        {% include "@atoms/buttons/button.twig" with {
+          button_modifiers: ['primary'],
+          button_url: hero_button_url,
+          button_content: hero_button_label
+        } %}
+      {% endif %}
+    </div>
+
+    {% block hero_video %}
+      {% if 'video' in hero_modifiers %}
+        {% include '@atoms/video/hosted-video.twig' with {
+          'video_source': video_source,
+          'video_description': video_description,
+        } %}
+
+        <div class="media-background">
+          {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'single-arrow' } %}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block hero_image %}
+      {% if 'video' not in hero_modifiers %}
+        {% include '@atoms/images/image/responsive-image.twig' with {
+        'responsive_image_blockname': hero_base_class,
+        'responsive_image_base_class': 'picture',
+        'image_srcset': hero_image_srcset,
+        'image_sizes': hero_image_sizes,
+        'image_src': hero_image_src,
+        'image_alt': hero_image_alt
+      } %}
+        <div class="media-background">
+          {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'single-arrow' } %}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+</div>

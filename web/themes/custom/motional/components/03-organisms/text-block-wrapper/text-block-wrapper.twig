@@ -1,0 +1,22 @@
+{% set text_block_wrapper_base_class = text_block_wrapper_base_class|default('text-block-wrapper') %}
+
+<div {{ bem(text_block_wrapper_base_class, text_block_wrapper_modifiers, text_block_wrapper_blockname) }}>
+
+  {% for item in data.items %}
+    {% include "@molecules/text-block/text-block.twig" with {
+      text_block_modifiers: data.text_block_modifiers,
+      label: item.label,
+      large_title_element: data.large_title_element,
+      large_title: item.large_title,
+      small_title: item.small_title,
+      body: item.body,
+      divider: item.accent_bar,
+      button_url: item.button_url,
+      button_content: item.button,
+      button_modifiers: data.button_modifiers,
+      image_src: item.image_src,
+      image_alt: item.image_alt,
+    } %}
+  {% endfor %}
+
+</div>

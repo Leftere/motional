@@ -1,0 +1,106 @@
+uuid: c1024119-de8c-4cc8-93cb-db28d0f7667f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_email_contact
+    - paragraphs.paragraphs_type.email_contact
+    - paragraphs.paragraphs_type.email_contact_block
+  module:
+    - entity_reference_revisions
+id: paragraph.email_contact_block.field_email_contact
+field_name: field_email_contact
+entity_type: paragraph
+bundle: email_contact_block
+label: 'Email Contact'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      email_contact: email_contact
+    negate: 0
+    target_bundles_drag_drop:
+      angled_image:
+        weight: 27
+        enabled: false
+      banner_cta:
+        weight: 28
+        enabled: false
+      block:
+        weight: 29
+        enabled: false
+      carousel:
+        weight: 30
+        enabled: false
+      email_contact:
+        weight: 31
+        enabled: true
+      email_contact_block:
+        weight: 32
+        enabled: false
+      featured_video_text_block:
+        weight: 33
+        enabled: false
+      full_cta:
+        weight: 34
+        enabled: false
+      homepage_hero:
+        weight: 35
+        enabled: false
+      image:
+        weight: 36
+        enabled: false
+      job_list:
+        weight: 37
+        enabled: false
+      landing_hero:
+        weight: 38
+        enabled: false
+      latest_news:
+        weight: 39
+        enabled: false
+      layout:
+        weight: 40
+        enabled: false
+      numbered_list:
+        weight: 41
+        enabled: false
+      numbered_list_column:
+        weight: 42
+        enabled: false
+      partner_logos:
+        weight: 43
+        enabled: false
+      related_articles:
+        weight: 44
+        enabled: false
+      section_intro:
+        weight: 45
+        enabled: false
+      statistic:
+        weight: 46
+        enabled: false
+      testimonial:
+        weight: 47
+        enabled: false
+      text:
+        weight: 48
+        enabled: false
+      text_block:
+        weight: 49
+        enabled: false
+      timeline:
+        weight: 50
+        enabled: false
+      timeline_item:
+        weight: 51
+        enabled: false
+      two_image_drag:
+        weight: 52
+        enabled: false
+field_type: entity_reference_revisions

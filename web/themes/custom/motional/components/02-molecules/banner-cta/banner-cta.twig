@@ -1,0 +1,16 @@
+{% set banner_cta_base_class = banner_cta_base_class|default('banner-cta') %}
+
+<div {{ bem(banner_cta_base_class, banner_cta_modifiers, banner_cta_blockname) }}>
+  <div class="banner-cta__wrapper">
+    <p class="banner-cta__title">{{ banner_cta_title }}</p>
+
+    {% if banner_cta_link and banner_cta_link_url %}
+      {% include "@atoms/buttons/button.twig" with {
+        button_modifiers: ['link'],
+        button_icon: 'double-arrow',
+        button_content: banner_cta_link,
+        button_url: banner_cta_link_url
+      } %}
+    {% endif %}
+  </div>
+</div>

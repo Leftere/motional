@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  cli:
+    image: ${COMPOSE_PROJECT_NAME_SAFE}_cli
+    build: services/cli
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - "6006:6006"

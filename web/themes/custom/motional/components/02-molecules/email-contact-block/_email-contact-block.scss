@@ -1,0 +1,14 @@
+.email-contact-block {
+  padding: 4rem 8rem;
+  margin-bottom: 4rem;
+  background: $gray-mid;
+  .email-contact {
+    padding: 4rem 0;
+    h4 {
+      margin: 0 0 1rem;
+    }
+  }
+  .email-contact:not(:last-child) {
+    border-bottom: 2px $gray-lighter dotted;
+  }
+}

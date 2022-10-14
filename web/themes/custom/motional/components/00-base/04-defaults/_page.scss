@@ -1,0 +1,27 @@
+// ================================== //
+//    #CORE/HTML - PAGE
+// ================================== //
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+  word-wrap: normal;
+}
+
+:root {
+  font-size: 62.5%; // Sets up the Base 10 stuff
+  position: relative;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  @include font-size(16, 24);
+  background-color: $white;
+  font-family: $sans;
+  overflow-x: hidden;
+}

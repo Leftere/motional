@@ -1,0 +1,81 @@
+onecol:
+  label: 'One Column'
+  path: layouts/onecol
+  template: layout--onecol
+  library: motional_layout/onecol
+  category: 'Motional Layouts'
+  class: 'Drupal\style_options\Plugin\Layout\StyleOptionLayoutPlugin'
+  default_region: content
+  icon_map:
+    - [ content ]
+  regions:
+    content:
+      label: Content
+
+twocol_50_50:
+  label: 'Two Column 50/50'
+  path: layouts/twocol_50_50
+  template: layout--twocol-50-50
+  library: motional_layout/twocol_50_50
+  category: 'Motional Layouts'
+  class: 'Drupal\style_options\Plugin\Layout\StyleOptionLayoutPlugin'
+  default_region: first
+  icon_map:
+    - [ first, second ]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+
+twocol_25_75:
+  label: 'Two Column 25/75'
+  path: layouts/twocol_25_75
+  template: layout--twocol-25-75
+  library: motional_layout/twocol_25_75
+  category: 'Motional Layouts'
+  class: 'Drupal\style_options\Plugin\Layout\StyleOptionLayoutPlugin'
+  default_region: first
+  icon_map:
+    - [ first, second, second, second ]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+
+three_column_33_34_33:
+  label: 'Three Column 33/34/33'
+  path: layouts/threecol_33_34_33
+  template: layout--threecol-33-34-33
+  library: motional_layout/threecol_33_34_33
+  category: 'Motional Layouts'
+  class: 'Drupal\style_options\Plugin\Layout\StyleOptionLayoutPlugin'
+  default_region: second
+  icon_map:
+    - [ first, second, third ]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+
+three_column_25_50_25:
+  label: 'Three Column 25/50/25'
+  path: layouts/threecol_25_50_25
+  template: layout--threecol-25-50-25
+  library: motional_layout/threecol_25_50_25
+  category: 'Motional Layouts'
+  class: 'Drupal\style_options\Plugin\Layout\StyleOptionLayoutPlugin'
+  default_region: second
+  icon_map:
+    - [ first, second, second, third ]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third

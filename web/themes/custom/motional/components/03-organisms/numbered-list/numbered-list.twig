@@ -1,0 +1,18 @@
+{% set numbered_list_base_class = numbered_list_base_class|default('numbered-list') %}
+
+<div {{ bem(numbered_list_base_class, numbered_list_modifiers, numbered_list_blockname) }}>
+  <div class="wrapper">
+    <div class="numbered-list--columns">
+      {% for item in data.items %}
+        {% include "@molecules/text-block/text-block.twig" with {
+          image_src: item.image_src,
+          image_alt: item.image_alt,
+          small_title_element: 'h4',
+          small_title: item.small_title,
+          body: item.body,
+          divider: true,
+        } %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

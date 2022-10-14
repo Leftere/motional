@@ -1,0 +1,12 @@
+image_radios:
+  css:
+    layout:
+      css/image-radios.css: {}
+
+dynatrace-dev:
+  header: true
+  js:
+    https://js-cdn.dynatrace.com/jstag/16362cc0dec/bf47060sfa/8311f9749c95ccb8_complete.js:
+      type: external
+      attributes:
+        crossorigin: anonymous

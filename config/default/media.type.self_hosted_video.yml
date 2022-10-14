@@ -1,0 +1,13 @@
+uuid: d88eb32a-2f14-4651-9d51-b9ecbc1cab4d
+langcode: en
+status: true
+dependencies: {  }
+id: self_hosted_video
+label: 'Self-hosted video'
+description: ''
+source: video_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_video_file
+field_map: {  }

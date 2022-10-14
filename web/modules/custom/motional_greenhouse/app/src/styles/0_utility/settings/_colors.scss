@@ -1,0 +1,61 @@
+// ================================== //
+//    #UTILITY - COLORS
+//
+// Usage:
+//   p {
+//     color: palette(brown, light);
+//   }
+// ================================== //
+
+@use 'sass:map';
+
+// ================================== //
+// Palette
+// ================================== //
+@function palette($palette, $tone: 'base') {
+  @return map.get($palettes, colors, $palette, $tone);
+}
+
+// Returns flattened $palettes color map
+@function get-flat-palette($map) {
+  $colors: ();
+
+  @each $color, $value in map-get($map, colors) {
+    @each $name, $tone in $value {
+      // key for "base" color is the color name itself, e.g. "gray"
+      // key for other tones combines color and tone name, e.g. "gray-light"
+      $key: if($name == 'base', $color, $color + '-' + $name);
+      $colors: map.merge($colors, ($key: $tone));
+    }
+  }
+
+  @return $colors;
+}
+
+$palettes: (
+  colors: (
+    black: (
+      base: #161a1d
+    ),
+    white: (
+      base: #fff
+    ),
+    gray: (
+      light: #f1f1f1,
+      base: #bebebe,
+      dark: #a9a9a9
+    ),
+    purple: (
+      base: #5c49f4
+    ),
+    blue: (
+      base: #02f6ff
+    )
+  )
+);
+$white: palette(white);
+$black: palette(black);
+$purple: palette(purple);
+
+// Save palette as flat map, used by style-guide.scss and variables.scss
+$color-map: get-flat-palette($palettes);

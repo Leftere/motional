@@ -1,0 +1,60 @@
+## File and Directory locations.
+docroot: '${repo.root}/web'
+deploy:
+  dir: '${tmp.dir}/blt-deploy'
+  docroot: '${tmp.dir}/blt-deploy/web'
+
+# Git configuration definitions.
+git:
+  default_branch: main
+  hooks:
+    commit-msg: false
+    pre-commit: false
+    pre-push: false
+  remotes:
+    - 'ssh://codeserver.dev.cf1d5415-eed2-432b-842c-e48bff447783@codeserver.dev.cf1d5415-eed2-432b-842c-e48bff447783.drush.in:2222/~/repository.git'
+  user:
+    name: Genuine DevOps
+    email: devops@wearegenuine.com
+
+# Additional process commands.
+command-hooks:
+  # Frontend configuration definitions.
+  # Additional information: https://docs.acquia.com/blt/developer/frontend
+  frontend-reqs:
+    dir: '${docroot}/themes/custom/motional'
+    command: 'npm ci && cd ../../../modules/custom/motional_greenhouse/app && npm ci'
+  frontend-assets:
+    dir: '${docroot}/themes/custom/motional'
+    command: 'npm run build && npm run storybook-build && cd ../../../modules/custom/motional_greenhouse/app && npm run build'
+  post-deploy-build:
+    dir: '${deploy.dir}/web'
+    command: 'ln -s themes/custom/motional/.out/ storybook'
+
+# Project configuration definitions.
+project:
+  human_name: Motional
+  machine_name: motional
+  local:
+    hostname: '${project.machine_name}.docksal.site'
+    protocol: http
+    uri: '${project.local.protocol}://${project.local.hostname}'
+  prefix: MOTION
+  profile:
+    name: minimal
+
+# Project configuration management definitions.
+cm:
+  # Possible values: core-only, config-split, none.
+  strategy: config-split
+  allow-overrides: true
+  core:
+    # The parent directory for configuration directories, relative to the docroot.
+    path: ../config
+    dirs:
+      # Corresponding value is defined in config.settings.php.
+      sync:
+        path: '${cm.core.path}/default'
+    # Install site directly from existing config.
+    # This cannot be used if your install profile implements hook_install.
+    install_from_config: false

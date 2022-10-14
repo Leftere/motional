@@ -1,0 +1,22 @@
+{% set defaultUrls = [
+  'share-facebook',
+  'share-twitter',
+  'share-link'
+] %}
+
+{{ attach_library('motional/share') }}
+<div class="page-sharing">
+  <ul class="page-sharing__wrapper">
+    {% for item in defaultUrls %}
+        <li class="page-sharing__item">
+          <a href="/" class="page-sharing__link {{ item }}" target="popup" rel="noopener noreferrer">            
+            {% include '@atoms/images/icons/_icon.twig' with { icon_name: item } %}
+            {% if item == 'share-link' %}
+              <span class="tooltip">Click to Copy</span>
+            {% endif %}
+          </a>
+        </li>
+    {% endfor %}
+  </ul>
+</div>
+

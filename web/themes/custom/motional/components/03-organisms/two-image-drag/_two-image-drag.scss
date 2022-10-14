@@ -1,0 +1,17 @@
+.two-image-drag {
+  margin-bottom: 5rem;
+
+  &__inner {
+    @extend .wrapper-wide;
+  }
+
+  .icv__control-line {
+    background-color: $green !important;
+    width: 4px !important;
+  }
+
+  .icv__circle {
+    background-color: $green !important;
+    border-color: $green !important;
+  }
+}

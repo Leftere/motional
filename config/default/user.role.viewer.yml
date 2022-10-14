@@ -1,0 +1,24 @@
+uuid: 8eaaca7a-4cef-448b-a643-7276fdc4cfd3
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+    - paragraphs
+    - system
+    - toolbar
+    - view_unpublished
+id: viewer
+label: Viewer
+weight: -8
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'view all media revisions'
+  - 'view any unpublished content'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view the administration theme'
+  - 'view unpublished paragraphs'

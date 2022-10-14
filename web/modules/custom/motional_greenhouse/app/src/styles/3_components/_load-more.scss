@@ -1,0 +1,34 @@
+.load-more {
+  padding: 2rem;
+  text-align: center;
+
+  &__progress {
+    margin-bottom: 1rem;
+  }
+
+  progress {
+    appearance: none;
+    height: 20px;
+    width: 25rem;
+
+    &::-webkit-progress-inner-element {
+      background: transparent;
+    }
+
+    &::-webkit-progress-bar {
+      background-color: #ccc;
+      box-shadow: 0 2px 4px rgba(0 0 0 / 25%) inset;
+    }
+
+    &[value],
+    &::-webkit-progress-value {
+      background-color: palette(purple);
+      height: 20px;
+    }
+  }
+
+  details summary {
+    cursor: pointer;
+    padding: 0 0 1rem;
+  }
+}

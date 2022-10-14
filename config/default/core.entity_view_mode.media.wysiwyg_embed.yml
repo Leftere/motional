@@ -1,0 +1,10 @@
+uuid: aa5b4b78-87f1-4852-a2bd-16f00e0fdcc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.wysiwyg_embed
+label: 'WYSIWYG Embed'
+targetEntityType: media
+cache: true

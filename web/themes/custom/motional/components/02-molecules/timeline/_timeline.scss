@@ -1,0 +1,193 @@
+.timeline {
+  @extend .wrapper-full;
+
+  &__header {
+    background-color: $gray-darker;
+    padding: 4.8rem 0 6.6rem;
+
+    @include breakpoint($tablet) {
+      padding: 7.6rem 0;
+    }
+
+    @include breakpoint($desktop) {
+      padding: 9.6rem 0;
+    }
+
+    span {
+      @include font-size(14, 21);
+      color: $white;
+      letter-spacing: 2.1px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      @extend %font-smoothing;
+      color: $white;
+      font-weight: 300;
+      line-height: 1.073;
+      margin-bottom: 1.4rem;
+      margin-top: 1.5rem;
+    }
+
+    p {
+      @extend %font-smoothing;
+
+      @include font-size(14, 21);
+      color: $white;
+      margin-bottom: 0;
+    }
+
+    .wrapper {
+      @include container($large-tablet);
+      padding: 0 4.5rem;
+    }
+
+    &-container {
+      max-width: 44.5rem;
+    }
+  }
+
+  &__carousel {
+    background: linear-gradient(229deg, rgb(255 255 255) 0%, rgb(255 255 255) 78%, rgb(207 222 222) 140%);
+    border-top: 5px solid $purple-light;
+    padding: 0 4.5rem 8rem;
+
+    .glide__arrows {
+      position: absolute;
+      top: -17.5rem;
+      width: 100%;
+
+      @include breakpoint(max-width $desktop - 1) {
+        left: -5.5rem;
+        top: -1.2rem;
+        width: calc(100% + 14.2rem);
+
+        .glide__arrow {
+          height: 4.5rem;
+          width: 4.5rem;
+        }
+      }
+    }
+
+    .glide__track {
+      margin-top: -1.6rem;
+    }
+
+    .glide__slides {
+      padding-top: 2rem;
+    }
+
+    .glide__slide-container {
+      padding-top: 12rem;
+      position: relative;
+
+      &[data-type='tall'] {
+        @include breakpoint($large-mobile) {
+          padding-top: 33.2rem;
+        }
+
+        .dashes-container {
+          @include breakpoint($large-mobile) {
+            max-height: calc(32.2rem - 1.2rem);
+          }
+        }
+      }
+
+      &[data-type='short'] {
+        @include breakpoint($large-mobile) {
+          padding-top: 17.9rem;
+
+          .icon {
+            color: $lightBlue;
+          }
+        }
+
+        .dashes-container {
+          @include breakpoint($large-mobile) {
+            max-height: calc(17.9rem - 1.2rem);
+          }
+        }
+      }
+
+      &:before {
+        background: $white;
+        border: .3rem solid $purple-light;
+        border-radius: 50%;
+        content: '';
+        height: calc(1.1rem - .3rem);
+        left: .9rem;
+        position: absolute;
+        top: -1.3rem;
+        width: calc(1.1rem - .3rem);
+      }
+
+      .dashes-container {
+        height: calc(100% - 1.5rem);
+        left: 1.05rem;
+        max-height: 10.7rem;
+        overflow: hidden;
+        position: absolute;
+        top: 1.5rem;
+
+        .icon {
+          color: $gray-darker;
+          height: 40rem;
+          width: 1rem;
+        }
+      }
+    }
+
+    .glide__slide-content {
+      padding-left: 5.5rem;
+      padding-top: 1rem;
+      position: relative;
+
+      .icon {
+        color: $purple-light;
+        height: 3rem;
+        left: 0;
+        position: absolute;
+        width: 3rem;
+      }
+
+      span {
+        @include font-size(17, 20);
+        font-weight: 600;
+        letter-spacing: 4px;
+      }
+
+      p {
+        @extend %font-smoothing;
+
+        @include font-size(14, 21);
+        margin: 0;
+      }
+    }
+
+    .glide__arrow--disabled {
+      background: rgba(237 243 243 / 10%);
+      color: rgba(255 255 255 / 50%);
+      opacity: 1;
+    }
+
+    .glide__arrow {
+      &.remove {
+        display: none !important;
+      }
+
+      &:focus-visible {
+        outline: 2px solid;
+        outline-color: $purple-light;
+      }
+
+      &--left {
+        left: 0;
+      }
+
+      & --right {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}

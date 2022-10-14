@@ -1,0 +1,30 @@
+.contact-sharing {
+  @include list-unstyled;
+  display: flex;
+  list-style: none;
+  padding: 0;
+
+  &__title {
+    display: none;
+
+    @include breakpoint($tablet) {
+      display: block;
+      min-width: 10rem;
+    }
+  }
+
+  &__item {
+    font-weight: 500;
+    margin-right: 1rem;
+  }
+
+  &__link {
+    color: $purple;
+
+    .icon {
+      color: $purple;
+      max-height: 2rem;
+      max-width: 2rem;
+    }
+  }
+}

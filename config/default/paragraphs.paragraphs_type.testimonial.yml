@@ -1,0 +1,15 @@
+uuid: 5baaad39-8b62-4380-b653-254727be1e93
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: testimonial
+label: Testimonial
+icon_uuid: null
+icon_default: null
+description: 'Testimonials, typically used in carousels.'
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

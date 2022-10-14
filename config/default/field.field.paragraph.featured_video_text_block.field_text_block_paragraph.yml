@@ -1,0 +1,79 @@
+uuid: 7c642165-8b1a-4525-8a5f-60bf3775b088
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_block_paragraph
+    - paragraphs.paragraphs_type.featured_video_text_block
+    - paragraphs.paragraphs_type.text_block
+  module:
+    - entity_reference_revisions
+id: paragraph.featured_video_text_block.field_text_block_paragraph
+field_name: field_text_block_paragraph
+entity_type: paragraph
+bundle: featured_video_text_block
+label: 'Text Block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text_block: text_block
+    negate: 0
+    target_bundles_drag_drop:
+      banner_cta:
+        weight: 18
+        enabled: false
+      block:
+        weight: 19
+        enabled: false
+      carousel:
+        weight: 20
+        enabled: false
+      featured_video_text_block:
+        weight: 21
+        enabled: false
+      image:
+        weight: 22
+        enabled: false
+      job_list:
+        weight: 23
+        enabled: false
+      landing_hero:
+        weight: 24
+        enabled: false
+      layout:
+        weight: 25
+        enabled: false
+      related_articles:
+        weight: 26
+        enabled: false
+      resource_cards:
+        weight: 27
+        enabled: false
+      section_intro:
+        weight: 28
+        enabled: false
+      statistic:
+        weight: 29
+        enabled: false
+      testimonial:
+        weight: 30
+        enabled: false
+      text:
+        weight: 31
+        enabled: false
+      text_block:
+        weight: 32
+        enabled: true
+      timeline:
+        weight: 33
+        enabled: false
+      timeline_item:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

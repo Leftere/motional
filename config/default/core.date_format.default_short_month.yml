@@ -1,0 +1,8 @@
+uuid: 1d746003-9ac2-4686-9c3f-363791f9c5d3
+langcode: en
+status: true
+dependencies: {  }
+id: default_short_month
+label: 'Default short month'
+locked: false
+pattern: 'M d, Y'

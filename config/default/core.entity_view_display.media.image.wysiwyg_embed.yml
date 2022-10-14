@@ -1,0 +1,35 @@
+uuid: 7db3a6d8-bc4c-4d47-8b92-9035b50b9860
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.wysiwyg_embed
+    - field.field.media.image.field_media_image
+    - media.type.image
+  module:
+    - svg_image
+id: media.image.wysiwyg_embed
+targetEntityType: media
+bundle: image
+mode: wysiwyg_embed
+content:
+  field_media_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

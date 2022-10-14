@@ -1,0 +1,45 @@
+{% extends "@molecules/card/card.twig" %}
+{% set card_modifiers = card_modifier|default('resource') %}
+
+{% block card_content %}
+  <div class="card__image">
+    {% if image_src %}
+      <a href="{{ link }}">
+        {% include '@atoms/images/image/_image.twig' with { 
+          image_src: image_src,
+          image_alt: image_alt
+        } %}
+      </a>
+    {% endif %}
+  </div>
+  <div class="card__container">
+    <h3 class="card__title">
+      <a href="{{ link }}">
+        {{ title }}
+      </a>
+    </h3>
+    {% if description %}
+      {% include '@atoms/text/text/01-paragraph.twig' with {
+        paragraph_content: description
+      } %}
+    {% endif %}
+    <div class="card__footer">
+      <div class="card__group">
+        {% if label %}
+          <span class="card__label">
+            {{ label }}
+          </span>
+        {% endif %}
+        {% if date %}
+          {% if label %} | {% endif %}
+          <span class="card__date">{{ date }}</span>
+        {% endif %}
+      </div>
+      {% if series_title_url %}
+        <a class="card__series-title" href="{{ series_title_url }}">
+          {{ series_title }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,97 @@
+// =======================================
+//    #UTILITY - FONTS
+// =======================================
+
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff) {
+  $src: null;
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype'
+  );
+
+  @each $ext in $exts {
+    $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+    $src: list.append($src, url(string.quote($path + '.' + $ext)) format(string.quote($format)), comma);
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: string.quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+// Aktifo-B
+// TODO: this is _every_ weight. We need to prune this list down to just the weights actually in use before launch.
+
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-Light', 300, normal);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-LightOblique', 300, italic);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-Book', 400, normal);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-BookOblique', 400, italic);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-Medium', 500, normal);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-MediumOblique', 500, italic);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-SemiBold', 600, normal);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-SemiBoldOblique', 600, italic);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-Bold', 700, normal);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-BoldOblique', 700, italic);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-ExtraBold', 800, normal);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-ExtraBoldOblique', 800, italic);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-Black', 900, normal);
+@include font-face('Aktifo-B', '/fonts/Aktifo-B-BlackOblique', 900, italic);
+
+// System Font stack
+// https://systemfontstack.com/
+$system-sans: -apple-system,
+  blinkmacsystemfont,
+  avenir next,
+  avenir,
+  segoe ui,
+  helvetica neue,
+  helvetica,
+  ubuntu,
+  roboto,
+  noto,
+  arial,
+  sans-serif;
+$system-serif: iowan old style,
+  apple garamond,
+  baskerville,
+  times new roman,
+  droid serif,
+  times,
+  source serif pro,
+  serif,
+  apple color emoji,
+  segoe ui emoji,
+  segoe ui symbol;
+$system-mono: menlo,
+  consolas,
+  monaco,
+  liberation mono,
+  lucida console,
+  monospace;
+$sans: 'Aktifo-B', $system-sans;
+
+
+// ========================================================================= //
+//  Web Fonts
+//
+//
+//  FOR REFERENCE: Font-weights by numeric value / name.
+//  Side note: it is recommended that we to use the numeric value here to help clarify exactly which weight is getting referenced to.
+//    100 = thin
+//    200 = extra-light
+//    300 = light
+//    400 = normal, book
+//    500 = medium
+//    600 = demi-bold / semi-bold
+//    700 = bold
+//    800 = heavy / extra-bold / heavy
+//    900 = black / extra-black / ultra-black
+//
+// ========================================================================= //

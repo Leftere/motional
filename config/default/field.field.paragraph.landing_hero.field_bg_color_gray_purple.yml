@@ -1,0 +1,23 @@
+uuid: 49208c0b-09fb-4b26-8669-b0d25251a669
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg_color_gray_purple
+    - paragraphs.paragraphs_type.landing_hero
+  module:
+    - options
+id: paragraph.landing_hero.field_bg_color_gray_purple
+field_name: field_bg_color_gray_purple
+entity_type: paragraph
+bundle: landing_hero
+label: 'BG Color Select'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: gray
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,50 @@
+uuid: 71b015fa-4fc0-486a-8e14-a214b68f23c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.statistic.field_description
+    - field.field.paragraph.statistic.field_image
+    - field.field.paragraph.statistic.field_value
+    - field.field.paragraph.statistic.field_variable
+    - paragraphs.paragraphs_type.statistic
+  module:
+    - text
+id: paragraph.statistic.default
+targetEntityType: paragraph
+bundle: statistic
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_value:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_variable:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

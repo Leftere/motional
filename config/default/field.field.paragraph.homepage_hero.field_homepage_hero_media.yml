@@ -1,0 +1,31 @@
+uuid: 6dff7d71-6645-4f5d-8880-975c42558fb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_homepage_hero_media
+    - media.type.image
+    - media.type.self_hosted_video
+    - paragraphs.paragraphs_type.homepage_hero
+id: paragraph.homepage_hero.field_homepage_hero_media
+field_name: field_homepage_hero_media
+entity_type: paragraph
+bundle: homepage_hero
+label: Media
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      self_hosted_video: self_hosted_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

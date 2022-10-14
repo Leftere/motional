@@ -1,0 +1,61 @@
+uuid: 0638c333-9b83-43ae-a4a9-36b49ce31a73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_timeline_item
+    - paragraphs.paragraphs_type.timeline
+    - paragraphs.paragraphs_type.timeline_item
+  module:
+    - entity_reference_revisions
+id: paragraph.timeline.field_timeline_item
+field_name: field_timeline_item
+entity_type: paragraph
+bundle: timeline
+label: 'Timeline Item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      timeline_item: timeline_item
+    negate: 0
+    target_bundles_drag_drop:
+      banner_cta:
+        weight: 7
+        enabled: false
+      carousel:
+        weight: 13
+        enabled: false
+      image:
+        weight: 14
+        enabled: false
+      landing_hero:
+        weight: 15
+        enabled: false
+      layout:
+        weight: 8
+        enabled: false
+      section_intro:
+        weight: 17
+        enabled: false
+      statistic:
+        weight: 9
+        enabled: false
+      testimonial:
+        weight: 19
+        enabled: false
+      text:
+        weight: 10
+        enabled: false
+      timeline:
+        weight: 11
+        enabled: false
+      timeline_item:
+        weight: 12
+        enabled: true
+field_type: entity_reference_revisions

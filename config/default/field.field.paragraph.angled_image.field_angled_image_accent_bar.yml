@@ -1,0 +1,23 @@
+uuid: 5d4b5607-6081-4e9f-a734-144984af91d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_angled_image_accent_bar
+    - paragraphs.paragraphs_type.angled_image
+id: paragraph.angled_image.field_angled_image_accent_bar
+field_name: field_angled_image_accent_bar
+entity_type: paragraph
+bundle: angled_image
+label: 'Accent bar'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

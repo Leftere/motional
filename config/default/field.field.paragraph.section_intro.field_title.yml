@@ -1,0 +1,19 @@
+uuid: 904d4e55-94e9-47d4-b446-b568895131ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.section_intro
+id: paragraph.section_intro.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: section_intro
+label: 'Large Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

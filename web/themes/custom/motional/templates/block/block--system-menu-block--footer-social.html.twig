@@ -1,0 +1,10 @@
+<div {{ bem('block', 'footer-social') }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h4{{title_attributes.addClass('h4')}}>{{ label }}</h4>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>

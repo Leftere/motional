@@ -1,0 +1,14 @@
+uuid: e14ed3e7-cdaf-43f3-b498-7f490bd5ad09
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.self_hosted_video
+id: media_type_self_hosted_video
+entity_type_id: media_type
+entity_id: self_hosted_video
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

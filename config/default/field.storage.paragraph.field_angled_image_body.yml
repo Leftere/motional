@@ -1,0 +1,19 @@
+uuid: 83807869-f7dd-4c0f-929b-382268c494e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_angled_image_body
+field_name: field_angled_image_body
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

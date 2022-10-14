@@ -1,0 +1,47 @@
+uuid: af0d477c-f76c-407e-b349-ba6f77e6e35f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.partner_logos.field_partner_logos_link
+    - field.field.paragraph.partner_logos.field_partner_logos_logos
+    - field.field.paragraph.partner_logos.field_partner_logos_title
+    - paragraphs.paragraphs_type.partner_logos
+  module:
+    - link
+    - maxlength
+    - media_library
+id: paragraph.partner_logos.default
+targetEntityType: paragraph
+bundle: partner_logos
+mode: default
+content:
+  field_partner_logos_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_partner_logos_logos:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_partner_logos_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 100
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+hidden:
+  created: true
+  status: true

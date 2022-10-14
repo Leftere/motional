@@ -1,0 +1,17 @@
+uuid: f86706df-63a4-4aaa-abb5-b6114c380e20
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:4f786354-5d33-4fff-8bd0-b93875f76fdb'
+  module:
+    - layout_paragraphs
+id: statistic
+label: Statistic
+icon_uuid: 4f786354-5d33-4fff-8bd0-b93875f76fdb
+icon_default: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmb250LWZhbWlseTpBa3RpZm9BLUJsYWNrLCAnQWt0aWZvIEEnO2ZvbnQtc2l6ZToxNC4wMnB4O30uY2xzLTEsLmNscy0ye2ZpbGw6IzYyNDZmYjt9LmNscy0ze2xldHRlci1zcGFjaW5nOjBlbTt9PC9zdHlsZT48L2RlZnM+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNMzIuMDUsNTkuOGMtMTQuNzksMC0yNi44Mi0xMi4wMy0yNi44Mi0yNi44MlMxNy4yNyw2LjE3LDMyLjA1LDYuMTdzMjYuODIsMTIuMDMsMjYuODIsMjYuODItMTIuMDMsMjYuODItMjYuODIsMjYuODJabTAtNTAuNjNjLTEzLjEzLDAtMjMuODIsMTAuNjgtMjMuODIsMjMuODJzMTAuNjgsMjMuODIsMjMuODIsMjMuODIsMjMuODItMTAuNjgsMjMuODItMjMuODItMTAuNjgtMjMuODItMjMuODItMjMuODJaIi8+PHRleHQgY2xhc3M9ImNscy0xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNy44MSAzNy45OSkiPjx0c3BhbiBjbGFzcz0iY2xzLTMiIHg9IjAiIHk9IjAiPjk1PC90c3Bhbj48dHNwYW4geD0iMTcuOCIgeT0iMCI+JTwvdHNwYW4+PC90ZXh0Pjwvc3ZnPg=='
+description: 'Used to break up page content as well as display impressive statistical facts.'
+behavior_plugins:
+  layout_paragraphs:
+    enabled: false
+    available_layouts: {  }

@@ -1,0 +1,16 @@
+{% set statistic_base_class = statistic_base_class|default('statistic') %}
+
+<div {{ bem(statistic_base_class, statistic_modifiers, statistic_blockname) }}>
+  <div class="statistic__wrapper">
+    <div class="statistic__left">
+      <div class="statistic__content">
+        <h1 class="statistic__value">{{ value }}</h1>
+        <h3 class="statistic__variable">{{ variable }}</h3>
+        <p class="statistic__description">{{ description }}</p>
+      </div>
+    </div>
+    <div class="statistic__right">
+      <img class="statistic__image" src={{ imgSrc }} alt={{ imgAlt }}/>
+    </div>
+  </div>
+</div>

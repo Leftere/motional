@@ -1,0 +1,24 @@
+.numbered-list {
+  @extend .wrapper-wide;
+  background-image: linear-gradient(90deg, #d7e3e3 0%, #fff 100%);
+  padding: 5rem 0;
+
+  &--columns {
+    column-gap: 9.6%;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 5rem;
+
+    @include breakpoint($large-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .text-block {
+      margin-left: 0;
+    }
+  }
+
+  .text-block__image {
+    max-width: 59px;
+  }
+}

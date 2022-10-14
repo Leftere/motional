@@ -1,0 +1,31 @@
+{% set defaultUrls = [
+  'https://www.facebook.com/',
+  'https://www.twitter.com/',
+  'https://www.linkedin.com/in/',
+  'https://www.instagram.com/'
+] %}
+
+<ul class="contact-sharing">
+  {% if title %}
+    <li class="contact-sharing__title">
+      {{ title }}
+    </li>
+  {% endif %}
+  {% for socialItem in social_links %}
+    {% if socialItem.item_href not in defaultUrls %}
+      <li class="contact-sharing__item">
+        <a href="{{ socialItem.item_href }}" class="contact-sharing__link" target="_blank" rel="noopener noreferrer">
+          {% if socialItem.item_icon %}
+            {% include "@atoms/images/image/responsive-image.twig" with {
+              image_src: socialItem.item_icon,
+              image_alt: socialItem.item_title,
+              image_base_class: "min-size"
+            } %}
+          {% else %}
+            {% include '@atoms/images/icons/_icon.twig' with { icon_name: socialItem.item_title } %}
+          {% endif %}
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -1,0 +1,35 @@
+{#
+/**
+ * Available variables:
+ * - label_base_class - the base class
+ * - label_modifiers - array of modifiers to add to the base classname
+ * - label_blockname - blockname prepended to the base classname
+ *
+ * - label - the content of the heading (typically text)
+ *
+ * - label_url - (optional) the url the heading should poing to
+ * - label_link_attributes - key/value attributes to pass to link
+ * - label_link_base_class - override the link base class
+ * - label_link_modifiers - override the link modifiers
+ * - label_link_blockname - override the link block name (defaults to label_base_class)
+ */
+#}
+{% set label_base_class = label_base_class|default('label') %}
+
+<div {{ bem(label_base_class, label_modifiers, label_blockname) }}>
+  {% if label_url %}
+    <span class='label__icon'>
+      {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'double-arrow' } %}
+    </span>
+    {% include '@atoms/links/link/link.twig' with {
+      'link_content': label,
+      'link_url': label_url,
+      'link_attributes': label_link_attributes,
+      'link_base_class': label_link_base_class,
+      'link_modifiers': label_link_modifiers,
+      'link_blockname': label_link_blockname|default(label_base_class),
+    } %}
+  {% else %}
+    {{ label }}
+  {% endif %}
+</div>

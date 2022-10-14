@@ -1,0 +1,11 @@
+hero_modifiers:
+  - 'home'
+hero_label_url: "/"
+hero_heading: 'Changing how the World Moves'
+hero_heading_level: 1
+hero_description: 'Motional is making something a reality'
+hero_image_sizes: '100vw'
+hero_button_label: 'Take A Ride With Us'
+hero_button_url: '#'
+video_source: "http://techslides.com/demos/sample-videos/small.mp4"
+video_description: "A description of the video."

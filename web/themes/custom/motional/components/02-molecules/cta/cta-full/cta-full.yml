@@ -1,0 +1,8 @@
+cta_full_modifiers: ['purple']
+label: 'Mobility Report'
+title: 'Lorem ipsum dolor sit'
+description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.'
+button_content: 'Download'
+button_url: '#'
+image_src: 'images/samples/full-cta-sample.jpg'
+image_alt: 'sample alt'

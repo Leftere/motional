@@ -1,0 +1,244 @@
+.text-block {
+  margin-left: auto;
+  margin-right: auto;
+  $self: &;
+
+  &--with-image {
+    @extend .wrapper-full;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 3rem;
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint($tablet) {
+      margin-top: 5rem;
+    }
+
+    @include breakpoint($large-tablet) {
+      background-color: $purple;
+      flex-direction: row;
+    }
+
+    .text-block__content {
+      background: $white;
+      padding: 0 0 0 3rem;
+      width: 100%;
+
+      @include breakpoint($large-tablet) {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 100%);
+        height: 80rem;
+        padding: 5rem;
+        position: absolute;
+        width: 100%;
+      }
+
+      @include breakpoint($large-tablet) {
+        padding: 15rem 0 0 15rem;
+      }
+
+      h3 {
+        color: $black;
+        margin-bottom: 5rem;
+        position: relative;
+
+        &:after {
+          background-color: $blue;
+          bottom: -2.5rem;
+          content: '';
+          height: .5rem;
+          left: 0;
+          position: absolute;
+          width: 5rem;
+        }
+      }
+
+      .text-block__body {
+        color: $black;
+        max-width: 44rem;
+      }
+    }
+
+    .text-block__image {
+      clip-path: polygon(100% 0%, 100% 0%, 100% 100%, -25% 100%);
+      margin-bottom: 0;
+      margin-right: 0;
+      margin-top: -8rem;
+      position: relative;
+
+      @include breakpoint($tablet) {
+        margin-top: -20rem;
+      }
+
+      @include breakpoint($large-tablet) {
+        clip-path: none;
+        margin-left: auto;
+      }
+
+      @include breakpoint($desktop) {
+        display: block;
+        margin-top: 0;
+      }
+
+      &:after {
+        background-image: url('/images/samples/triangles.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        bottom: 0;
+        content: '';
+        display: none;
+        height: 40%;
+        position: absolute;
+        right: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+
+        @include breakpoint($large-tablet) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &--image-only {
+    position: relative;
+
+    &:before {
+      background-image: url('/images/brand-background.svg');
+      background-size: cover;
+      content: '';
+      display: block;
+      height: 100%;
+      left: -12%;
+      max-height: 312px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 124%;
+      z-index: -1;
+    }
+
+    #{$self}__image {
+      box-shadow: 49.7px 61.4px 68px 0 rgba(92 97 97 / 20%);
+    }
+  }
+
+  &__image {
+    aspect-ratio: 1 / 1;
+    margin-bottom: 3rem;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__label {
+    @include font-size(14, 20);
+    display: block;
+    font-weight: 400;
+    letter-spacing: 2.1px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  &__divider {
+    background: $blue;
+    display: block;
+    height: .4rem;
+    margin: 1.5rem 0 2rem;
+    width: 2.9rem;
+  }
+
+  h2 {
+    margin: 0 0 .7rem;
+
+    & + h3,
+    & + .divider {
+      margin-top: .5rem;
+    }
+  }
+
+  h3 {
+    margin: 0;
+
+    & + .divider {
+      margin-top: 1.5rem;
+    }
+  }
+
+  h4 {
+    margin: 0;
+  }
+
+  h5 {
+    margin: 0;
+  }
+
+  p {
+    @extend %font-smoothing;
+
+    @include font-size(14, 21);
+    margin: 0;
+
+    + p {
+      margin-top: 1em;
+    }
+  }
+
+  .button {
+    margin-top: 2.5rem;
+    max-width: 35rem;
+    text-align: left;
+  }
+
+  .media--embeded-video {
+    @extend .wrapper;
+    margin: 3rem auto;
+    position: relative;
+    z-index: 1;
+
+    &:before,
+    &:after {
+      background: $purple;
+      content: '';
+      display: block;
+      height: .2rem;
+      position: absolute;
+      transform: rotate(150deg);
+      transform-origin: center;
+      width: 26.75rem;
+      z-index: -1;
+    }
+
+    &:before {
+      left: 0;
+      top: 10rem;
+    }
+
+    &:after {
+      bottom: 10rem;
+      right: 0;
+    }
+
+    > div {
+      // padding: 3rem;
+      width: 100%;
+
+      @include breakpoint($large-tablet) {
+        padding: 6rem;
+      }
+    }
+
+    iframe,
+    img {
+      height: auto;
+      width: 100%;
+    }
+
+    iframe {
+      aspect-ratio: 16 / 9;
+    }
+  }
+}

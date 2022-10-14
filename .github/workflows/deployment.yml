@@ -1,0 +1,77 @@
+# Deployment CD action.
+# Automating the delivery process of code updates.
+name: Build and deploy to Pantheon
+
+# Defining branches and tags participate in the deployment.
+on:
+  push:
+    # Deployment workflow will fire off if a new tag is created
+    # or if code changes are pushed into the following branches.
+    branches:
+      - 'main'
+
+  # Manually trigger a workflow.
+  workflow_dispatch:
+
+# Set default configuration.
+defaults:
+  run:
+    shell: bash
+
+# Shared workflow environment variables.
+env:
+  GIT_USER_NAME: 'Genuine Devops'
+  GIT_USER_EMAIL: 'devops@wearegenuine.com'
+  CI: ''
+  DOCKSAL_DNS_DISABLED: 1
+  DOCKSAL_VHOST_PROXY_DEBUG_LOG: 1
+  DOCKSAL_VHOST_PROXY_ACCESS_LOG: 1
+  DOCKSAL_VHOST_PROXY_STATS_LOG: 1
+
+# Deployment workflow steps.
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Create an SSH keys for communicating with remote sources. E.g., External repositories.
+      - name: Installing SSH keys
+        uses: shimataro/ssh-key-action@v2
+        with:
+          # Grab the SSH key from the repository's secrets.
+          # DevOps SSH keys are defined in Genuine's confluence.
+          key: ${{ secrets.DEVOPS_SSH_PRIVATE_KEY }}
+          # Grab's Pantheon's KNOWN_HOST from the repository's secrets.
+          # Defines an approved server destination server.
+          known_hosts: ${{ secrets.PANTHEON_KNOWN_HOSTS }}
+          name: id_rsa
+
+      # Checkout the current branch or tag's code.
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: main
+
+      # Configure Git settings.
+      - name: Configure Git
+        run: |
+          git config --global user.email "$GIT_USER_EMAIL"
+          git config --global user.name "$GIT_USER_NAME"
+
+      # Install Docksal for use by BLT.
+      - name: Install Docksal
+        run: |
+          bash <(curl -fsSL https://get.docksal.io)
+          fin version
+          fin sysinfo
+          fin config
+
+      # Build and deploy the artifact.
+      - name: Build and deploy
+        run: |
+          fin reset -f
+          fin exec "npm install -g @emulsify/cli"
+          fin exec composer clear-cache --no-interaction
+          fin exec COMPOSER_PROCESS_TIMEOUT=2000
+          fin exec COMPOSER_MEMORY_LIMIT=-1 composer install --no-interaction
+          fin exec /var/www/vendor/bin/blt artifact:deploy --environment=ci --commit-msg="Automated GitHub actions deployment." --branch=master --ignore-dirty --ignore-platform-reqs --ansi --no-interaction --verbose

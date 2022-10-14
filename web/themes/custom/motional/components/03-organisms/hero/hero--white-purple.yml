@@ -1,0 +1,10 @@
+hero_modifiers:
+  - 'landing'
+hero_label: Page Lorem
+hero_label_url: '#'
+hero_heading: Lorem Ipsum Dolor Sit
+hero_heading_level: 1
+hero_description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+hero_button_label: 'Optional Button'
+hero_button_url: '#'
+hero_background: white-purple

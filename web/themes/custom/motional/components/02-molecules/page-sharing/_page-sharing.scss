@@ -1,0 +1,61 @@
+.page-sharing {
+  @extend .wrapper;
+  &__wrapper {
+    @include list-unstyled;
+    display: flex;
+    max-width: fit-content;
+    background-color: $purple;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    position: relative;
+    top: -1.5rem;
+  }
+  &__title {
+    display: none;
+
+    @include breakpoint($tablet) {
+      display: block;
+      min-width: 10rem;
+    }
+  }
+  &__item {
+    font-weight: 500;
+    margin-right: 1rem;    
+    display: flex;
+    align-items: center;
+    &:last-child {
+      margin-right: 0;
+      .icon {
+        max-height: 1.7rem;
+        max-width: 1.7rem;
+      }
+    }
+  }
+  &__link {
+    color: $blue;
+
+    .icon {
+      color: $blue;
+      fill: $blue;
+      max-height: 2rem;
+      max-width: 2rem;
+    }
+
+    span {
+      display: none;
+    }
+    &:hover {
+      span {
+        display: block;
+        border: 1px solid palette(white);
+        padding: 0.5rem 1rem;
+        background: palette(black);
+        position: absolute;
+        width: max-content;
+        font-size: 1.3rem;
+        color: $white;
+      }
+    }
+  }
+}
+

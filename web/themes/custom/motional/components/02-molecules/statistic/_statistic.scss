@@ -1,0 +1,85 @@
+.statistic {
+  @extend .wrapper-full;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    @include breakpoint($large-tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__left {
+    align-items: center;
+    background-color: $lightBlack;
+    border-right: 2px solid $purple;
+    color: $white;
+    display: flex;
+    flex: 0 0 50%;
+    justify-content: center;
+    min-height: 40rem;
+    position: relative;
+    text-align: right;
+
+    &:after {
+      border-left: 2px solid clr(brand-purple);
+      bottom: -10rem;
+      content: '';
+      height: 20rem;
+      position: absolute;
+      right: -10rem;
+      transform: rotate(45deg);
+      width: 20rem;
+
+      @include breakpoint($large-desktop) {
+        bottom: -20rem;
+        height: 40rem;
+        right: -20rem;
+        width: 40rem;
+      }
+    }
+  }
+
+  &__right {
+    flex: 0 0 50%;
+  }
+
+  &__image {
+    max-width: none;
+    width: 100%;
+  }
+
+  &__content {
+    margin: 0 5rem;
+    max-width: 40rem;
+
+    @include breakpoint($desktop) {
+      margin: 0;
+    }
+  }
+
+  &__value {
+    @include font-size(41, 44);
+    font-weight: 600;
+
+    @include breakpoint($desktop) {
+      @include font-size(82, 0);
+    }
+  }
+
+  &__variable {
+    color: $purple;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    @include breakpoint($desktop) {
+      @include font-size(34, 14);
+    }
+  }
+
+  &__description {
+    @include font-size(14, 24);
+  }
+}

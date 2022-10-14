@@ -1,0 +1,14 @@
+/* Responsive Video using CSS only */
+.video {
+  iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.video--full {
+  padding-bottom: 75%; /* 75% = 4x3 */
+}

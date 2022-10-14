@@ -1,0 +1,27 @@
+uuid: d24e3f5d-4e7c-4f4b-ac45-cfc864dd4f7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_bg_color_select
+field_name: field_bg_color_select
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: dark_blue
+      label: 'Dark Blue'
+    -
+      value: turquoise
+      label: Turquoise
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

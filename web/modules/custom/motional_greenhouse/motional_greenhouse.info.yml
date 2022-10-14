@@ -1,0 +1,7 @@
+name: Motional Greenhouse
+description: Custom route for Greenhouse components
+package: Motional
+type: module
+core_version_requirement: ^9
+libraries:
+  - motional_greenhouse/greenhouse

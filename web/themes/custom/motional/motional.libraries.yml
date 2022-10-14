@@ -1,0 +1,65 @@
+global:
+  css:
+    theme:
+      dist/style.css: {}
+
+main-menu:
+  js:
+    dist/js/02-molecules/menus/main-menu/main-menu.js: {}
+  dependencies:
+    - core/drupal
+
+carousel:
+  js:
+    dist/js/02-molecules/carousel/carousel.js: {}
+  dependencies:
+    - core/drupal
+
+timeline:
+  js:
+    dist/js/02-molecules/timeline/timeline.js: {}
+  dependencies:
+    - core/drupal
+
+card-group:
+  js:
+    dist/js/02-molecules/card-group/card-group.js: {}
+  dependencies:
+    - core/drupal
+
+two-image-drag:
+  js:
+    dist/js/03-organisms/two-image-drag/two-image-drag.js: {}
+  dependencies:
+    - core/drupal
+
+# IE 11 support for SVG use - disable if not needed.
+# See also components/01-atoms/images/icons/_icon.twig to remove attach_library.
+sprite:
+  js:
+    components/01-atoms/images/icons/svgxuse.min.js:
+      { attributes: { defer: true } }
+
+tabs:
+  js:
+    dist/js/02-molecules/tabs/tabs.js: {}
+  dependencies:
+    - core/drupal
+
+share:
+  js:
+    dist/js/02-molecules/page-sharing/page-sharing.js: {}
+  dependencies:
+    - core/drupal
+
+featured-video-text-block:
+  js:
+    dist/js/02-molecules/featured-video-text-block/featured-video-text-block.js: {}
+  dependencies:
+    - core/drupal
+
+homepage-hero:
+  js:
+    dist/js/03-organisms/hero/homepage-hero/homepage-hero.js: {}
+  dependencies:
+    - core/drupal

@@ -1,0 +1,64 @@
+{% if not item_modifiers %}
+  {% set item_modifiers = [] %}
+{% endif %}
+
+{# Pass original item modifiers down to children #}
+{% set original_item_modifiers = item_modifiers %}
+
+{% if item.in_active_trail == TRUE %}
+  {% set item_modifiers = item_modifiers|merge(['active']) %}
+{% endif %}
+
+{% if menu_level > 0 %}
+  {% set item_modifiers = item_modifiers|merge(['sub', 'sub-' ~ menu_level]) %}
+{% endif %}
+
+{% if item.below %}
+  {% set item_modifiers = item_modifiers|merge(['with-sub']) %}
+{% endif %}
+
+{% if item.description %}
+  {% set item_modifiers = item_modifiers|merge(['with-description']) %}
+{% endif %}
+
+{% for modifier in item.modifiers %}
+  {% set item_modifiers = item_modifiers|merge([modifier]) %}
+{% endfor %}
+
+{% set list_item_label = item_label %}
+{% set li_base_class = item_base_class|default(menu_class ~ '__item') %}
+{% set li_modifiers = item_modifiers %}
+{% set li_blockname = item_blockname %}
+
+{% import "@molecules/menus/_menu.twig" as menus %}
+
+{% extends "@atoms/lists/_list-item.twig" %}
+{% block list_item_content %}
+  {% if menu_level > 0 %}
+    {% embed "@atoms/links/link/link.twig" with {
+        link_url: item.url,
+        link_base_class: item_base_class|default(menu_class ~ '__link'),
+        link_modifiers: item_modifiers,
+      } %}
+      {% block link_content %}
+        {{item.title}}
+        {% if item.description %}
+          {% include '@atoms/text/text/01-paragraph.twig' with {
+            paragraph_content: item.description,
+            paragraph_blockname: menu_class,
+            paragraph_base_class: 'description'
+          } %}
+        {% endif %}
+      {% endblock %}
+    {% endembed %}
+  {% else %}
+    {% include "@atoms/buttons/button.twig" with {
+        button_content: item.title,
+        button_base_class: item_base_class|default('button ' ~ menu_class ~ '__link'),
+        button_modifiers: item_modifiers,
+      } %}
+  {% endif %}
+  {% if item.below %}
+    {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_class, menu_modifiers, menu_blockname, item_base_class, original_item_modifiers, item_blockname, directory) }}
+  {% endif %}
+{% endblock %}

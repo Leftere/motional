@@ -1,0 +1,6 @@
+{% set card_base_class = card_base_class|default('card') %}
+
+<article {{ bem(card_base_class, card_modifiers, card_blockname) }}>
+  {% block card_content %}
+  {% endblock %}
+</article>

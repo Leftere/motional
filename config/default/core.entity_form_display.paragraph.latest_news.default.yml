@@ -1,0 +1,25 @@
+uuid: 72111cce-3846-407a-91d0-e620a9d4a68b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.latest_news.field_button
+    - paragraphs.paragraphs_type.latest_news
+  module:
+    - link
+id: paragraph.latest_news.default
+targetEntityType: paragraph
+bundle: latest_news
+mode: default
+content:
+  field_button:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

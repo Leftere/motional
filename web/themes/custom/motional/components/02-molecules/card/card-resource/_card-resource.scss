@@ -1,0 +1,205 @@
+.card--resource {
+  background: $near-white;
+
+  .card__container {
+    padding: 2.1rem 3.1rem;
+
+    p {
+      @include font-size(14, 21);
+      font-weight: 400;
+      margin: 0;
+    }
+  }
+
+  .card__title {
+    @include font-size(16, 25);
+    color: $gray-darker;
+    font-weight: 700;
+    margin: 0 0 1.3rem;
+
+    a {
+      color: currentColor;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .card__footer {
+    min-height: 7.5rem;
+    padding-top: 3rem;
+  }
+
+  .card__group {
+    span {
+      display: inline-block;
+      letter-spacing: .65px;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+  }
+
+  .card__label {
+    @extend %font-smoothing;
+
+    @include font-size(13, 18);
+    font-weight: 900;
+  }
+
+  .card__date {
+    @extend %font-smoothing;
+
+    @include font-size(13, 18);
+    font-weight: 400;
+  }
+
+  .card__image {
+    max-height: 25rem;
+    overflow: hidden;
+    position: relative;
+
+    a {
+      &:hover,
+      &:focus {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    img {
+      aspect-ratio: 344 / 218;
+      object-fit: cover;
+      transition: transform .8s cubic-bezier(.165, .84, .44, 1);
+      width: 100%;
+    }
+  }
+
+  .card__series-title {
+    @extend %font-smoothing;
+
+    @include font-size(13, 13);
+    color: $purple;
+    font-weight: 900;
+    margin-top: 1.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.card--latest_news {
+  .sb-show-main & {
+    max-width: 34.4rem;
+  }
+
+  .card__container {
+    color: $near-white;
+    margin: 0 0 2rem;
+
+    @include breakpoint($large-tablet) {
+      color: $gray-light;
+    }
+
+    p {
+      @include font-size(14, 21);
+      font-weight: 400;
+      margin: 0;
+    }
+
+    ul,
+    li {
+      @include font-size(14, 21);
+      color: $near-white;
+
+      @include breakpoint($large-tablet) {
+        color: $gray-light;
+      }
+    }
+  }
+
+  .card__title {
+    @include font-size(16, 25);
+    font-weight: 700;
+    margin: 0 0 1.3rem;
+
+    a {
+      color: $near-white;
+
+      @include breakpoint($large-tablet) {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .card__footer {
+    padding-top: 3rem;
+  }
+
+  .card__group {
+    @extend %font-smoothing;
+
+    @include font-size(13, 18);
+    font-weight: 600;
+
+    @include breakpoint($large-tablet) {
+      font-weight: 400;
+    }
+
+    span {
+      display: inline-block;
+      letter-spacing: .65px;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+  }
+
+  .card__image {
+    overflow: hidden;
+    position: relative;
+
+    a {
+      &:hover,
+      &:focus {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    img {
+      aspect-ratio: 344 / 218;
+      margin: 0 0 2rem;
+      object-fit: cover;
+      transition: transform .8s cubic-bezier(.165, .84, .44, 1);
+    }
+  }
+
+  &.card--primary {
+    .card__title {
+      @include font-size(20, 25);
+      font-weight: 400;
+
+      @include breakpoint($large-tablet) {
+        font-weight: 600;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    .card__group,
+    .card__container .text-long p,
+    .card__container li {
+      @include font-size(17, 21);
+    }
+  }
+}

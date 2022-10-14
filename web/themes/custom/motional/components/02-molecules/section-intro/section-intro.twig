@@ -1,0 +1,40 @@
+{% if not section_intro_modifiers %}
+  {% set section_intro_modifiers = [] %}
+{% endif %}
+
+{% set section_intro_base_class = "section-intro" %}
+{% set text_align = text_align|default('') %}
+
+{% if section_intro_label %}
+  {% set section_intro_modifiers = section_intro_modifiers|merge(['has-label']) %}
+{% endif %}
+
+{% if text_align %}
+  {% set section_intro_modifiers = section_intro_modifiers|merge([text_align]) %}
+{% endif %}
+
+<div {{ bem(section_intro_base_class, section_intro_modifiers, section_intro_blockname) }}>
+  <div class="section-intro__wrapper">
+    <div class="section-intro__left">
+    {% if section_intro_label %}
+      <span class="label">{{ section_intro_label }}</span>
+    {% endif %}
+    {% if section_intro_title %}
+      <h2 class="section-intro__title">{{ section_intro_title }}</h2>
+    {% endif %}
+    </div>
+    <div class="section-intro__right">
+    {% if section_intro_text %}
+    <p class="section-intro__paragraph">
+      {{ section_intro_text }}
+    </p>
+    {% endif %}
+    {% if button_title %}
+      {% include "@atoms/buttons/button.twig" with  {
+        button_content: button_title,
+        button_modifiers: button_modifiers,
+      } %}
+    {% endif %}
+    </div>
+  </div>
+</div>

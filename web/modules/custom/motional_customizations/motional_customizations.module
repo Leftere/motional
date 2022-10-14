@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * @file
+ * Contains motional_customizations.module.
+ */
+
+use Acquia\Blt\Robo\Common\EnvironmentDetector;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function motional_customizations_form_editor_media_dialog_alter(array &$form, FormStateInterface $form_state) {
+  if (isset($form_state->getUserInput()['editor_object'])) {
+    $editor_object = $form_state->getUserInput()['editor_object'];
+    $media_embed_element = $editor_object['attributes'];
+  }
+  else {
+    // Retrieve the user input from form state.
+    $media_embed_element = $form_state->get('media_embed_element');
+  }
+  $entity_type_id = $media_embed_element['data-entity-type'];
+  $uuid = $media_embed_element['data-entity-uuid'];
+  $entity = \Drupal::service('entity.repository')->loadEntityByUuid($entity_type_id, $uuid);
+  $entity_bundle = $entity->bundle();
+
+  if ($entity_bundle == 'image') {
+    $form['extra_classes'] = [
+      '#title' => t('Style'),
+      '#type' => 'select',
+      '#step' => '1',
+      '#options' => [
+        '' => t('None'),
+        'image-full' => t('Full bleed'),
+        'image-stylized' => t('Stylized'),
+      ],
+      '#default_value' => empty($media_embed_element['class']) ? '' : $media_embed_element['class'],
+      '#parents' => ['attributes', 'class'],
+      '#required' => FALSE,
+    ];
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function motional_customizations_form_layout_paragraphs_component_form_alter(array &$form, FormStateInterface $form_state) {
+  $parameters = \Drupal::request()->query->all();
+  foreach ($parameters as $parameter => $value) {
+    $form_contains_element = in_array($parameter, array_keys($form));
+    if ($form_contains_element) {
+      $element_type = $form[$parameter]['widget']['#type'];
+      $element_is_allowed_type = in_array($element_type, ['radios', 'select']);
+      if ($element_is_allowed_type) {
+        $options = array_keys($form[$parameter]['widget']['#options']);
+        if (in_array($value, $options)) {
+          $form[$parameter]['widget']['#default_value'] = $value;
+        }
+      }
+    }
+  }
+
+  if (array_key_exists('field_carousel_type', $form)) {
+    $form['field_carousel_type']['#attributes']['class'][] = 'hidden';
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function motional_customizations_page_attachments(&$variables) {
+  if (EnvironmentDetector::isPantheonEnv()) {
+    if (EnvironmentDetector::isPantheonProdEnv()) {
+      // Intentionally left empty, will be populated once the production
+      // dynatrace script is added.
+    }
+    else {
+      $variables['#attached']['library'][] = 'motional_customizations/dynatrace-dev';
+    }
+  }
+}

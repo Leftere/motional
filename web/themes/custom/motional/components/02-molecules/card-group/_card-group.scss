@@ -1,0 +1,234 @@
+.card-group {
+  @extend .wrapper-full;
+  background-image: url('/images/grid.svg');
+  background-size: cover;
+  padding: 6rem 0;
+  position: relative;
+
+  @include breakpoint($large-mobile) {
+    padding: 8rem 0;
+  }
+
+  @include breakpoint($desktop) {
+    padding: 12rem 0;
+  }
+
+  @include breakpoint(max-width $large-mobile - 1) {
+    background-position: -3rem -5rem;
+  }
+
+  &:before {
+    background: linear-gradient(180deg, rgba(255 255 255 / 0%) 60%, rgba(231 238 238 / 100%) 100%);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    @include breakpoint($large-mobile) {
+      background: linear-gradient(100deg, rgba(255 255 255 / 0%) 50%, rgba(231 238 238 / 100%) 100%);
+    }
+  }
+
+  &:after {
+    background: linear-gradient(180deg, rgba($white, 0) 60%, rgba($white, 1) 100%);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .wrapper {
+    @include breakpoint(max-width $large-mobile - 1) {
+      padding: 0;
+    }
+  }
+
+  .card-group__articles {
+    .glide--swipeable {
+      @include breakpoint(max-width $large-mobile - 1) {
+        padding: 0 0 0 1.5rem;
+      }
+    }
+  }
+
+  &__container {
+    @include container(115.1rem);
+    position: relative;
+    z-index: 3;
+
+    @include breakpoint($large-tablet) {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1.5fr 2fr;
+    }
+  }
+
+  &__content {
+    padding: 0 3rem 4rem;
+    position: relative;
+
+    @include breakpoint($large-tablet) {
+      max-width: 40rem;
+      padding: 4rem 4rem 4rem 0;
+    }
+
+    h2 {
+      margin: 0 0 2rem;
+
+      @include breakpoint(max-width $desktop - 1) {
+        @include font-size(30, 44);
+      }
+    }
+
+    p {
+      @include font-size(14, 21);
+      font-weight: 400;
+      margin: 0;
+    }
+
+    a {
+      margin-top: 4rem;
+    }
+  }
+
+  .card--resource {
+    display: flex;
+    flex-direction: column;
+
+    .card__container {
+      display: flex;
+      flex: 1 0 auto;
+      flex-direction: column;
+    }
+
+    .card__footer {
+      margin-top: auto;
+    }
+
+    .card__group {
+      margin: 0;
+    }
+  }
+
+  .glide__track {
+    @include breakpoint($large-mobile) {
+      cursor: default;
+    }
+  }
+
+  .glide__slides {
+    @include breakpoint($large-mobile) {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: -1rem;
+      width: calc(100% + 2rem);
+    }
+
+    @include breakpoint($large-tablet) {
+      justify-content: center;
+    }
+  }
+
+  .glide__slide {
+    display: flex;
+    height: auto;
+
+    @include breakpoint($large-mobile) {
+      flex-basis: 50%;
+      max-width: 50%;
+      padding: 0 1rem;
+    }
+
+    .card--resource {
+      max-width: 100%;
+    }
+  }
+
+  &--latest_news {
+    background: $gray-darker;
+    padding: 6rem 0;
+
+    &:before,
+    &:after {
+      background: linear-gradient(90deg, #181819 60%, #26262e 100%);
+    }
+
+    .card-group__container {
+      grid-gap: 6rem;
+      grid-template-columns: 2fr 2fr;
+
+      @include breakpoint($large-tablet) {
+        align-items: start;
+      }
+
+
+      .card-group__content {
+        max-width: unset;
+        padding-bottom: 0;
+        padding-top: 0;
+
+        h1 {
+          color: $near-white;
+          font-weight: 600;
+          margin-bottom: 5rem;
+
+          @include breakpoint($large-tablet) {
+            font-weight: 400;
+          }
+        }
+
+        .label {
+          color: $near-white;
+          font-weight: 600;
+
+          @include breakpoint($large-tablet) {
+            color: $blue;
+            font-weight: 400;
+          }
+        }
+
+        .button {
+          margin: 0;
+        }
+
+        .card--latest_news {
+          border-bottom: 1px solid $gray-light;
+          margin-bottom: 2rem;
+
+          @include breakpoint($large-tablet) {
+            border-bottom: none;
+            margin-bottom: 4rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__latest-articles {
+    @include list-unstyled;
+    margin: 0;
+    padding: 0 3rem 4rem;
+
+    li {
+      &:not(:last-child) {
+        .card__container {
+          border-bottom: 1px solid $gray-light;
+
+          @include breakpoint($large-tablet) {
+            border-bottom: dashed $gray-light;
+          }
+        }
+
+        .card__footer {
+          min-height: 7.5rem;
+        }
+      }
+    }
+  }
+}

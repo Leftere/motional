@@ -1,0 +1,23 @@
+uuid: 5ef2df8c-1686-4af4-b3e8-33bb16c46859
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_position
+    - paragraphs.paragraphs_type.featured_video_text_block
+  module:
+    - options
+id: paragraph.featured_video_text_block.field_image_position
+field_name: field_image_position
+entity_type: paragraph
+bundle: featured_video_text_block
+label: 'Video/Image orientation'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

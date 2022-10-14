@@ -1,0 +1,67 @@
+uuid: 739f0816-588d-48b3-95ca-cb403bd1ffa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.angled_image.field_angled_image_accent_bar
+    - field.field.paragraph.angled_image.field_angled_image_body
+    - field.field.paragraph.angled_image.field_angled_image_image
+    - field.field.paragraph.angled_image.field_angled_image_link
+    - field.field.paragraph.angled_image.field_angled_image_title
+    - paragraphs.paragraphs_type.angled_image
+  module:
+    - link
+    - maxlength
+    - media_library
+id: paragraph.angled_image.default
+targetEntityType: paragraph
+bundle: angled_image
+mode: default
+content:
+  field_angled_image_accent_bar:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_angled_image_body:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_angled_image_image:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_angled_image_link:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 25
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+  field_angled_image_title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 100
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+hidden:
+  created: true
+  status: true

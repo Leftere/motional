@@ -1,0 +1,43 @@
+uuid: 18aabd59-6370-4d26-9660-b7b0cab112e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_page_layout
+    - node.type.page
+  module:
+    - layout_paragraphs
+    - metatag
+    - user
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_page_layout:
+    type: layout_paragraphs_builder
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+      preview_view_mode: default
+      nesting_depth: 2
+      require_layouts: 1
+      empty_message: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

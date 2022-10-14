@@ -1,0 +1,65 @@
+{% if not text_block_modifiers %}
+  {% set text_block_modifiers = [] %}
+{% endif %}
+
+{% set text_block_base_class = text_block_base_class|default('text-block') %}
+{% set large_title_element = large_title_element|default('h2') %}
+{% if small_title %}
+  {% set small_title_element = small_title_element|default('h4') %}
+{% endif %}
+
+{% if large_title or small_title or label or body %}
+  {% set showContent = true %}
+{% else %}
+  {% set text_block_modifiers = text_block_modifiers|merge(['image-only'])%}
+{% endif %}
+
+{# {% if large_title_element|join(', ') == 'h3' and small_title %}
+  {% set small_title_element = 'h4' %}
+{% if large_title_element|join(', ') == 'h2' and small_title %}
+  {% set small_title_element = 'h3' %} #}
+
+<div {{ bem(text_block_base_class, text_block_modifiers, text_block_blockname) }}>
+  {% if image_src %}
+    <div class="text-block__image">
+      {% include '@atoms/images/image/_image.twig' with { 
+        image_src: image_src,
+        image_alt: image_alt 
+      } %}
+    </div>
+  {% endif %}
+
+  {% if showContent %}
+    <div class="text-block__content">
+      {% if label %}
+        <span class="text-block__label">{{ label }}</span>
+      {% endif %}
+      {% if large_title %}
+        <{{large_title_element}}>
+          {{ large_title }}
+        </{{large_title_element}}>
+      {% endif %}
+      {% if small_title %}
+        <{{small_title_element}}>
+          {{ small_title }}
+        </{{small_title_element}}>
+      {% endif %}
+      {% if divider == true %}
+        <div class="text-block__divider"></div>
+      {% endif %}
+      {% if body %}
+        <div class="text-block__body">
+          {{ body }}
+        </div>
+      {% endif %}
+      {% if button_url %}
+        {% include '@atoms/buttons/button.twig' with { 
+        button_modifiers: button_modifiers,
+        button_url: button_url,
+        button_content: button_content
+        } %}
+      {% endif %}
+    </div>
+  {% endif %}
+
+</div>

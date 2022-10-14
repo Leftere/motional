@@ -1,0 +1,7 @@
+name: Motional Customizations
+description: Customizations for Motional that don't fit anywhere specific.
+package: Motional
+type: module
+core_version_requirement: ^9
+dependencies:
+  - drupal:layout_paragraphs

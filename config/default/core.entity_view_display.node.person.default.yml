@@ -1,0 +1,44 @@
+uuid: 58897417-6886-4b05-b005-235dc1dd66c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.person.field_person_bio
+    - field.field.node.person.field_person_breadcrumbs
+    - field.field.node.person.field_person_email
+    - field.field.node.person.field_person_first_name
+    - field.field.node.person.field_person_image
+    - field.field.node.person.field_person_last_name
+    - field.field.node.person.field_person_location
+    - field.field.node.person.field_person_social_links
+    - field.field.node.person.field_person_title
+    - node.type.person
+  module:
+    - text
+    - user
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  field_person_bio:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_person_breadcrumbs: true
+  field_person_email: true
+  field_person_first_name: true
+  field_person_image: true
+  field_person_last_name: true
+  field_person_location: true
+  field_person_social_links: true
+  field_person_title: true

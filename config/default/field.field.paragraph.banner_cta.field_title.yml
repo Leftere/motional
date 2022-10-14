@@ -1,0 +1,19 @@
+uuid: 61ecb0fe-b84d-4093-967e-a20f0dac54b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.banner_cta
+id: paragraph.banner_cta.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: banner_cta
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

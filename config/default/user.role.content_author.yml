@@ -1,0 +1,182 @@
+uuid: b39e4aa3-a4e9-48c6-9ee6-9aa649831905
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.card_teaser
+    - filter.format.formatted
+    - filter.format.homepage_hero_title
+    - media.type.embed_video
+    - media.type.image
+    - node.type.news
+    - node.type.office
+    - node.type.page
+    - node.type.person
+    - taxonomy.vocabulary.location
+    - taxonomy.vocabulary.topic
+    - taxonomy.vocabulary.type
+  module:
+    - file
+    - filter
+    - media
+    - node
+    - paragraphs
+    - paragraphs_type_permissions
+    - path
+    - publishcontent
+    - rabbit_hole
+    - redirect
+    - system
+    - taxonomy
+    - toolbar
+    - view_unpublished
+id: content_author
+label: 'Content Author'
+weight: -7
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'administer menu'
+  - 'administer redirects'
+  - 'create embed_video media'
+  - 'create image media'
+  - 'create media'
+  - 'create news content'
+  - 'create office content'
+  - 'create page content'
+  - 'create paragraph content angled_image'
+  - 'create paragraph content banner_cta'
+  - 'create paragraph content carousel'
+  - 'create paragraph content featured_video_text_block'
+  - 'create paragraph content full_cta'
+  - 'create paragraph content homepage_hero'
+  - 'create paragraph content image'
+  - 'create paragraph content landing_hero'
+  - 'create paragraph content latest_news'
+  - 'create paragraph content layout'
+  - 'create paragraph content numbered_list'
+  - 'create paragraph content numbered_list_column'
+  - 'create paragraph content partner_logos'
+  - 'create paragraph content related_articles'
+  - 'create paragraph content section_intro'
+  - 'create paragraph content statistic'
+  - 'create paragraph content testimonial'
+  - 'create paragraph content text'
+  - 'create paragraph content text_block'
+  - 'create paragraph content timeline'
+  - 'create paragraph content timeline_item'
+  - 'create paragraph content two_image_drag'
+  - 'create person content'
+  - 'create terms in location'
+  - 'create terms in topic'
+  - 'create terms in type'
+  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete any embed_video media'
+  - 'delete any image media'
+  - 'delete any media'
+  - 'delete any news content'
+  - 'delete any office content'
+  - 'delete any page content'
+  - 'delete any person content'
+  - 'delete media'
+  - 'delete own embed_video media'
+  - 'delete own image media'
+  - 'delete own news content'
+  - 'delete own office content'
+  - 'delete own page content'
+  - 'delete own person content'
+  - 'delete paragraph content angled_image'
+  - 'delete paragraph content banner_cta'
+  - 'delete paragraph content carousel'
+  - 'delete paragraph content featured_video_text_block'
+  - 'delete paragraph content full_cta'
+  - 'delete paragraph content homepage_hero'
+  - 'delete paragraph content image'
+  - 'delete paragraph content landing_hero'
+  - 'delete paragraph content latest_news'
+  - 'delete paragraph content layout'
+  - 'delete paragraph content numbered_list'
+  - 'delete paragraph content numbered_list_column'
+  - 'delete paragraph content partner_logos'
+  - 'delete paragraph content related_articles'
+  - 'delete paragraph content section_intro'
+  - 'delete paragraph content statistic'
+  - 'delete paragraph content testimonial'
+  - 'delete paragraph content text'
+  - 'delete paragraph content text_block'
+  - 'delete paragraph content timeline'
+  - 'delete paragraph content timeline_item'
+  - 'delete paragraph content two_image_drag'
+  - 'delete terms in location'
+  - 'delete terms in topic'
+  - 'delete terms in type'
+  - 'edit any embed_video media'
+  - 'edit any image media'
+  - 'edit any news content'
+  - 'edit any office content'
+  - 'edit any page content'
+  - 'edit any person content'
+  - 'edit own embed_video media'
+  - 'edit own image media'
+  - 'edit own news content'
+  - 'edit own office content'
+  - 'edit own page content'
+  - 'edit own person content'
+  - 'edit terms in location'
+  - 'edit terms in topic'
+  - 'edit terms in type'
+  - 'publish editable content'
+  - 'rabbit hole bypass media'
+  - 'rabbit hole bypass node'
+  - 'rabbit hole bypass taxonomy_term'
+  - 'rabbit hole bypass user'
+  - 'revert all revisions'
+  - 'revert news revisions'
+  - 'revert office revisions'
+  - 'revert page revisions'
+  - 'revert person revisions'
+  - 'unpublish editable content'
+  - 'update any media'
+  - 'update media'
+  - 'update paragraph content angled_image'
+  - 'update paragraph content banner_cta'
+  - 'update paragraph content carousel'
+  - 'update paragraph content featured_video_text_block'
+  - 'update paragraph content full_cta'
+  - 'update paragraph content homepage_hero'
+  - 'update paragraph content image'
+  - 'update paragraph content landing_hero'
+  - 'update paragraph content latest_news'
+  - 'update paragraph content layout'
+  - 'update paragraph content numbered_list'
+  - 'update paragraph content numbered_list_column'
+  - 'update paragraph content partner_logos'
+  - 'update paragraph content related_articles'
+  - 'update paragraph content section_intro'
+  - 'update paragraph content statistic'
+  - 'update paragraph content testimonial'
+  - 'update paragraph content text'
+  - 'update paragraph content text_block'
+  - 'update paragraph content timeline'
+  - 'update paragraph content timeline_item'
+  - 'update paragraph content two_image_drag'
+  - 'use text format card_teaser'
+  - 'use text format formatted'
+  - 'use text format homepage_hero_title'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view news revisions'
+  - 'view office revisions'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view person revisions'
+  - 'view the administration theme'
+  - 'view unpublished paragraphs'

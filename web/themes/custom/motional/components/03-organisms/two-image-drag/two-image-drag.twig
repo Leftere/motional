@@ -1,0 +1,8 @@
+{% set two_image_drag_base_class = two_image_drag_base_class|default('two-image-drag') %}
+
+<div {{ bem(two_image_drag_base_class, two_image_drag_modifiers, two_image_drag_blockname) }}>
+  <div class="two-image-drag__inner">
+    <img class="two-image-drag__left" src="{{ two_image_drag_image1 }}" alt="{{ two_image_drag_alt1 }}">
+    <img class="two-image-drag__right" src="{{ two_image_drag_image2 }}" alt="{{ two_image_drag_alt2 }}">
+  </div>
+</div>

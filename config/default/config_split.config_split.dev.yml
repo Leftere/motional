@@ -1,0 +1,16 @@
+uuid: 5af7c12f-b065-4494-97d3-0d35b900d018
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: Dev
+description: 'The Pantheon development environment'
+weight: 0
+stackable: false
+storage: folder
+folder: ../config/envs/dev
+module: {  }
+theme: {  }
+complete_list: {  }
+partial_list:
+  - miniorange_saml.settings

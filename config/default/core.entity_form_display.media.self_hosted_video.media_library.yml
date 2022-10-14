@@ -1,0 +1,35 @@
+uuid: aadd9321-5555-4146-a4f2-0d7c97bc4bbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.self_hosted_video.field_media_video_file
+    - media.type.self_hosted_video
+  module:
+    - file
+id: media.self_hosted_video.media_library
+targetEntityType: media
+bundle: self_hosted_video
+mode: media_library
+content:
+  field_media_video_file:
+    type: file_generic
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  status: true
+  uid: true

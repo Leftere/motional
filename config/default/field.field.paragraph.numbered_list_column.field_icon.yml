@@ -1,0 +1,23 @@
+uuid: c9bd3218-87c8-4a7c-a731-df93a458418f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - paragraphs.paragraphs_type.numbered_list_column
+  module:
+    - options
+id: paragraph.numbered_list_column.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: numbered_list_column
+label: Icon
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: build_for_everyone
+default_value_callback: ''
+settings: {  }
+field_type: list_string

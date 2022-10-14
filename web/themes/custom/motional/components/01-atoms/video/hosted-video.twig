@@ -1,0 +1,15 @@
+{% extends "@atoms/video/video.twig" %}
+
+{% block video_content %}
+  <video aria-describedby="videoalt">
+    <source src="{{ video_source }}">
+
+    <div id="videoalt">{{ video_description }}</div>
+  </video>
+  <button class="video__play" title="Play" aria-label="Play video">
+    {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'play' } %}
+  </button>
+  <button class="video__pause" title="Pause" aria-label="Pause video">
+    {% include '@atoms/images/icons/_icon.twig' with { icon_name: 'pause' } %}
+  </button>
+{% endblock %}
